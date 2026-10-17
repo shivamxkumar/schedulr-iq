@@ -1,0 +1,13 @@
+[
+ [0.6, 10.1, "This is SCHEDULR IQ, built for I I I T Surat. Judges can open a live demo of the real odd-semester timetable, with no sign-in needed."],
+ [10.4, 22.5, "The overview gives the validator's verdict. The official timetable places all 281 sessions without a single clash, but eighteen class-days have no lunch hour."],
+ [22.8, 45.1, "Every timetable uses the official sheet layout: days in rows, periods in columns. Lectures are whole-class, while lab groups G1 and G2 run side by side. Here, S5 C S E has no lunch break on three days, outlined in red. Click any class, and the inspector explains why it sits there, and which rule it breaks."],
+ [45.4, 70.3, "The same layout works for every teacher and every room. The all-classes view stacks fourteen timetables, from first-semester B Tech to the M Tech programmes, so the whole institute can be reviewed at once."],
+ [70.6, 93.9, "In the Optimization Lab, hard rules, like clashes, room capacity, availability and lunch, are never traded for score. Comparing the official timetable with the optimized one: all eighteen missing lunch hours are repaired, idle time drops by about two thirds, and the cost, a less even workload, is shown honestly."],
+ [94.2, 126.1, "Now, a live run. The constraint solver, Google O R Tools C P SAT, starts from the official timetable and searches for a better one under these weights. The result is checked by an independent validator before it is saved as a new version, with a measured comparison, and a change log explaining every move."],
+ [126.4, 150.3, "After optimization, S5 C S E gets a lunch hour every day, and the comparison shows where classes moved from. Manual edits are safe: a move into a blocked slot is rejected with the reason, while a valid move is saved instantly, with undo."],
+ [150.6, 164.2, "The conflict inspector lists every violation with a corrective action, and suggests fixes that are verified before they are offered."],
+ [164.5, 179.4, "Resources show room and lab utilization, faculty load, batches and courses, all computed from the active timetable."],
+ [179.7, 209.3, "Administrators sign in to enter everything the problem statement asks for: faculty, rooms, labs, batches and courses. Weekly availability is painted on the same grid, and the calendar sets working hours and the student lunch window. Every change is checked live, before saving."],
+ [209.6, 235.2, "Data can also be imported from C S V, with row-level validation. Before publishing, all twenty hard rules are verified again, and an invalid schedule can never be published. SCHEDULR IQ: a valid timetable, independently verified, optimized, and explained. Every slot has a reason."]
+]

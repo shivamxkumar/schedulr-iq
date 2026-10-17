@@ -353,7 +353,9 @@ def api_optimize(body: OptimizeBody):
     base = require(body.base_id or store.state.baseline_id)
     d = ds()
     base_rep = validate(d, base.assignments)
-    hint = base.assignments if base_rep.feasible and base_rep.complete else None
+    # Warm-start from the base even if it breaks hard rules (e.g. the official timetable's missing
+    # lunch hours): the solver repairs it; output is still validated before it is stored.
+    hint = base.assignments if base_rep.complete else None
     r = refs()
     if solver_mode() == "lns" and hint:
         # Small hosts (e.g. a 0.1-CPU free instance): improve the base timetable neighbourhood by

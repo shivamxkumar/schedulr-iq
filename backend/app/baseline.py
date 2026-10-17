@@ -44,7 +44,16 @@ class _State:
             return False
         if self.fday[(c.fac, c.day)] + c.dur > f.max_daily_slots or self.fweek[c.fac] + c.dur > f.max_weekly_slots:
             return False
-        return not any(k in self.busy for k in self.keys(c))
+        if any(k in self.busy for k in self.keys(c)):
+            return False
+        tc = self.ds.time
+        if tc.lunch_window and any(t in tc.lunch_window for t in c.span):
+            cap = len(tc.lunch_window) - min(tc.lunch_slots, len(tc.lunch_window))
+            for b in s.batch_ids:
+                used = sum(1 for t in tc.lunch_window if ("batch", b, c.day, t) in self.busy or t in c.span)
+                if used > cap:
+                    return False
+        return True
 
     def place(self, c: Cand):
         s = self.sess[c.sid]

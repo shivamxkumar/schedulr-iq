@@ -1,7 +1,7 @@
 export interface Window { day: number; start: number; end: number }
 export interface TimeConfig {
   days: string[]; day_start: string; slot_minutes: number; slots_per_day: number;
-  break_slots: number[]; day_slots: number[]
+  break_slots: number[]; day_slots: number[]; lunch_window?: number[]; lunch_slots?: number
 }
 export type RoomType = 'lecture' | 'lab' | 'seminar'
 export type CourseType = 'lecture' | 'lab' | 'tutorial'

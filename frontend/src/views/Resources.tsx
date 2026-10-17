@@ -104,14 +104,14 @@ export default function Resources() {
         <thead>
           <tr>
             <th className="w-12" />
-            {tc.days.map(d => <th key={d} className="pb-1 font-mono text-2xs font-normal uppercase text-slate">{d}</th>)}
+            {slots.map(t => <th key={t} className="pb-1 font-mono text-2xs font-normal text-slate">{slotLabel(tc, t)}</th>)}
           </tr>
         </thead>
         <tbody>
-          {slots.map(t => (
-            <tr key={t}>
-              <td className="pr-1.5 text-right font-mono text-2xs text-slate">{slotLabel(tc, t)}</td>
-              {days.map(d => {
+          {days.map(d => (
+            <tr key={d}>
+              <td className="pr-1.5 text-right font-display text-sm font-semibold">{tc.days[d].slice(0, 2)}</td>
+              {slots.map(t => {
                 const sid = occ[`${kind}:${id}:${d}:${t}`]
                 const brk = tc.break_slots.includes(t)
                 const closed = !isTeaching(tc, d, t)
@@ -119,7 +119,7 @@ export default function Resources() {
                 const pref = dispreferred && inWin(dispreferred, d, t)
                 const code = sid ? L.courses[L.sessions[sid]?.course_id]?.code : ''
                 return (
-                  <td key={d} className="p-[1.5px]">
+                  <td key={t} className="p-[1.5px]">
                     {sid ? (
                       <button onClick={() => focus(sid, kind === 'room' ? { room: id } : { faculty: id })}
                         title={`${sid} · ${tc.days[d]} ${slotLabel(tc, t)} — open in Timetable`}

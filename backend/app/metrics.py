@@ -3,7 +3,7 @@
 Definitions (also surfaced in the UI):
   student_idle_minutes  Σ over classes & days of teachable minutes between the first class
                         start and last class end that are not occupied by a class. Breaks
-                        (e.g. lunch) and non-operating hours are excluded. A class split into
+                        (e.g. lunch), the lunch window and non-operating hours are excluded. A class split into
                         lab groups counts the mean over its groups, never the sum. [minimize]
   faculty_idle_minutes  Same definition per faculty member.                    [minimize]
   room_time_utilization occupied room-slots ÷ available room-slots (teachable slots minus
@@ -72,7 +72,8 @@ def _idle_slots(tc, day: int, occupied: set[int]) -> int:
     if not occupied:
         return 0
     lo, hi = min(occupied), max(occupied)
-    return sum(1 for t in range(lo, hi + 1) if t not in occupied and is_teaching_slot(tc, day, t))
+    return sum(1 for t in range(lo, hi + 1)
+               if t not in occupied and is_teaching_slot(tc, day, t) and t not in tc.lunch_window)
 
 
 def compute_metrics(ds: Dataset, assignments: list[Assignment]) -> Metrics:

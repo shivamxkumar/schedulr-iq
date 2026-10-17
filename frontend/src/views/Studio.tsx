@@ -3,14 +3,13 @@ import { FilterX, GitCompare, SearchX } from 'lucide-react'
 import { api } from '../api'
 import { emptyFilters, useApp, type Filters } from '../store'
 import type { Assignment } from '../types'
-import TimetableGrid, { type Lane } from '../components/TimetableGrid'
 import DayTimeGrid from '../components/DayTimeGrid'
 import Inspector, { type MoveVerdict } from '../components/Inspector'
 import { Button, Chip, Empty, Mono, Select } from '../components/ui'
 import { CAT_LABEL, catColor, describeBatches, whereLabel } from '../format'
 
-type ViewBy = 'class' | 'batch' | 'faculty' | 'room'
-const VIEW_LABEL: Record<ViewBy, string> = { class: 'Class timetable', batch: 'All classes', faculty: 'By faculty', room: 'By room' }
+type ViewBy = 'class' | 'faculty' | 'room' | 'all'
+const VIEW_LABEL: Record<ViewBy, string> = { class: 'Class', faculty: 'Faculty', room: 'Room', all: 'All classes' }
 
 export default function Studio() {
   const { data, active, baseline, L, selected, select, filters, setFilters, adopt, activate, toast, errMsg, canRun } = useApp()
@@ -45,17 +44,6 @@ export default function Studio() {
     return true
   }, [f, sessions, L.courses, sectionOf])
 
-  const lanes: Lane[] = useMemo(() => {
-    if (!data) return []
-    const ds = data.dataset
-    if (viewBy === 'batch' || viewBy === 'class') return sections.filter(x => !f.batch || x.id === f.batch).map(x => ({ id: x.id, label: x.label }))
-    if (viewBy === 'faculty') return ds.faculty.filter(x => !f.faculty || x.id === f.faculty).map(x => ({ id: x.id, label: x.name }))
-    return ds.rooms.filter(r => !f.room || r.id === f.room).map(r => ({ id: r.id, label: r.name }))
-  }, [data, viewBy, f, sections])
-
-  const laneKeys = useCallback((a: Assignment) => viewBy === 'batch' || viewBy === 'class' ? [...new Set((sessions[a.session_id]?.batch_ids ?? []).map(b => sectionOf[b]))]
-    : viewBy === 'faculty' ? [a.faculty_id] : [a.room_id], [viewBy, sessions, sectionOf])
-
   const conflicts = useMemo(() => new Set(active?.validation.violations.filter(v => v.severity === 'hard').flatMap(v => v.session_ids) ?? []), [active])
 
   const { ghosts, moved } = useMemo(() => {
@@ -67,22 +55,25 @@ export default function Studio() {
       const a = cur[b.session_id]
       if (a && (a.day !== b.day || a.start !== b.start || a.room_id !== b.room_id || a.faculty_id !== b.faculty_id)) {
         m.add(b.session_id)
-        if (a.day !== b.day || a.start !== b.start || (viewBy !== 'batch' && viewBy !== 'class')) g.push(b)
+        if (a.day !== b.day || a.start !== b.start) g.push(b)
       }
     }
     return { ghosts: g, moved: m }
-  }, [active, baseline, viewBy])
+  }, [active, baseline])
+
+  // Single-entity timetables always show exactly one class / teacher / room.
+  useEffect(() => {
+    if (!data) return
+    if (viewBy === 'class' && !f.batch && sections[0]) setFilters({ ...f, batch: sections[0].id })
+    if (viewBy === 'faculty' && !f.faculty && data.dataset.faculty[0]) setFilters({ ...f, faculty: data.dataset.faculty[0].id })
+    if (viewBy === 'room' && !f.room && data.dataset.rooms[0]) setFilters({ ...f, room: data.dataset.rooms[0].id })
+  }, [viewBy, f, sections, setFilters, data])
 
   if (!data || !tc) return null
   if (!active) {
     return <div className="p-8"><Empty title="No schedule yet" body="Generate a baseline from Data Setup or the Optimization Lab." /></div>
   }
 
-  // The class timetable always shows exactly one class: rows = time, columns = days.
-  useEffect(() => {
-    if (viewBy === 'class' && !f.batch && sections[0]) setFilters({ ...f, batch: sections[0].id })
-  }, [viewBy, f, sections, setFilters])
-  const classMode = viewBy === 'class'
   const days = f.day !== '' ? [Number(f.day)] : tc.days.map((_, i) => i)
   const shown = active.record.assignments.filter(visible).filter(a => days.includes(a.day))
   const scheduledIds = new Set(active.record.assignments.map(a => a.session_id))
@@ -134,18 +125,36 @@ export default function Studio() {
     }
   }
 
+  const gridProps = {
+    tc, sessions, courses: L.courses, conflicts, moved, selected,
+    onSelect: (sid: string | null) => { select(sid); setVerdict(null) },
+    onDropSession: canRun ? (sid: string, d: number, t: number) => tryMove(sid, d, t) : undefined,
+  }
+  const groupRoom = (a: Assignment, s: { batch_ids: string[] }) => {
+    const g = describeBatches(data.dataset.batches, s.batch_ids, { relative: true })
+    const tag = g === 'Whole class' ? '' : g.replace('Lab group ', '').replace('Elective div ', 'Div ')
+    return <>{tag && <b className="mr-1 font-semibold text-navy">{tag}</b>}{a.room_id}</>
+  }
+  const title = viewBy === 'class' ? sections.find(x => x.id === f.batch)?.label
+    : viewBy === 'faculty' ? L.faculty[f.faculty]?.name : viewBy === 'room' ? `${f.room} · ${L.rooms[f.room]?.name ?? ''}` : 'All classes'
+
   return (
     <div className="flex min-h-[calc(100vh-56px)] flex-col lg:flex-row">
       <div className="min-w-0 flex-1 px-4 pb-24 pt-5 md:px-6 md:pb-8">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>
             <Mono className="text-2xs uppercase tracking-[0.18em] text-slate">02 · Timetable Studio · {active.record.id}</Mono>
-            <h1 className="font-display text-[26px] font-semibold leading-tight tracking-tight">{active.record.label}</h1>
+            <h1 className="font-display text-[26px] font-semibold leading-tight tracking-tight">{title || active.record.label}</h1>
+            <div className="text-xs text-slate">{active.record.label}</div>
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <div className="flex border border-navy/20 bg-white p-0.5" role="tablist" aria-label="View by">
-              {(['class', 'batch', 'faculty', 'room'] as ViewBy[]).map(v => (
-                <button key={v} role="tab" aria-selected={viewBy === v} onClick={() => setViewBy(v)}
+              {(['class', 'faculty', 'room', 'all'] as ViewBy[]).map(v => (
+                <button key={v} role="tab" aria-selected={viewBy === v} onClick={() => {
+                  setViewBy(v)
+                  // each view is about one kind of entity: drop the other views' selections
+                  setFilters({ ...f, batch: v === 'class' ? f.batch : '', faculty: v === 'faculty' ? f.faculty : '', room: v === 'room' ? f.room : '' })
+                }}
                   className={`h-7 px-3 font-mono text-2xs uppercase tracking-wider ${viewBy === v ? 'bg-navy text-lime' : 'text-navy hover:bg-navy/5'}`}>
                   {VIEW_LABEL[v]}
                 </button>
@@ -201,6 +210,7 @@ export default function Studio() {
           <span className="flex items-center gap-1.5"><span className="h-3 w-4 border border-conflict bg-conflict-50" />Hard conflict</span>
           {moved.size > 0 && <span className="flex items-center gap-1.5"><span className="h-1.5 w-1.5 bg-navy" />Moved vs baseline</span>}
           {compare && ghosts.length > 0 && <span className="flex items-center gap-1.5"><span className="h-3 w-4 border border-dashed border-navy/35" />Baseline position</span>}
+          {(tc.lunch_window?.length ?? 0) > 0 && <span className="flex items-center gap-1.5"><span className="h-3 w-4 border border-navy/20 bg-lime-50" />Lunch window (≥{tc.lunch_slots} free h per class)</span>}
           <span className="ml-auto font-mono">{shown.length} of {active.record.assignments.length} sessions shown · drag a block to move it</span>
         </div>
 
@@ -208,26 +218,30 @@ export default function Studio() {
           <Empty icon={<SearchX className="h-6 w-6 text-slate" />} title="No sessions match these filters"
             body={`Active filters: ${activeFilters.map(k => `${k} = ${f[k]}`).join(', ')}`}
             action={<Button onClick={() => setFilters(emptyFilters)}>Clear filters</Button>} />
+        ) : viewBy === 'all' ? (
+          <div className="space-y-6">
+            {sections.filter(sec => !f.batch || sec.id === f.batch).map(sec => {
+              const mine = shown.filter(a => (sessions[a.session_id]?.batch_ids ?? []).some(b => sectionOf[b] === sec.id))
+              if (!mine.length) return null
+              return (
+                <section key={sec.id}>
+                  <div className="mb-1.5 flex items-baseline gap-3">
+                    <h2 className="font-display text-base font-semibold">{sec.label}</h2>
+                    <Mono className="text-2xs text-slate">{sec.id} · {sec.size} students · {mine.length} sessions</Mono>
+                  </div>
+                  <DayTimeGrid {...gridProps} assignments={mine} compact
+                    ghosts={compare ? ghosts.filter(g => (sessions[g.session_id]?.batch_ids ?? []).some(b => sectionOf[b] === sec.id)) : []}
+                    lineA={(a, s) => groupRoom(a, s)} lineB={a => L.faculty[a.faculty_id]?.name ?? a.faculty_id} />
+                </section>
+              )
+            })}
+          </div>
         ) : (
-          classMode ? (
-            <DayTimeGrid
-              tc={tc} assignments={shown} sessions={sessions} courses={L.courses} conflicts={conflicts} moved={moved}
-              selected={selected} onSelect={s => { select(s); setVerdict(null) }}
-              onDropSession={canRun ? (sid, d, t) => tryMove(sid, d, t) : undefined}
-              labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: true })}
-              facultyName={id => L.faculty[id]?.name ?? id}
-            />
-          ) : (
-          <TimetableGrid
-            tc={tc} assignments={active.record.assignments} sessions={sessions} courses={L.courses}
-            lanes={lanes} laneKeys={laneKeys} days={days} visible={visible} conflicts={conflicts}
-            ghosts={compare ? ghosts : []} moved={moved} selected={selected} onSelect={s => { select(s); setVerdict(null) }}
-            rowH={classMode ? 82 : undefined}
-            labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: classMode })}
-            facultyName={classMode ? id => L.faculty[id]?.name ?? id : undefined}
-            onDropSession={canRun ? (sid, d, t) => tryMove(sid, d, t) : undefined}
-          />
-          )
+          <DayTimeGrid {...gridProps} assignments={shown}
+            ghosts={compare ? ghosts.filter(visible) : []}
+            lineA={(a, s) => viewBy === 'class' ? groupRoom(a, s) : viewBy === 'faculty' ? a.room_id : describeBatches(data.dataset.batches, s.batch_ids)}
+            lineB={(a, s) => viewBy === 'class' ? (L.faculty[a.faculty_id]?.name ?? a.faculty_id)
+              : viewBy === 'faculty' ? describeBatches(data.dataset.batches, s.batch_ids) : (L.faculty[a.faculty_id]?.name ?? a.faculty_id)} />
         )}
 
         {unscheduled.length > 0 && (

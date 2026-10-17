@@ -39,5 +39,13 @@ def teaching_slots(tc: TimeConfig, day: int) -> list[int]:
     return [s for s in range(tc.slots_per_day) if is_teaching_slot(tc, day, s)]
 
 
+def lunch_violation(tc: TimeConfig, occupied: set[int]) -> bool:
+    """True if a batch's occupied slots on a day leave fewer than `lunch_slots` free in the window."""
+    if not tc.lunch_window or not occupied:
+        return False
+    free = sum(1 for t in tc.lunch_window if t not in occupied)
+    return free < min(tc.lunch_slots, len(tc.lunch_window))
+
+
 def total_teaching_slots(tc: TimeConfig) -> int:
     return sum(len(teaching_slots(tc, d)) for d in range(len(tc.days)))

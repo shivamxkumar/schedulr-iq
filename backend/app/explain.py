@@ -29,9 +29,10 @@ REASON_LABEL = {
     "FACULTY_DAILY_LOAD": "Faculty daily load limit",
     "FACULTY_WEEKLY_LOAD": "Faculty weekly load limit",
     "FIXED_VIOLATED": "Session is pinned elsewhere",
+    "LUNCH_BREAK": "No lunch hour left for the class",
 }
 REASON_PRIORITY = ["INVALID_TIME", "INELIGIBLE_START", "FIXED_VIOLATED", "FACULTY_UNAVAILABLE", "COURSE_SAME_DAY",
-                   "BATCH_OVERLAP", "FACULTY_OVERLAP", "FACULTY_DAILY_LOAD", "FACULTY_WEEKLY_LOAD", "ROOM_OVERLAP",
+                   "BATCH_OVERLAP", "FACULTY_OVERLAP", "FACULTY_DAILY_LOAD", "FACULTY_WEEKLY_LOAD", "LUNCH_BREAK", "ROOM_OVERLAP",
                    "NO_ROOM"]
 
 
@@ -71,7 +72,8 @@ def diff_schedules(ds: Dataset, before: list[Assignment], after: list[Assignment
         o = occ(assigns, kind, eid, day)
         if not o:
             return 0
-        return sum(1 for t in range(min(o), max(o) + 1) if t not in o and is_teaching_slot(tc, day, t)) * tc.slot_minutes
+        return sum(1 for t in range(min(o), max(o) + 1)
+                   if t not in o and is_teaching_slot(tc, day, t) and t not in tc.lunch_window) * tc.slot_minutes
 
     changes: list[Change] = []
     for sid in sorted(set(A) | set(B)):

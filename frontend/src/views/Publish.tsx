@@ -83,10 +83,13 @@ export default function Publish() {
               <div><span className="font-display text-lg font-semibold">{cl.label}</span> <Mono className="text-xs text-slate">{cl.id} · {cl.size} students</Mono></div>
               <Mono className="text-2xs text-slate">IIIT Surat · SCHEDULR IQ · {active.record.id}{active.record.published ? ' · PUBLISHED' : ' · DRAFT'}</Mono>
             </div>
-            <DayTimeGrid tc={tc} sessions={L.sessions} courses={L.courses} conflicts={conflicts} selected={null} onSelect={() => {}} print dayH={92}
+            <DayTimeGrid tc={tc} sessions={L.sessions} courses={L.courses} conflicts={conflicts} selected={null} onSelect={() => {}} dayH={92}
               assignments={active.record.assignments.filter(a => (L.sessions[a.session_id]?.batch_ids ?? []).some(b => secOf[b] === cl.id))}
-              labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: true })}
-              facultyName={id => L.faculty[id]?.name ?? id} />
+              lineA={(a, s) => {
+                const g = describeBatches(data.dataset.batches, s.batch_ids, { relative: true })
+                return `${g === 'Whole class' ? '' : g.replace('Lab group ', '').replace('Elective div ', 'Div ') + ' · '}${a.room_id}`
+              }}
+              lineB={a => L.faculty[a.faculty_id]?.name ?? a.faculty_id} />
           </div>
         ))}
       </div>

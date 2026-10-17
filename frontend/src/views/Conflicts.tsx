@@ -23,6 +23,7 @@ const FIX_HINT: Record<string, string> = {
   FACULTY_DAILY_LOAD: 'Move a session of this faculty member to a lighter day.',
   FACULTY_WEEKLY_LOAD: 'Reassign a course to another eligible teacher.',
   TEACHER_CONSISTENCY: 'Use one teacher for every session of the course.',
+  LUNCH_BREAK: 'Move one class out of the lunch window that day so the class gets a free lunch hour (or re-run the optimizer).',
 }
 
 export default function Conflicts() {

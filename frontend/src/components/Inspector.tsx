@@ -196,15 +196,15 @@ function SlotMap({ ex, tc, onPick, onHover, busy }: { ex: SessionExplanation; tc
       <table className="w-full border-collapse">
         <thead>
           <tr>
-            <th className="w-10" />
-            {tc.days.map((d: string) => <th key={d} className="pb-1 font-mono text-[9px] font-normal uppercase text-slate">{d}</th>)}
+            <th className="w-7" />
+            {Array.from({ length: tc.slots_per_day }, (_, t) => <th key={t} className="pb-1 font-mono text-[8.5px] font-normal text-slate">{slotLabel(tc, t).replace(':00', '')}</th>)}
           </tr>
         </thead>
         <tbody>
-          {Array.from({ length: tc.slots_per_day }, (_, t) => (
-            <tr key={t}>
-              <td className="pr-1 text-right font-mono text-[9px] text-slate">{slotLabel(tc, t)}</td>
-              {tc.days.map((_: string, d: number) => {
+          {tc.days.map((dname: string, d: number) => (
+            <tr key={d}>
+              <td className="pr-1 text-right font-display text-[11px] font-semibold">{dname.slice(0, 2)}</td>
+              {Array.from({ length: tc.slots_per_day }, (_, t) => {
                 const c = cell(d, t)
                 const invalid = !c || c.reason === 'INVALID_TIME'
                 const better = c?.status === 'feasible' && (c.score_delta ?? 0) < -1e-9
@@ -215,7 +215,7 @@ function SlotMap({ ex, tc, onPick, onHover, busy }: { ex: SessionExplanation; tc
                   : c.status === 'feasible' ? `${tc.days[d]} ${slotLabel(tc, t)} · feasible in ${c.room_id} · soft score ${(c.score_delta ?? 0) >= 0 ? '+' : ''}${(c.score_delta ?? 0).toFixed(3)}`
                     : `${tc.days[d]} ${slotLabel(tc, t)} · ${c.reason_label}`
                 return (
-                  <td key={d} className="p-[1.5px]">
+                  <td key={t} className="p-[1.5px]">
                     <button
                       disabled={invalid || c?.status === 'current' || busy}
                       onMouseEnter={() => onHover(tip)}
@@ -223,7 +223,7 @@ function SlotMap({ ex, tc, onPick, onHover, busy }: { ex: SessionExplanation; tc
                       onFocus={() => onHover(tip)}
                       onClick={() => c && onPick(d, t, c.room_id || undefined)}
                       aria-label={tip}
-                      className={`block h-[18px] w-full border border-transparent transition-colors disabled:cursor-default ${cls}`}
+                      className={`block h-[22px] w-full border border-transparent transition-colors disabled:cursor-default ${cls}`}
                     />
                   </td>
                 )

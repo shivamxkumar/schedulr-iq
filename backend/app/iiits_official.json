@@ -19,7 +19,12 @@
     9,
     9,
     9
-   ]
+   ],
+   "lunch_window": [
+    3,
+    4
+   ],
+   "lunch_slots": 1
   },
   "rooms": [
    {
@@ -6996,704 +7001,655 @@
  "optimized": {
   "assignments": [
    {
-    "session_id": "CS101-S1ECEA-S1",
+    "session_id": "AS102-S1CSED-S1",
     "day": 0,
     "start": 0,
-    "room_id": "CR-3",
-    "faculty_id": "NB"
+    "room_id": "CR-5",
+    "faculty_id": "PAS-F2-AS102"
    },
    {
-    "session_id": "CS101L-S1CSED-G1-S1",
+    "session_id": "AS102-S1ECEA-S1",
     "day": 0,
     "start": 0,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "AD"
+    "room_id": "CR-2",
+    "faculty_id": "PAS-F1-AS102"
    },
    {
-    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-D2-S1",
+    "session_id": "CS301-S3ECE-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "CR-1",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS9106-MTCSE+S7CSE+S7ECE-D3-S1",
     "day": 0,
     "start": 0,
     "room_id": "CR-6",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "ECD913L-MTDSC-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "HS301-S3CSEA-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "CS302-S3CSEA-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS9116L-S7CSE-G2-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS912L-MTCSE-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G1-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "EC102-S1CSED-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC301-S3ECE-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "HS301-S3CSEB-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "MS101-S1ECEA-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS101-S1CSED-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS101-S1ECEA-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS302-S3CSEB-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS303-S3CSEA-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS303-S3ECE-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-1",
     "faculty_id": "PS"
    },
    {
-    "session_id": "EC101L-S1CSED-G2-S1",
+    "session_id": "CS501-S5CSE-S1",
     "day": 0,
-    "start": 0,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "HG"
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "SA"
    },
    {
-    "session_id": "HS101-S1CSEC-S1",
+    "session_id": "CS504L-S5ECE-G1-S1",
     "day": 0,
-    "start": 0,
-    "room_id": "CR-4",
-    "faculty_id": "HSS-F1-HS101"
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC501L-S5ECE-G2-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "CS753-S7CSE-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS9116-S7ECE-D1-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "MS101-S1CSEB-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "AP"
    },
    {
     "session_id": "AS101L-S1ECEA-G1-S1",
     "day": 0,
-    "start": 1,
+    "start": 4,
     "room_id": "PHY-LAB-1",
     "faculty_id": "ND"
    },
    {
     "session_id": "CS101-S1CSEC-S1",
     "day": 0,
-    "start": 1,
-    "room_id": "CR-3",
+    "start": 4,
+    "room_id": "CR-2",
     "faculty_id": "DR"
    },
    {
-    "session_id": "CS303-S3ECE-S1",
+    "session_id": "CS101L-S1ECEA-G2-S1",
     "day": 0,
-    "start": 1,
-    "room_id": "CR-6",
-    "faculty_id": "PS"
-   },
-   {
-    "session_id": "CS753-S7ECE-S1",
-    "day": 0,
-    "start": 1,
-    "room_id": "CR-4",
-    "faculty_id": "SKS"
-   },
-   {
-    "session_id": "CS9116-MTCSE+S7CSE-D1-S1",
-    "day": 0,
-    "start": 1,
-    "room_id": "CR-5",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "EC101L-S1ECEA-G2-S1",
-    "day": 0,
-    "start": 1,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "RDM"
-   },
-   {
-    "session_id": "EC501-S5ECE-S1",
-    "day": 0,
-    "start": 1,
-    "room_id": "CR-1",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "EC911-MTECE-S1",
-    "day": 0,
-    "start": 1,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "TD"
-   },
-   {
-    "session_id": "MS101-S1CSEB-S1",
-    "day": 0,
-    "start": 1,
-    "room_id": "CR-2",
-    "faculty_id": "AP"
-   },
-   {
-    "session_id": "AS102-S1CSEC-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CR-1",
-    "faculty_id": "PAS-F1-AS102"
-   },
-   {
-    "session_id": "CS101-S1CSED-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CR-4",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "CS101L-S1CSEB-G1-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "DR"
-   },
-   {
-    "session_id": "CS305-S3CSEB-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CR-2",
-    "faculty_id": "TG"
-   },
-   {
-    "session_id": "CS504L-S5ECE-G1-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "CS701L-S7ECE-G1-S1",
-    "day": 0,
-    "start": 2,
+    "start": 4,
     "room_id": "CSE-LAB-1",
-    "faculty_id": "RK"
-   },
-   {
-    "session_id": "CS913-MTCSE+S7CSE-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CR-5",
-    "faculty_id": "SA"
-   },
-   {
-    "session_id": "EC302-S3ECE-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CR-3",
-    "faculty_id": "SKS"
-   },
-   {
-    "session_id": "EC501L-S5ECE-G2-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "EC9111-MTDSC+MTECE-S1",
-    "day": 0,
-    "start": 2,
-    "room_id": "CR-6",
-    "faculty_id": "HG"
-   },
-   {
-    "session_id": "AS101-S1CSED-S1",
-    "day": 0,
-    "start": 3,
-    "room_id": "CR-2",
-    "faculty_id": "ND"
-   },
-   {
-    "session_id": "AS102-S1ECEA-S1",
-    "day": 0,
-    "start": 3,
-    "room_id": "CR-4",
-    "faculty_id": "PAS-F1-AS102"
+    "faculty_id": "NB"
    },
    {
     "session_id": "CS301-S3CSEA-S1",
     "day": 0,
-    "start": 3,
-    "room_id": "CR-6",
+    "start": 4,
+    "room_id": "CR-3",
     "faculty_id": "PJM"
    },
    {
-    "session_id": "CS304-S3CSEB-S1",
+    "session_id": "CS303-S3CSEB-S1",
     "day": 0,
-    "start": 3,
+    "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS501L-S5CSE-G2-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS504L-S5CSE-G1-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC101L-S1CSED-G1-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "CS101-S1CSEB-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS304-S3CSEA-S1",
+    "day": 0,
+    "start": 5,
     "room_id": "CR-1",
     "faculty_id": "RRP"
    },
    {
-    "session_id": "CS501-S5CSE-S1",
+    "session_id": "CS913-MTCSE+S7CSE-S1",
     "day": 0,
-    "start": 3,
+    "start": 5,
     "room_id": "CR-5",
     "faculty_id": "SA"
    },
    {
-    "session_id": "CS911-MTCSE-S1",
+    "session_id": "EC101L-S1CSED-G2-S1",
     "day": 0,
-    "start": 3,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "PS"
-   },
-   {
-    "session_id": "EC101L-S1CSEB-G2-S1",
-    "day": 0,
-    "start": 3,
+    "start": 5,
     "room_id": "ECE-LAB-3",
-    "faculty_id": "RP"
+    "faculty_id": "HG"
    },
    {
-    "session_id": "EC303-MTDSC+S3ECE-S1",
+    "session_id": "EC302-S3ECE-S1",
     "day": 0,
-    "start": 3,
-    "room_id": "CR-3",
-    "faculty_id": "VAP"
-   },
-   {
-    "session_id": "AS101L-S1CSEC-G1-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "KY"
-   },
-   {
-    "session_id": "CS303L-S3CSEB-G1-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "RN"
-   },
-   {
-    "session_id": "CS304L-S3CSEB-G2-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "RRP"
-   },
-   {
-    "session_id": "CS305-S3CSEA-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CR-6",
-    "faculty_id": "TG"
-   },
-   {
-    "session_id": "CS503-S5CSE-S1",
-    "day": 0,
-    "start": 4,
+    "start": 5,
     "room_id": "CR-4",
-    "faculty_id": "AD"
+    "faculty_id": "SKS"
    },
    {
-    "session_id": "CS504-S5ECE-S1",
+    "session_id": "EC501-S5ECE-S1",
     "day": 0,
-    "start": 4,
+    "start": 5,
     "room_id": "CR-3",
-    "faculty_id": "KD"
+    "faculty_id": "SM"
    },
    {
-    "session_id": "CS701-S7ECE-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CR-1",
-    "faculty_id": "RK"
-   },
-   {
-    "session_id": "CS9116L-S7CSE-G1-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "EC912-MTDSC+MTECE-2-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "HS301-S3ECE-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CR-5",
-    "faculty_id": "HSS-F3-HS301"
-   },
-   {
-    "session_id": "MS101TT-S1CSED-S1",
-    "day": 0,
-    "start": 4,
-    "room_id": "CR-2",
-    "faculty_id": "APS"
-   },
-   {
-    "session_id": "CS302-S3CSEA-S1",
+    "session_id": "MS101TT-S1CSEC-S1",
     "day": 0,
     "start": 5,
     "room_id": "CR-2",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS504-S5CSE-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "CR-5",
-    "faculty_id": "KD"
-   },
-   {
-    "session_id": "EC101L-S1CSEC-G2-2-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "VAP"
-   },
-   {
-    "session_id": "EC102-S1CSEB-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "CR-1",
-    "faculty_id": "NA"
-   },
-   {
-    "session_id": "EC301-S3ECE-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "CR-6",
-    "faculty_id": "LC"
-   },
-   {
-    "session_id": "EC912-MTDSC+MTECE-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "MR"
-   },
-   {
-    "session_id": "HM505-S5ECE-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "CR-3",
-    "faculty_id": "HSS-F2-HM505"
-   },
-   {
-    "session_id": "MS101-S1CSED-2-S1",
-    "day": 0,
-    "start": 5,
-    "room_id": "CR-4",
-    "faculty_id": "VP"
+    "faculty_id": "APS"
    },
    {
     "session_id": "AS101-S1CSEB-S1",
     "day": 0,
     "start": 6,
-    "room_id": "CR-6",
+    "room_id": "CR-3",
     "faculty_id": "BP"
    },
    {
-    "session_id": "CS301-S3ECE-S1",
+    "session_id": "AS101-S1ECEA-S1",
     "day": 0,
     "start": 6,
-    "room_id": "CR-4",
-    "faculty_id": "MR"
-   },
-   {
-    "session_id": "CS302-S3CSEB-S1",
-    "day": 0,
-    "start": 6,
-    "room_id": "CR-1",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS303-S3CSEA-S1",
-    "day": 0,
-    "start": 6,
-    "room_id": "CR-3",
-    "faculty_id": "RN"
-   },
-   {
-    "session_id": "CS514-S5ECE-D1-S1",
-    "day": 0,
-    "start": 6,
-    "room_id": "CR-5",
-    "faculty_id": "SRS"
-   },
-   {
-    "session_id": "CS9106L-MTCSE+S7CSE+S7ECE-D3-S1",
-    "day": 0,
-    "start": 6,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "LC"
-   },
-   {
-    "session_id": "ECD911L-MTDSC-S1",
-    "day": 0,
-    "start": 6,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "SVR"
-   },
-   {
-    "session_id": "HM505-S5CSE-S1",
-    "day": 0,
-    "start": 6,
-    "room_id": "CR-2",
-    "faculty_id": "HSS-F2-HM505"
-   },
-   {
-    "session_id": "CS303-S3CSEB-S1",
-    "day": 0,
-    "start": 7,
-    "room_id": "CR-2",
-    "faculty_id": "RN"
-   },
-   {
-    "session_id": "CS514-S5CSE-S1",
-    "day": 0,
-    "start": 7,
-    "room_id": "CR-4",
-    "faculty_id": "SRS"
-   },
-   {
-    "session_id": "AS101-S1CSEC-S1",
-    "day": 1,
-    "start": 0,
     "room_id": "CR-6",
-    "faculty_id": "KY"
-   },
-   {
-    "session_id": "HS101-S1ECEA-S1",
-    "day": 1,
-    "start": 0,
-    "room_id": "CR-4",
-    "faculty_id": "HSS-F1-HS101"
-   },
-   {
-    "session_id": "AS102-S1ECEA-S2",
-    "day": 1,
-    "start": 1,
-    "room_id": "CR-4",
-    "faculty_id": "PAS-F1-AS102"
-   },
-   {
-    "session_id": "CS501-S5CSE-S2",
-    "day": 1,
-    "start": 1,
-    "room_id": "CR-6",
-    "faculty_id": "SA"
-   },
-   {
-    "session_id": "CS753-S7CSE-S1",
-    "day": 1,
-    "start": 1,
-    "room_id": "CR-3",
-    "faculty_id": "RP"
-   },
-   {
-    "session_id": "CS9116L-S7ECE-D1-S1",
-    "day": 1,
-    "start": 1,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "EC302-S3ECE-S2",
-    "day": 1,
-    "start": 1,
-    "room_id": "CR-5",
-    "faculty_id": "SKS"
-   },
-   {
-    "session_id": "MS101TT-S1CSEC-S1",
-    "day": 1,
-    "start": 1,
-    "room_id": "CR-2",
-    "faculty_id": "APS"
-   },
-   {
-    "session_id": "AS102-S1CSEC-S2",
-    "day": 1,
-    "start": 2,
-    "room_id": "CR-6",
-    "faculty_id": "PAS-F1-AS102"
-   },
-   {
-    "session_id": "CS302-S3CSEA-S2",
-    "day": 1,
-    "start": 2,
-    "room_id": "CR-4",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS303-S3ECE-S2",
-    "day": 1,
-    "start": 2,
-    "room_id": "CR-3",
-    "faculty_id": "PS"
-   },
-   {
-    "session_id": "CS501L-S5CSE-G1-S1",
-    "day": 1,
-    "start": 2,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "CS504L-S5CSE-G2-S1",
-    "day": 1,
-    "start": 2,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "CS913-MTCSE+S7CSE-S2",
-    "day": 1,
-    "start": 2,
-    "room_id": "CR-5",
-    "faculty_id": "SA"
-   },
-   {
-    "session_id": "EC101L-S1CSEB-G1-S1",
-    "day": 1,
-    "start": 2,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "TD"
-   },
-   {
-    "session_id": "EC503L-S5ECE-G2-S1",
-    "day": 1,
-    "start": 2,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "HG"
-   },
-   {
-    "session_id": "MS101-S1CSED-S1",
-    "day": 1,
-    "start": 2,
-    "room_id": "CR-1",
-    "faculty_id": "AP"
-   },
-   {
-    "session_id": "MS101-S1ECEA-S1",
-    "day": 1,
-    "start": 2,
-    "room_id": "CR-2",
-    "faculty_id": "APS"
-   },
-   {
-    "session_id": "AS101-S1CSED-S2",
-    "day": 1,
-    "start": 3,
-    "room_id": "CR-2",
     "faculty_id": "ND"
    },
    {
-    "session_id": "AS101L-S1CSEB-G2-S1",
-    "day": 1,
-    "start": 3,
+    "session_id": "AS101L-S1CSEC-G1-S1",
+    "day": 0,
+    "start": 6,
     "room_id": "PHY-LAB-1",
-    "faculty_id": "BP"
+    "faculty_id": "KY"
    },
    {
-    "session_id": "CS304-S3CSEA-S1",
-    "day": 1,
-    "start": 3,
-    "room_id": "CR-3",
+    "session_id": "CS101L-S1CSEC-G2-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS304-S3CSEB-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-1",
     "faculty_id": "RRP"
    },
    {
-    "session_id": "CS701-S7CSE-S1",
-    "day": 1,
-    "start": 3,
+    "session_id": "CS305-S3CSEA-S1",
+    "day": 0,
+    "start": 6,
     "room_id": "CR-5",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS503L-S5CSE-G1-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS701-S7CSE-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-2",
     "faculty_id": "RK"
    },
    {
-    "session_id": "CS911-MTCSE-S2",
-    "day": 1,
-    "start": 3,
+    "session_id": "CS911-MTCSE-S1",
+    "day": 0,
+    "start": 6,
     "room_id": "CSE-LAB-1",
     "faculty_id": "PS"
    },
    {
-    "session_id": "EC102-S1ECEA-2-S1",
-    "day": 1,
-    "start": 3,
+    "session_id": "EC302L-S3ECE-G2-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC9103-MTECE+S5ECE-S1",
+    "day": 0,
+    "start": 6,
     "room_id": "CR-4",
-    "faculty_id": "NA"
+    "faculty_id": "RDM"
    },
    {
-    "session_id": "EC301-S3ECE-S2",
-    "day": 1,
-    "start": 3,
+    "session_id": "CS305-S3CSEB-S1",
+    "day": 0,
+    "start": 7,
+    "room_id": "CR-5",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-D2-S1",
+    "day": 0,
+    "start": 7,
     "room_id": "CR-6",
-    "faculty_id": "LC"
+    "faculty_id": "PS"
    },
    {
-    "session_id": "EC702-S7ECE-S1",
-    "day": 1,
-    "start": 3,
+    "session_id": "EC503-S5ECE-S1",
+    "day": 0,
+    "start": 7,
+    "room_id": "CR-3",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "HS101-S1CSEB-S1",
+    "day": 0,
+    "start": 7,
     "room_id": "CR-1",
-    "faculty_id": "RP"
-   },
-   {
-    "session_id": "CS101-S1ECEA-S2",
-    "day": 1,
-    "start": 4,
-    "room_id": "CR-6",
-    "faculty_id": "NB"
+    "faculty_id": "HSS-F2-HS101"
    },
    {
     "session_id": "CS302L-S3CSEA-G1-S1",
     "day": 1,
-    "start": 4,
-    "room_id": "CSE-LAB-3",
+    "start": 0,
+    "room_id": "CSE-LAB-1",
     "faculty_id": "DN"
    },
    {
     "session_id": "CS303L-S3CSEA-G2-S1",
     "day": 1,
-    "start": 4,
+    "start": 0,
     "room_id": "CSE-LAB-2",
     "faculty_id": "RN"
    },
    {
+    "session_id": "CS753-S7CSE-S2",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-5",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS912L-MTCSE-S2",
+    "day": 1,
+    "start": 0,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "EC102-S1ECEA-S1",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-4",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC9103-MTECE+S5ECE-S2",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-2",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "AS101-S1ECEA-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "AS101L-S1CSEB-G2-S1",
+    "day": 1,
+    "start": 1,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "CS101-S1CSEC-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "DR"
+   },
+   {
     "session_id": "CS304-S3CSEB-S2",
     "day": 1,
-    "start": 4,
-    "room_id": "CR-1",
+    "start": 1,
+    "room_id": "CR-6",
     "faculty_id": "RRP"
    },
    {
-    "session_id": "CS514-S5CSE-S2",
+    "session_id": "CS701-S7CSE-S2",
     "day": 1,
-    "start": 4,
+    "start": 1,
     "room_id": "CR-2",
-    "faculty_id": "SRS"
-   },
-   {
-    "session_id": "CS701-S7ECE-S2",
-    "day": 1,
-    "start": 4,
-    "room_id": "CR-4",
     "faculty_id": "RK"
    },
    {
-    "session_id": "CS9116-MTCSE+S7CSE-D1-S2",
+    "session_id": "EC101L-S1CSED-G2-2-S1",
     "day": 1,
-    "start": 4,
-    "room_id": "CR-5",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "EC101L-S1CSEC-G1-S1",
-    "day": 1,
-    "start": 4,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "MR"
-   },
-   {
-    "session_id": "EC303L-S3ECE-G2-S1",
-    "day": 1,
-    "start": 4,
+    "start": 1,
     "room_id": "ECE-LAB-2",
-    "faculty_id": "VAP"
+    "faculty_id": "RDM"
    },
    {
-    "session_id": "EC503-S5ECE-S1",
+    "session_id": "EC503-S5ECE-S2",
     "day": 1,
-    "start": 4,
-    "room_id": "CR-3",
+    "start": 1,
+    "room_id": "CR-5",
     "faculty_id": "HG"
    },
    {
-    "session_id": "EC911-MTECE-S2",
+    "session_id": "EC912-MTDSC+MTECE-2-S1",
     "day": 1,
-    "start": 4,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "TD"
+    "start": 1,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SR"
    },
    {
-    "session_id": "CS101L-S1CSEC-G2-S1",
+    "session_id": "HM505-S5CSE-S1",
     "day": 1,
-    "start": 5,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F2-HM505"
+   },
+   {
+    "session_id": "CS302-S3CSEB-S2",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS303L-S3ECE-G2-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS305-S3CSEA-S2",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS504-S5CSE-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS913L-MTCSE+S7CSE-G1-S1",
+    "day": 1,
+    "start": 2,
     "room_id": "CSE-LAB-1",
     "faculty_id": "DR"
    },
    {
-    "session_id": "CS305-S3CSEB-S2",
+    "session_id": "EC102-S1CSEC-2-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC302L-S3ECE-G1-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC501-S5ECE-S2",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "EC9111-MTDSC+MTECE-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "MS101-S1ECEA-S2",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "CS101-S1ECEA-S2",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-1",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "EC102-S1CSED-S2",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "MS101-S1CSEB-S2",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "AP"
+   },
+   {
+    "session_id": "AS101L-S1CSEC-G2-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS302-S3CSEA-S2",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-2",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS304L-S3CSEB-G2-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS503-S5CSE-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS9116L-S7ECE-D1-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC101L-S1CSEC-G1-2-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC913L-MTECE+S5ECE-D2-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "CS101-S1CSEB-S2",
     "day": 1,
     "start": 5,
-    "room_id": "CR-6",
-    "faculty_id": "TG"
+    "room_id": "CR-5",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS101-S1CSED-S1",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS303-S3CSEA-S2",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "RN"
    },
    {
     "session_id": "CS502-S5CSE-S1",
@@ -7703,221 +7659,291 @@
     "faculty_id": "NB"
    },
    {
-    "session_id": "CS9106-MTCSE+S7CSE+S7ECE-D3-S1",
+    "session_id": "CS514-S5ECE-D1-S1",
     "day": 1,
     "start": 5,
-    "room_id": "CR-1",
-    "faculty_id": "LC"
+    "room_id": "CR-6",
+    "faculty_id": "SRS"
    },
    {
-    "session_id": "EC102-S1CSEB-S2",
+    "session_id": "CS701L-S7CSE-G1-S1",
     "day": 1,
     "start": 5,
-    "room_id": "CR-5",
-    "faculty_id": "NA"
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "RK"
    },
    {
-    "session_id": "EC102-S1CSED-S1",
-    "day": 1,
-    "start": 5,
-    "room_id": "CR-4",
-    "faculty_id": "DP"
-   },
-   {
-    "session_id": "EC9103-MTECE+S5ECE-S1",
+    "session_id": "EC303-MTDSC+S3ECE-S1",
     "day": 1,
     "start": 5,
     "room_id": "CR-2",
-    "faculty_id": "RDM"
+    "faculty_id": "VAP"
    },
    {
-    "session_id": "ECD911-MTDSC-S1",
-    "day": 1,
-    "start": 5,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "SVR"
-   },
-   {
-    "session_id": "AS102-S1CSEB-S1",
+    "session_id": "AS101-S1CSEC-S1",
     "day": 1,
     "start": 6,
-    "room_id": "CR-4",
-    "faculty_id": "PAS-F2-AS102"
+    "room_id": "CR-1",
+    "faculty_id": "KY"
    },
    {
-    "session_id": "CS101L-S1CSED-G2-S1",
-    "day": 1,
-    "start": 6,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "CS303-S3CSEB-S2",
+    "session_id": "AS102-S1CSED-S2",
     "day": 1,
     "start": 6,
     "room_id": "CR-6",
-    "faculty_id": "RN"
+    "faculty_id": "PAS-F2-AS102"
    },
    {
-    "session_id": "CS305-S3CSEA-S2",
+    "session_id": "CS304-S3CSEA-S2",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-3",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS502L-S5CSE-G1-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS503L-S5CSE-G2-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS504-S5ECE-S1",
     "day": 1,
     "start": 6,
     "room_id": "CR-5",
-    "faculty_id": "TG"
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS911-MTCSE-S2",
+    "day": 1,
+    "start": 6,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G2-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G1-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "EC302-S3ECE-S2",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-2",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC911-MTECE-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-4",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "CS701-S7ECE-S1",
+    "day": 1,
+    "start": 7,
+    "room_id": "CR-6",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS913-MTCSE+S7CSE-S2",
+    "day": 1,
+    "start": 7,
+    "room_id": "CR-5",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "EC301-S3ECE-S2",
+    "day": 1,
+    "start": 7,
+    "room_id": "CR-3",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "MS101-S1CSEC-S1",
+    "day": 1,
+    "start": 7,
+    "room_id": "CR-2",
+    "faculty_id": "VP"
    },
    {
     "session_id": "CS9117-MTCSE+S7CSE+S7ECE-D2-S2",
     "day": 1,
-    "start": 6,
-    "room_id": "CR-1",
+    "start": 8,
+    "room_id": "CR-6",
     "faculty_id": "PS"
    },
    {
-    "session_id": "EC101L-S1CSED-G1-S1",
-    "day": 1,
-    "start": 6,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "DP"
-   },
-   {
-    "session_id": "EC501L-S5ECE-G1-S1",
-    "day": 1,
-    "start": 6,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "EC912-MTDSC+MTECE-2-S2",
-    "day": 1,
-    "start": 6,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "CS101-S1CSEB-S1",
-    "day": 1,
-    "start": 7,
-    "room_id": "CR-6",
-    "faculty_id": "DR"
-   },
-   {
-    "session_id": "CS302-S3CSEB-S2",
-    "day": 1,
-    "start": 7,
-    "room_id": "CR-1",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS303-S3CSEA-S2",
-    "day": 1,
-    "start": 7,
-    "room_id": "CR-4",
-    "faculty_id": "RN"
-   },
-   {
-    "session_id": "HS911-MTCSE+MTDSC+MTECE-S1",
-    "day": 1,
-    "start": 7,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "BP"
-   },
-   {
-    "session_id": "CS101L-S1ECEA-G1-S1",
-    "day": 2,
-    "start": 0,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "NB"
-   },
-   {
-    "session_id": "CS753-S7ECE-S2",
+    "session_id": "AS101-S1CSEC-S2",
     "day": 2,
     "start": 0,
     "room_id": "CR-6",
-    "faculty_id": "SKS"
+    "faculty_id": "KY"
    },
    {
-    "session_id": "CS912L-MTCSE-S1",
+    "session_id": "CS304L-S3CSEA-G1-S1",
     "day": 2,
     "start": 0,
-    "room_id": "CSE-LAB-2",
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS305-S3CSEB-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CR-2",
     "faculty_id": "TG"
    },
    {
-    "session_id": "EC101L-S1ECEA-G2-2-S1",
+    "session_id": "CS502-S5CSE-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CR-4",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS9106-MTCSE+S7CSE+S7ECE-D3-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CR-5",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "CS9116L-S7ECE-D1-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC503L-S5ECE-G1-S1",
     "day": 2,
     "start": 0,
     "room_id": "ECE-LAB-3",
-    "faculty_id": "NA"
+    "faculty_id": "HG"
    },
    {
-    "session_id": "CS101-S1CSEB-S2",
+    "session_id": "EC911-MTECE-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "AS101L-S1CSEB-G1-S1",
+    "day": 2,
+    "start": 1,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS101L-S1CSED-G2-S1",
+    "day": 2,
+    "start": 1,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS501-S5CSE-S2",
     "day": 2,
     "start": 1,
     "room_id": "CR-3",
-    "faculty_id": "DR"
-   },
-   {
-    "session_id": "CS501-S5CSE-S3",
-    "day": 2,
-    "start": 1,
-    "room_id": "CR-2",
     "faculty_id": "SA"
    },
    {
-    "session_id": "CS753-S7CSE-S2",
-    "day": 2,
-    "start": 1,
-    "room_id": "CR-5",
-    "faculty_id": "RP"
-   },
-   {
-    "session_id": "CS9116-S7ECE-D1-S1",
+    "session_id": "CS753-S7CSE-S3",
     "day": 2,
     "start": 1,
     "room_id": "CR-1",
-    "faculty_id": "PJM"
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS911-MTCSE-S3",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "PS"
    },
    {
     "session_id": "EC102-S1CSEC-S1",
     "day": 2,
     "start": 1,
-    "room_id": "CR-6",
+    "room_id": "CR-4",
     "faculty_id": "DP"
    },
    {
-    "session_id": "EC302L-S3ECE-G1-S1",
+    "session_id": "EC301L-S3ECE-G2-S1",
     "day": 2,
     "start": 1,
     "room_id": "ECE-LAB-2",
-    "faculty_id": "SKS"
+    "faculty_id": "LC"
    },
    {
-    "session_id": "CS101-S1CSEC-S2",
+    "session_id": "EC912-MTDSC+MTECE-S1",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-2",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "HS301-S3CSEB-S2",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "AS102-S1CSEC-S1",
     "day": 2,
     "start": 2,
-    "room_id": "CR-2",
-    "faculty_id": "DR"
+    "room_id": "CR-6",
+    "faculty_id": "PAS-F1-AS102"
    },
    {
-    "session_id": "CS305-S3CSEA-S3",
+    "session_id": "CS301-S3CSEA-S2",
     "day": 2,
     "start": 2,
     "room_id": "CR-4",
-    "faculty_id": "TG"
+    "faculty_id": "PJM"
    },
    {
-    "session_id": "CS502L-S5CSE-G1-S1",
+    "session_id": "CS301-S3CSEB-S1",
     "day": 2,
     "start": 2,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "NB"
+    "room_id": "CR-1",
+    "faculty_id": "MR"
    },
    {
-    "session_id": "CS503L-S5CSE-G2-S1",
+    "session_id": "CS504-S5ECE-S2",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS701L-S7ECE-G1-S1",
     "day": 2,
     "start": 2,
     "room_id": "CSE-LAB-1",
-    "faculty_id": "AD"
+    "faculty_id": "RK"
    },
    {
     "session_id": "CS913-MTCSE+S7CSE-S3",
@@ -7927,326 +7953,298 @@
     "faculty_id": "SA"
    },
    {
-    "session_id": "EC702-S7ECE-S2",
+    "session_id": "EC101L-S1CSED-G1-2-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "ECD911-MTDSC-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "HM505-S5CSE-S2",
     "day": 2,
     "start": 2,
     "room_id": "CR-3",
-    "faculty_id": "RP"
+    "faculty_id": "HSS-F2-HM505"
    },
    {
-    "session_id": "HS101-S1CSEB-S1",
-    "day": 2,
-    "start": 2,
-    "room_id": "CR-6",
-    "faculty_id": "HSS-F2-HS101"
-   },
-   {
-    "session_id": "MS101-S1ECEA-S2",
-    "day": 2,
-    "start": 2,
-    "room_id": "CR-1",
-    "faculty_id": "APS"
-   },
-   {
-    "session_id": "AS101L-S1CSEB-G1-S1",
-    "day": 2,
-    "start": 3,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "ND"
-   },
-   {
-    "session_id": "CS301-S3CSEA-S2",
+    "session_id": "CS303-S3ECE-S2",
     "day": 2,
     "start": 3,
     "room_id": "CR-6",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "CS701-S7CSE-S2",
-    "day": 2,
-    "start": 3,
-    "room_id": "CR-2",
-    "faculty_id": "RK"
-   },
-   {
-    "session_id": "CS911-MTCSE-S3",
-    "day": 2,
-    "start": 3,
-    "room_id": "CSE-LAB-3",
     "faculty_id": "PS"
    },
    {
-    "session_id": "EC101L-S1CSEB-G2-2-S1",
-    "day": 2,
-    "start": 3,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "EC102-S1CSED-2-S1",
+    "session_id": "CS514-S5CSE-S1",
     "day": 2,
     "start": 3,
     "room_id": "CR-4",
-    "faculty_id": "SR"
+    "faculty_id": "SRS"
    },
    {
-    "session_id": "EC301-S3ECE-S3",
-    "day": 2,
-    "start": 3,
-    "room_id": "CR-5",
-    "faculty_id": "LC"
-   },
-   {
-    "session_id": "EC913L-MTECE+S5ECE-D2-S1",
-    "day": 2,
-    "start": 3,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "TD"
-   },
-   {
-    "session_id": "HS101-S1CSEC-S2",
+    "session_id": "CS9116-MTCSE+S7CSE-D1-S1",
     "day": 2,
     "start": 3,
     "room_id": "CR-3",
-    "faculty_id": "HSS-F1-HS101"
+    "faculty_id": "PJM"
    },
    {
-    "session_id": "MS101TT-S1ECEA-S1",
+    "session_id": "EC501-S5ECE-S3",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "HS101-S1ECEA-S1",
     "day": 2,
     "start": 3,
     "room_id": "CR-1",
-    "faculty_id": "APS"
+    "faculty_id": "HSS-F1-HS101"
    },
    {
-    "session_id": "CS303L-S3ECE-G2-S1",
+    "session_id": "AS101-S1CSEB-S2",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-3",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "CS101L-S1CSEC-G1-S1",
     "day": 2,
     "start": 4,
     "room_id": "CSE-LAB-3",
-    "faculty_id": "PS"
+    "faculty_id": "DR"
    },
    {
-    "session_id": "CS304-S3CSEA-S2",
+    "session_id": "CS303-S3CSEA-S3",
     "day": 2,
     "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS701L-S7ECE-G2-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "EC101L-S1CSEC-G2-2-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "AS101-S1CSED-S2",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-3",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "AS102-S1ECEA-S2",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "PAS-F1-AS102"
+   },
+   {
+    "session_id": "CS301-S3ECE-S2",
+    "day": 2,
+    "start": 5,
     "room_id": "CR-6",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS303L-S3CSEA-G1-S1",
+    "day": 2,
+    "start": 5,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS304-S3CSEB-S3",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-4",
     "faculty_id": "RRP"
    },
    {
     "session_id": "CS503-S5CSE-S2",
     "day": 2,
-    "start": 4,
-    "room_id": "CR-4",
+    "start": 5,
+    "room_id": "CR-5",
     "faculty_id": "AD"
    },
    {
-    "session_id": "CS701L-S7CSE-G2-S1",
+    "session_id": "EC501L-S5ECE-G1-S1",
     "day": 2,
-    "start": 4,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "RK"
+    "start": 5,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "SM"
    },
    {
-    "session_id": "CS913L-MTCSE+S7CSE-G1-S1",
+    "session_id": "ECD911L-MTDSC-S1",
     "day": 2,
-    "start": 4,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "DR"
+    "start": 5,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "SVR"
    },
    {
-    "session_id": "EC102-S1ECEA-S1",
+    "session_id": "HS101-S1CSEB-S2",
     "day": 2,
-    "start": 4,
-    "room_id": "CR-1",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "HS101-S1CSED-S1",
-    "day": 2,
-    "start": 4,
-    "room_id": "CR-5",
+    "start": 5,
+    "room_id": "CR-2",
     "faculty_id": "HSS-F2-HS101"
    },
    {
-    "session_id": "HS301-S3CSEB-S1",
+    "session_id": "AS102-S1CSEB-S1",
     "day": 2,
-    "start": 4,
-    "room_id": "CR-3",
-    "faculty_id": "HSS-F3-HS301"
-   },
-   {
-    "session_id": "MS101-S1CSEC-S1",
-    "day": 2,
-    "start": 4,
-    "room_id": "CR-2",
-    "faculty_id": "VP"
-   },
-   {
-    "session_id": "AS101-S1CSEC-S2",
-    "day": 2,
-    "start": 5,
-    "room_id": "CR-3",
-    "faculty_id": "KY"
-   },
-   {
-    "session_id": "AS101-S1ECEA-S1",
-    "day": 2,
-    "start": 5,
-    "room_id": "CR-6",
-    "faculty_id": "ND"
-   },
-   {
-    "session_id": "AS102-S1CSED-S1",
-    "day": 2,
-    "start": 5,
+    "start": 6,
     "room_id": "CR-2",
     "faculty_id": "PAS-F2-AS102"
    },
    {
-    "session_id": "CS301-S3CSEB-S1",
+    "session_id": "CS101-S1CSEC-S3",
     "day": 2,
-    "start": 5,
+    "start": 6,
     "room_id": "CR-4",
-    "faculty_id": "MR"
+    "faculty_id": "DR"
    },
    {
-    "session_id": "CS504-S5ECE-S2",
-    "day": 2,
-    "start": 5,
-    "room_id": "CR-1",
-    "faculty_id": "KD"
-   },
-   {
-    "session_id": "EC911-MTECE-S3",
-    "day": 2,
-    "start": 5,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "TD"
-   },
-   {
-    "session_id": "ECD911-MTDSC-S2",
-    "day": 2,
-    "start": 5,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "SVR"
-   },
-   {
-    "session_id": "MS101-S1CSEB-S2",
-    "day": 2,
-    "start": 5,
-    "room_id": "CR-5",
-    "faculty_id": "AP"
-   },
-   {
-    "session_id": "AS101L-S1CSED-G1-S1",
+    "session_id": "CS302L-S3CSEB-G1-S1",
     "day": 2,
     "start": 6,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "KY"
-   },
-   {
-    "session_id": "CS302L-S3CSEB-G2-S1",
-    "day": 2,
-    "start": 6,
-    "room_id": "CSE-LAB-3",
+    "room_id": "CSE-LAB-2",
     "faculty_id": "DN"
    },
    {
-    "session_id": "CS303-S3ECE-S3",
+    "session_id": "CS501L-S5CSE-G1-S1",
+    "day": 2,
+    "start": 6,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "EC102-S1CSED-2-S1",
     "day": 2,
     "start": 6,
     "room_id": "CR-6",
-    "faculty_id": "PS"
+    "faculty_id": "SR"
    },
    {
-    "session_id": "CS304L-S3CSEB-G1-S1",
-    "day": 2,
-    "start": 6,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "RRP"
-   },
-   {
-    "session_id": "CS504-S5CSE-S2",
-    "day": 2,
-    "start": 6,
-    "room_id": "CR-5",
-    "faculty_id": "KD"
-   },
-   {
-    "session_id": "EC101L-S1CSED-G2-2-S1",
-    "day": 2,
-    "start": 6,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "RDM"
-   },
-   {
-    "session_id": "EC503-S5ECE-S2",
+    "session_id": "EC302-S3ECE-S3",
     "day": 2,
     "start": 6,
     "room_id": "CR-3",
-    "faculty_id": "HG"
+    "faculty_id": "SKS"
    },
    {
-    "session_id": "EC912-MTDSC+MTECE-S2",
+    "session_id": "EC702-S7ECE-S1",
     "day": 2,
     "start": 6,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "MR"
+    "room_id": "CR-5",
+    "faculty_id": "RP"
    },
    {
-    "session_id": "HS301-S3CSEA-S1",
+    "session_id": "MS101-S1ECEA-S3",
     "day": 2,
     "start": 6,
-    "room_id": "CR-2",
-    "faculty_id": "HSS-F3-HS301"
+    "room_id": "CR-1",
+    "faculty_id": "APS"
    },
    {
-    "session_id": "CS303-S3CSEA-S3",
+    "session_id": "CS101-S1CSEB-S3",
+    "day": 2,
+    "start": 7,
+    "room_id": "CR-4",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS753-S7ECE-S1",
     "day": 2,
     "start": 7,
     "room_id": "CR-5",
-    "faculty_id": "RN"
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC102-S1ECEA-2-S1",
+    "day": 2,
+    "start": 7,
+    "room_id": "CR-1",
+    "faculty_id": "NA"
    },
    {
     "session_id": "EC303-MTDSC+S3ECE-S2",
     "day": 2,
     "start": 7,
-    "room_id": "CR-2",
+    "room_id": "CR-3",
     "faculty_id": "VAP"
    },
    {
-    "session_id": "HM505-S5ECE-S2",
+    "session_id": "MS101TT-S1CSED-S1",
     "day": 2,
     "start": 7,
-    "room_id": "CR-3",
-    "faculty_id": "HSS-F2-HM505"
+    "room_id": "CR-6",
+    "faculty_id": "APS"
    },
    {
-    "session_id": "CS701L-S7ECE-G2-S1",
+    "session_id": "AS101-S1CSEC-S3",
     "day": 3,
     "start": 0,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "RK"
+    "room_id": "CR-5",
+    "faculty_id": "KY"
    },
    {
-    "session_id": "CS9116L-S7CSE-G2-S1",
-    "day": 3,
-    "start": 0,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "CS912L-MTCSE-S2",
+    "session_id": "CS101L-S1CSEB-G1-S1",
     "day": 3,
     "start": 0,
     "room_id": "CSE-LAB-3",
-    "faculty_id": "TG"
+    "faculty_id": "DR"
    },
    {
-    "session_id": "EC913L-MTECE+S5ECE-D2-S2",
+    "session_id": "CS303-S3ECE-S3",
+    "day": 3,
+    "start": 0,
+    "room_id": "CR-1",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS304L-S3CSEB-G1-S1",
+    "day": 3,
+    "start": 0,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS514-S5ECE-D1-S2",
+    "day": 3,
+    "start": 0,
+    "room_id": "CR-4",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "CS9106L-MTCSE+S7CSE+S7ECE-D3-S1",
     "day": 3,
     "start": 0,
     "room_id": "ECE-LAB-3",
-    "faculty_id": "TD"
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "HS101-S1CSED-S1",
+    "day": 3,
+    "start": 0,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F2-HS101"
    },
    {
     "session_id": "HS101-S1ECEA-S2",
@@ -8256,88 +8254,88 @@
     "faculty_id": "HSS-F1-HS101"
    },
    {
-    "session_id": "AS101-S1CSEB-S2",
-    "day": 3,
-    "start": 1,
-    "room_id": "CR-1",
-    "faculty_id": "BP"
-   },
-   {
-    "session_id": "AS101-S1ECEA-S2",
-    "day": 3,
-    "start": 1,
-    "room_id": "CR-6",
-    "faculty_id": "ND"
-   },
-   {
-    "session_id": "CS514-S5ECE-D1-S2",
-    "day": 3,
-    "start": 1,
-    "room_id": "CR-3",
-    "faculty_id": "SRS"
-   },
-   {
-    "session_id": "EC102-S1CSEC-2-S1",
-    "day": 3,
-    "start": 1,
-    "room_id": "CR-5",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "EC302-S3ECE-S3",
-    "day": 3,
-    "start": 1,
-    "room_id": "CR-4",
-    "faculty_id": "SKS"
-   },
-   {
     "session_id": "AS101L-S1ECEA-G2-S1",
     "day": 3,
-    "start": 2,
+    "start": 1,
     "room_id": "PHY-LAB-1",
     "faculty_id": "ND"
    },
    {
-    "session_id": "CS101L-S1CSEB-G2-S1",
+    "session_id": "CS303L-S3CSEB-G2-S1",
     "day": 3,
-    "start": 2,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "DR"
+    "start": 1,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RN"
    },
    {
-    "session_id": "CS305-S3CSEB-S3",
+    "session_id": "CS514-S5CSE-S2",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G1-2-S1",
+    "day": 3,
+    "start": 1,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "EC303-MTDSC+S3ECE-S3",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "EC9103-MTECE+S5ECE-S3",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "HS101-S1CSEC-S1",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F1-HS101"
+   },
+   {
+    "session_id": "MS101-S1CSED-S1",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "AP"
+   },
+   {
+    "session_id": "CS502-S5CSE-S3",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS504-S5ECE-S3",
     "day": 3,
     "start": 2,
     "room_id": "CR-2",
-    "faculty_id": "TG"
-   },
-   {
-    "session_id": "CS501L-S5CSE-G2-S1",
-    "day": 3,
-    "start": 2,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "CS504L-S5CSE-G1-S1",
-    "day": 3,
-    "start": 2,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "SR"
+    "faculty_id": "KD"
    },
    {
     "session_id": "CS701-S7CSE-S3",
     "day": 3,
     "start": 2,
-    "room_id": "CR-5",
+    "room_id": "CR-6",
     "faculty_id": "RK"
    },
    {
-    "session_id": "CS753-S7ECE-S3",
+    "session_id": "CS911-MTCSE-S4",
     "day": 3,
     "start": 2,
-    "room_id": "CR-6",
-    "faculty_id": "SKS"
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "PS"
    },
    {
     "session_id": "EC101L-S1CSEB-G1-2-S1",
@@ -8347,270 +8345,277 @@
     "faculty_id": "RP"
    },
    {
-    "session_id": "EC101L-S1ECEA-G1-S1",
-    "day": 3,
-    "start": 2,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "NA"
-   },
-   {
-    "session_id": "EC501-S5ECE-S2",
-    "day": 3,
-    "start": 2,
-    "room_id": "CR-3",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "HS911-MTCSE+MTDSC+MTECE-S2",
+    "session_id": "EC102-S1CSEC-S2",
     "day": 3,
     "start": 2,
     "room_id": "CR-4",
-    "faculty_id": "BP"
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC301-S3ECE-S3",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "EC912-MTDSC+MTECE-2-S2",
+    "day": 3,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "MS101-S1CSED-2-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "AS101-S1CSED-S3",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-2",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS101-S1ECEA-S3",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS303-S3CSEB-S2",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "EC911-MTECE-S3",
+    "day": 3,
+    "start": 3,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "TD"
    },
    {
     "session_id": "MS101-S1CSEC-S2",
     "day": 3,
-    "start": 2,
-    "room_id": "CR-1",
+    "start": 3,
+    "room_id": "CR-3",
     "faculty_id": "VP"
    },
    {
-    "session_id": "AS101-S1CSEC-S3",
-    "day": 3,
-    "start": 3,
-    "room_id": "CR-6",
-    "faculty_id": "KY"
-   },
-   {
-    "session_id": "CS9116-S7ECE-D1-S2",
-    "day": 3,
-    "start": 3,
-    "room_id": "CR-1",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "EC303-MTDSC+S3ECE-S3",
-    "day": 3,
-    "start": 3,
-    "room_id": "CR-2",
-    "faculty_id": "VAP"
-   },
-   {
-    "session_id": "EC9103-MTECE+S5ECE-S2",
-    "day": 3,
-    "start": 3,
-    "room_id": "CR-3",
-    "faculty_id": "RDM"
-   },
-   {
-    "session_id": "HS301-S3CSEB-S2",
-    "day": 3,
-    "start": 3,
-    "room_id": "CR-4",
-    "faculty_id": "HSS-F3-HS301"
-   },
-   {
-    "session_id": "MS101-S1CSED-2-S2",
-    "day": 3,
-    "start": 3,
-    "room_id": "CR-5",
-    "faculty_id": "VP"
-   },
-   {
-    "session_id": "AS102-S1CSEB-S2",
+    "session_id": "CS301-S3ECE-S3",
     "day": 3,
     "start": 4,
     "room_id": "CR-5",
-    "faculty_id": "PAS-F2-AS102"
-   },
-   {
-    "session_id": "CS101L-S1CSEC-G1-S1",
-    "day": 3,
-    "start": 4,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "DR"
-   },
-   {
-    "session_id": "CS301-S3CSEA-S3",
-    "day": 3,
-    "start": 4,
-    "room_id": "CR-4",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "CS302-S3CSEB-S3",
-    "day": 3,
-    "start": 4,
-    "room_id": "CR-3",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS502L-S5CSE-G2-S1",
-    "day": 3,
-    "start": 4,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "NB"
-   },
-   {
-    "session_id": "CS503L-S5CSE-G1-S1",
-    "day": 3,
-    "start": 4,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "EC101L-S1CSEC-G2-S1",
-    "day": 3,
-    "start": 4,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "DP"
-   },
-   {
-    "session_id": "ECD913L-MTDSC-S1",
-    "day": 3,
-    "start": 4,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "SVR"
-   },
-   {
-    "session_id": "HS101-S1CSED-S2",
-    "day": 3,
-    "start": 4,
-    "room_id": "CR-6",
-    "faculty_id": "HSS-F2-HS101"
-   },
-   {
-    "session_id": "HS301-S3ECE-S2",
-    "day": 3,
-    "start": 4,
-    "room_id": "CR-1",
-    "faculty_id": "HSS-F3-HS301"
-   },
-   {
-    "session_id": "MS101-S1ECEA-S3",
-    "day": 3,
-    "start": 4,
-    "room_id": "CR-2",
-    "faculty_id": "APS"
-   },
-   {
-    "session_id": "AS102-S1CSED-S2",
-    "day": 3,
-    "start": 5,
-    "room_id": "CR-5",
-    "faculty_id": "PAS-F2-AS102"
-   },
-   {
-    "session_id": "CS301-S3ECE-S2",
-    "day": 3,
-    "start": 5,
-    "room_id": "CR-6",
     "faculty_id": "MR"
    },
    {
-    "session_id": "CS302-S3CSEA-S3",
+    "session_id": "CS304L-S3CSEA-G2-S1",
     "day": 3,
-    "start": 5,
-    "room_id": "CR-4",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS304-S3CSEB-S3",
-    "day": 3,
-    "start": 5,
-    "room_id": "CR-2",
+    "start": 4,
+    "room_id": "CSE-LAB-3",
     "faculty_id": "RRP"
    },
    {
-    "session_id": "CS504-S5ECE-S3",
+    "session_id": "CS501-S5CSE-S3",
     "day": 3,
-    "start": 5,
-    "room_id": "CR-1",
-    "faculty_id": "KD"
+    "start": 4,
+    "room_id": "CR-4",
+    "faculty_id": "SA"
    },
    {
-    "session_id": "HS101-S1CSEB-S2",
+    "session_id": "CS9116L-S7CSE-G1-S1",
     "day": 3,
-    "start": 5,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS913L-S7CSE-G2-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G2-2-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "EC503L-S5ECE-G2-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC702-S7ECE-S2",
+    "day": 3,
+    "start": 4,
     "room_id": "CR-3",
-    "faculty_id": "HSS-F2-HS101"
+    "faculty_id": "RP"
    },
    {
     "session_id": "CS101-S1CSED-S2",
     "day": 3,
-    "start": 6,
+    "start": 5,
     "room_id": "CR-5",
     "faculty_id": "AD"
    },
    {
     "session_id": "CS301-S3CSEB-S2",
     "day": 3,
-    "start": 6,
-    "room_id": "CR-6",
+    "start": 5,
+    "room_id": "CR-3",
     "faculty_id": "MR"
    },
    {
-    "session_id": "CS302L-S3CSEA-G2-S1",
+    "session_id": "CS504-S5CSE-S2",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS701-S7ECE-S2",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "HS301-S3ECE-S1",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "HS911-MTCSE+MTDSC+MTECE-S1",
+    "day": 3,
+    "start": 5,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "MS101TT-S1ECEA-S1",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS102-S1CSEB-S2",
     "day": 3,
     "start": 6,
-    "room_id": "CSE-LAB-3",
+    "room_id": "CR-1",
+    "faculty_id": "PAS-F2-AS102"
+   },
+   {
+    "session_id": "CS101L-S1CSED-G1-S1",
+    "day": 3,
+    "start": 6,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS302-S3CSEA-S3",
+    "day": 3,
+    "start": 6,
+    "room_id": "CR-2",
     "faculty_id": "DN"
    },
    {
-    "session_id": "CS304L-S3CSEA-G1-S1",
-    "day": 3,
-    "start": 6,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "RRP"
-   },
-   {
-    "session_id": "CS502-S5CSE-S2",
+    "session_id": "CS305-S3CSEB-S3",
     "day": 3,
     "start": 6,
     "room_id": "CR-4",
-    "faculty_id": "NB"
+    "faculty_id": "TG"
    },
    {
-    "session_id": "EC301L-S3ECE-G2-S1",
+    "session_id": "CS504L-S5CSE-G2-S1",
     "day": 3,
     "start": 6,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "LC"
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "SR"
    },
    {
-    "session_id": "EC303L-MTDSC+S3ECE-G1-S1",
+    "session_id": "CS753-S7ECE-S2",
+    "day": 3,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "CS9116-MTCSE+S7CSE-D1-S2",
+    "day": 3,
+    "start": 6,
+    "room_id": "CR-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC503-S5ECE-S3",
+    "day": 3,
+    "start": 6,
+    "room_id": "CR-5",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC9111L-MTDSC+MTECE-S1",
     "day": 3,
     "start": 6,
     "room_id": "ECE-LAB-3",
-    "faculty_id": "VAP"
+    "faculty_id": "SM"
    },
    {
-    "session_id": "CS303-S3CSEB-S3",
-    "day": 3,
-    "start": 7,
-    "room_id": "CR-3",
-    "faculty_id": "RN"
-   },
-   {
-    "session_id": "EC102-S1CSED-S2",
+    "session_id": "CS301-S3CSEA-S3",
     "day": 3,
     "start": 7,
     "room_id": "CR-6",
-    "faculty_id": "DP"
+    "faculty_id": "PJM"
    },
    {
-    "session_id": "CS101-S1CSEB-S3",
-    "day": 4,
-    "start": 0,
+    "session_id": "CS302-S3CSEB-S3",
+    "day": 3,
+    "start": 7,
+    "room_id": "CR-3",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-D2-S3",
+    "day": 3,
+    "start": 7,
+    "room_id": "CR-2",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC102-S1CSEB-S1",
+    "day": 3,
+    "start": 7,
+    "room_id": "CR-4",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "HM505-S5ECE-S1",
+    "day": 3,
+    "start": 7,
     "room_id": "CR-5",
-    "faculty_id": "DR"
+    "faculty_id": "HSS-F2-HM505"
    },
    {
-    "session_id": "CS101L-S1ECEA-G2-S1",
+    "session_id": "CS302L-S3CSEB-G2-S1",
     "day": 4,
     "start": 0,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "NB"
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "DN"
    },
    {
     "session_id": "CS504L-S5ECE-G2-S1",
@@ -8620,347 +8625,347 @@
     "faculty_id": "SR"
    },
    {
-    "session_id": "EC101L-S1ECEA-G1-2-S1",
+    "session_id": "EC101L-S1CSEC-G2-S1",
     "day": 4,
     "start": 0,
     "room_id": "ECE-LAB-3",
-    "faculty_id": "TD"
-   },
-   {
-    "session_id": "EC702-S7ECE-S3",
-    "day": 4,
-    "start": 0,
-    "room_id": "CR-1",
-    "faculty_id": "RP"
-   },
-   {
-    "session_id": "CS101-S1CSEC-S3",
-    "day": 4,
-    "start": 1,
-    "room_id": "CR-1",
-    "faculty_id": "DR"
-   },
-   {
-    "session_id": "CS701-S7ECE-S3",
-    "day": 4,
-    "start": 1,
-    "room_id": "CR-4",
-    "faculty_id": "RK"
-   },
-   {
-    "session_id": "CS753-S7CSE-S3",
-    "day": 4,
-    "start": 1,
-    "room_id": "CR-5",
-    "faculty_id": "RP"
-   },
-   {
-    "session_id": "MS101TT-S1CSEB-S1",
-    "day": 4,
-    "start": 1,
-    "room_id": "CR-2",
-    "faculty_id": "APS"
-   },
-   {
-    "session_id": "CS101-S1ECEA-S3",
-    "day": 4,
-    "start": 2,
-    "room_id": "CR-6",
-    "faculty_id": "NB"
-   },
-   {
-    "session_id": "CS701L-S7CSE-G1-S1",
-    "day": 4,
-    "start": 2,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "RK"
-   },
-   {
-    "session_id": "CS9116L-S7ECE-D1-S2",
-    "day": 4,
-    "start": 2,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "PJM"
-   },
-   {
-    "session_id": "CS913L-S7CSE-G2-S1",
-    "day": 4,
-    "start": 2,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "DR"
-   },
-   {
-    "session_id": "EC101L-S1CSED-G1-2-S1",
-    "day": 4,
-    "start": 2,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "HG"
-   },
-   {
-    "session_id": "EC102-S1CSEB-2-S1",
-    "day": 4,
-    "start": 2,
-    "room_id": "CR-4",
-    "faculty_id": "SR"
-   },
-   {
-    "session_id": "EC301L-S3ECE-G1-S1",
-    "day": 4,
-    "start": 2,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "LC"
-   },
-   {
-    "session_id": "EC501-S5ECE-S3",
-    "day": 4,
-    "start": 2,
-    "room_id": "CR-2",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "EC911-MTECE-S4",
-    "day": 4,
-    "start": 2,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "TD"
-   },
-   {
-    "session_id": "MS101-S1CSEC-S3",
-    "day": 4,
-    "start": 2,
-    "room_id": "CR-5",
-    "faculty_id": "VP"
-   },
-   {
-    "session_id": "CS502-S5CSE-S3",
-    "day": 4,
-    "start": 3,
-    "room_id": "CR-4",
-    "faculty_id": "NB"
-   },
-   {
-    "session_id": "CS911-MTCSE-S4",
-    "day": 4,
-    "start": 3,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "PS"
-   },
-   {
-    "session_id": "EC102-S1CSEC-S2",
-    "day": 4,
-    "start": 3,
-    "room_id": "CR-6",
     "faculty_id": "DP"
    },
    {
     "session_id": "EC102-S1ECEA-2-S2",
     "day": 4,
-    "start": 3,
-    "room_id": "CR-3",
+    "start": 0,
+    "room_id": "CR-5",
     "faculty_id": "NA"
    },
    {
-    "session_id": "EC9103-MTECE+S5ECE-S3",
+    "session_id": "EC301L-S3ECE-G1-S1",
     "day": 4,
-    "start": 3,
-    "room_id": "CR-2",
-    "faculty_id": "RDM"
+    "start": 0,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "LC"
    },
    {
-    "session_id": "HS301-S3CSEA-S2",
+    "session_id": "MS101TT-S1CSEB-S1",
     "day": 4,
-    "start": 3,
-    "room_id": "CR-5",
-    "faculty_id": "HSS-F3-HS301"
-   },
-   {
-    "session_id": "MS101-S1CSEB-S3",
-    "day": 4,
-    "start": 3,
-    "room_id": "CR-1",
-    "faculty_id": "AP"
+    "start": 0,
+    "room_id": "CR-6",
+    "faculty_id": "APS"
    },
    {
     "session_id": "AS101-S1ECEA-S3",
     "day": 4,
-    "start": 4,
-    "room_id": "CR-4",
+    "start": 1,
+    "room_id": "CR-5",
     "faculty_id": "ND"
    },
    {
-    "session_id": "AS101L-S1CSEC-G2-S1",
+    "session_id": "CS9116-S7ECE-D1-S2",
     "day": 4,
-    "start": 4,
-    "room_id": "PHY-LAB-1",
-    "faculty_id": "KY"
-   },
-   {
-    "session_id": "CS101-S1CSED-S3",
-    "day": 4,
-    "start": 4,
-    "room_id": "CR-6",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "CS302L-S3CSEB-G1-S1",
-    "day": 4,
-    "start": 4,
-    "room_id": "CSE-LAB-3",
-    "faculty_id": "DN"
-   },
-   {
-    "session_id": "CS303L-S3CSEB-G2-S1",
-    "day": 4,
-    "start": 4,
-    "room_id": "CSE-LAB-2",
-    "faculty_id": "RN"
-   },
-   {
-    "session_id": "CS304-S3CSEA-S3",
-    "day": 4,
-    "start": 4,
-    "room_id": "CR-3",
-    "faculty_id": "RRP"
-   },
-   {
-    "session_id": "CS514-S5CSE-S3",
-    "day": 4,
-    "start": 4,
+    "start": 1,
     "room_id": "CR-2",
-    "faculty_id": "SRS"
+    "faculty_id": "PJM"
    },
    {
-    "session_id": "CS9106-MTCSE+S7CSE+S7ECE-D3-S2",
+    "session_id": "EC102-S1CSEB-S2",
     "day": 4,
-    "start": 4,
+    "start": 1,
     "room_id": "CR-1",
-    "faculty_id": "LC"
+    "faculty_id": "NA"
    },
    {
-    "session_id": "EC101L-S1CSEC-G1-2-S1",
+    "session_id": "EC912-MTDSC+MTECE-S2",
     "day": 4,
-    "start": 4,
-    "room_id": "ECE-LAB-3",
-    "faculty_id": "DP"
-   },
-   {
-    "session_id": "EC503-S5ECE-S3",
-    "day": 4,
-    "start": 4,
-    "room_id": "CR-5",
-    "faculty_id": "HG"
-   },
-   {
-    "session_id": "EC9111L-MTDSC+MTECE-S1",
-    "day": 4,
-    "start": 4,
-    "room_id": "ECE-LAB-2",
-    "faculty_id": "SM"
-   },
-   {
-    "session_id": "AS101-S1CSEB-S3",
-    "day": 4,
-    "start": 5,
-    "room_id": "CR-1",
-    "faculty_id": "BP"
-   },
-   {
-    "session_id": "AS101-S1CSED-S3",
-    "day": 4,
-    "start": 5,
-    "room_id": "CR-5",
-    "faculty_id": "ND"
-   },
-   {
-    "session_id": "CS301-S3ECE-S3",
-    "day": 4,
-    "start": 5,
-    "room_id": "CR-6",
+    "start": 1,
+    "room_id": "PHY-LAB-1",
     "faculty_id": "MR"
    },
    {
-    "session_id": "CS304L-S3CSEA-G2-S1",
+    "session_id": "HS101-S1CSED-S2",
     "day": 4,
-    "start": 5,
-    "room_id": "CSE-LAB-1",
-    "faculty_id": "RRP"
-   },
-   {
-    "session_id": "CS503-S5CSE-S3",
-    "day": 4,
-    "start": 5,
+    "start": 1,
     "room_id": "CR-4",
-    "faculty_id": "AD"
-   },
-   {
-    "session_id": "CS514-S5ECE-D1-S3",
-    "day": 4,
-    "start": 5,
-    "room_id": "CR-2",
-    "faculty_id": "SRS"
-   },
-   {
-    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-D2-S3",
-    "day": 4,
-    "start": 5,
-    "room_id": "CR-3",
-    "faculty_id": "PS"
+    "faculty_id": "HSS-F2-HS101"
    },
    {
     "session_id": "AS101L-S1CSED-G2-S1",
     "day": 4,
-    "start": 6,
+    "start": 2,
     "room_id": "PHY-LAB-1",
     "faculty_id": "KY"
    },
    {
+    "session_id": "AS102-S1CSEC-S2",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "PAS-F1-AS102"
+   },
+   {
     "session_id": "CS301-S3CSEB-S3",
     "day": 4,
-    "start": 6,
-    "room_id": "CR-1",
+    "start": 2,
+    "room_id": "CR-6",
     "faculty_id": "MR"
    },
    {
-    "session_id": "CS303L-S3CSEA-G1-S1",
+    "session_id": "CS302L-S3CSEA-G2-S1",
     "day": 4,
-    "start": 6,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS502L-S5CSE-G2-S1",
+    "day": 4,
+    "start": 2,
     "room_id": "CSE-LAB-2",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS514-S5ECE-D1-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G2-2-S1",
+    "day": 4,
+    "start": 2,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "EC102-S1CSEB-2-S1",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC702-S7ECE-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "EC913L-MTECE+S5ECE-D2-S2",
+    "day": 4,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "ECD911-MTDSC-S2",
+    "day": 4,
+    "start": 2,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "HS301-S3ECE-S2",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "CS303-S3CSEB-S3",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-2",
     "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS753-S7ECE-S3",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "AS101-S1CSEB-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "AS101L-S1CSED-G1-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS101L-S1ECEA-G1-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "NB"
    },
    {
     "session_id": "CS303L-S3ECE-G1-S1",
     "day": 4,
-    "start": 6,
-    "room_id": "CSE-LAB-3",
+    "start": 4,
+    "room_id": "CSE-LAB-1",
     "faculty_id": "PS"
    },
    {
-    "session_id": "EC302L-S3ECE-G2-S1",
+    "session_id": "EC101L-S1CSEC-G1-S1",
     "day": 4,
-    "start": 6,
+    "start": 4,
     "room_id": "ECE-LAB-3",
-    "faculty_id": "SKS"
+    "faculty_id": "MR"
    },
    {
-    "session_id": "EC503L-S5ECE-G1-S1",
+    "session_id": "EC303L-S3ECE-G2-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "CS303L-S3CSEB-G1-S1",
+    "day": 4,
+    "start": 5,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS514-S5CSE-S3",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-5",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "CS701-S7ECE-S3",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "HM505-S5ECE-S2",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F2-HM505"
+   },
+   {
+    "session_id": "HS301-S3CSEA-S2",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "HS911-MTCSE+MTDSC+MTECE-S2",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "MS101-S1CSEB-S3",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "AP"
+   },
+   {
+    "session_id": "CS101L-S1CSEB-G2-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS305-S3CSEA-S3",
+    "day": 4,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS503-S5CSE-S3",
+    "day": 4,
+    "start": 6,
+    "room_id": "CR-3",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS701L-S7CSE-G2-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G2-S1",
     "day": 4,
     "start": 6,
     "room_id": "ECE-LAB-2",
-    "faculty_id": "HG"
+    "faculty_id": "RDM"
    },
    {
-    "session_id": "HM505-S5CSE-S2",
+    "session_id": "EC303L-MTDSC+S3ECE-G1-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "EC911-MTECE-S4",
+    "day": 4,
+    "start": 6,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "HS101-S1CSEC-S2",
     "day": 4,
     "start": 6,
     "room_id": "CR-4",
-    "faculty_id": "HSS-F2-HM505"
+    "faculty_id": "HSS-F1-HS101"
+   },
+   {
+    "session_id": "MS101-S1CSED-2-S2",
+    "day": 4,
+    "start": 6,
+    "room_id": "CR-5",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "CS101-S1CSED-S3",
+    "day": 4,
+    "start": 7,
+    "room_id": "CR-6",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS304-S3CSEA-S3",
+    "day": 4,
+    "start": 7,
+    "room_id": "CR-2",
+    "faculty_id": "RRP"
    },
    {
     "session_id": "CS504-S5CSE-S3",
     "day": 4,
     "start": 7,
-    "room_id": "CR-6",
+    "room_id": "CR-3",
     "faculty_id": "KD"
+   },
+   {
+    "session_id": "MS101-S1CSEC-S3",
+    "day": 4,
+    "start": 7,
+    "room_id": "CR-1",
+    "faculty_id": "VP"
    }
   ],
   "weights": {
@@ -8971,23 +8976,23 @@
    "preferences": 4
   },
   "solver": {
-   "method": "OR-Tools CP-SAT (weighted soft objective, warm-started from the official timetable); precomputed at build time",
+   "method": "OR-Tools CP-SAT (weighted soft objective, warm-started from the official timetable); precomputed at build time; also repairs the official timetable's missing lunch hours",
    "status": "feasible",
-   "message": "Time limit reached: best feasible timetable found, optimality not proven (remaining gap to bound \u2248 47%).",
-   "wall_seconds": 31.09,
-   "objective": 575055.0,
-   "best_bound": 302130.0,
-   "variables": 74399,
-   "constraints": 85790,
+   "message": "Time limit reached: best feasible timetable found, optimality not proven (remaining gap to bound \u2248 55%).",
+   "wall_seconds": 31.07,
+   "objective": 668250.0,
+   "best_bound": 299000.0,
+   "variables": 73669,
+   "constraints": 85235,
    "candidates": 64310,
    "time_limit": 30.0,
    "log": [
     "Sessions: 281 \u00b7 legal candidates: 64310",
     "Objective weights (normalized): student_idle=0.29, faculty_idle=0.18, room_fit=0.12, workload_balance=0.18, preferences=0.24",
     "Warm start: baseline schedule supplied as solution hint.",
-    "Model: 74399 variables \u00b7 85790 constraints",
-    "CP-SAT status FEASIBLE after 30.06s \u00b7 16244 branches \u00b7 0 conflicts",
-    "Time limit reached: best feasible timetable found, optimality not proven (remaining gap to bound \u2248 47%)."
+    "Model: 73669 variables \u00b7 85235 constraints",
+    "CP-SAT status FEASIBLE after 30.05s \u00b7 19408 branches \u00b7 0 conflicts",
+    "Time limit reached: best feasible timetable found, optimality not proven (remaining gap to bound \u2248 55%)."
    ]
   }
  }

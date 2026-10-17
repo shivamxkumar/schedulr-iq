@@ -132,6 +132,13 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
     for key, idx in cover.items():
         if len(idx) > 1:
             m.AddAtMostOne(x[i] for i in idx)
+    if tc.lunch_window:
+        cap = len(tc.lunch_window) - min(tc.lunch_slots, len(tc.lunch_window))
+        for b in ds.batches:
+            for d in range(nd):
+                idx = [i for t in tc.lunch_window for i in cover.get(("batch", b.id, d, t), [])]
+                if idx:
+                    m.Add(sum(x[i] for i in idx) <= cap)
     for (fid, d), lst in fday.items():
         m.Add(sum(x[i] * w for i, w in lst) <= fac[fid].max_daily_slots)
     for fid, lst in fweek.items():
@@ -201,8 +208,8 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
                             m.Add(B[t] >= occ[t][0])
                         prev = t
                     for t in slots:
-                        if not is_teaching_slot(tc, d, t):
-                            continue
+                        if not is_teaching_slot(tc, d, t) or t in tc.lunch_window:
+                            continue  # breaks and the lunch window are never idle time
                         g = m.NewBoolVar("")
                         m.Add(g >= A[t] + B[t] - 1 - (occ[t][0] if occ[t][1] else 0))
                         out.append(g * (bw.get(eid, U) if kind == "batch" else U))
@@ -318,12 +325,17 @@ def solve_lns(ds: Dataset, weights: Weights, refs: dict[str, float], hint: list[
     sections = sorted(set(sec_of.values()))
     current = list(hint)
     best = soft_score(compute_metrics(ds, current).terms, weights, refs)
+    best_hard = validate(ds, current).hard_count
     start_score = best
     log = [f"LNS mode · {len(sess)} sessions · start score {best:.3f}"]
     rounds = accepted = 0
     while time.time() - t0 < time_limit - 1.0:
         rounds += 1
-        chosen = set(rng.sample(sections, min(neighbourhood, len(sections))))
+        # Repair first: free classes that still break a hard rule (e.g. no lunch hour).
+        broken = sorted({v.resource_id for v in validate(ds, current).violations
+                         if v.severity == "hard" and v.resource_kind == "batch" and v.resource_id in sections})
+        pool = broken or sections
+        chosen = set(rng.sample(pool, min(neighbourhood, len(pool))))
         free = {a.session_id for a in current if any(sec_of.get(b) in chosen for b in sess[a.session_id].batch_ids)}
         per_round = 4.0 if small_host else min(6.0, max(1.0, time_limit / 6))
         budget = min(per_round, max(0.5, time_limit - (time.time() - t0) - 0.5))
@@ -333,12 +345,13 @@ def solve_lns(ds: Dataset, weights: Weights, refs: dict[str, float], hint: list[
         res = SolveResult(status="feasible", assignments=cand_list)
         rep = validate(ds, res.assignments)
         score = soft_score(compute_metrics(ds, res.assignments).terms, weights, refs)
-        if rep.feasible and rep.complete and score < best - 1e-9:
-            current, best = res.assignments, score
+        if rep.complete and (rep.hard_count < best_hard or (rep.hard_count == best_hard and score < best - 1e-9)):
+            current, best, best_hard = res.assignments, score, rep.hard_count
             accepted += 1
             log.append(f"round {rounds}: freed {len(free)} sessions ({', '.join(sorted(chosen))}) → score {best:.3f}")
     msg = (f"Large-neighbourhood search: {accepted} improving rounds of {rounds} in {time.time() - t0:.1f}s, "
-           f"score {start_score:.3f} → {best:.3f}. Optimality not proven.")
+           f"score {start_score:.3f} → {best:.3f}"
+           + (f", {best_hard} hard violation(s) remain" if best_hard else "") + ". Optimality not proven.")
     log.append(msg)
     return SolveResult(status="feasible", assignments=sorted(current, key=lambda a: (a.day, a.start, a.session_id)),
                        message=msg, wall_seconds=round(time.time() - t0, 2), log=log)
@@ -420,6 +433,14 @@ def solve_focus(ds: Dataset, weights: Weights, refs: dict[str, float], current: 
     for idx in sday.values():
         if len(idx) > 1:
             m.AddAtMostOne(x[i] for i in idx)
+    if tc.lunch_window:
+        cap = len(tc.lunch_window) - min(tc.lunch_slots, len(tc.lunch_window))
+        for b in {b for sid in focus for b in sess[sid].batch_ids}:
+            for d in range(len(tc.days)):
+                fixed_n = sum(1 for t in tc.lunch_window if ("batch", b, d, t) in busy)
+                idx = [i for t in tc.lunch_window for i in cover.get(("batch", b, d, t), [])]
+                if idx and fixed_n <= cap:  # cannot repair a day the constants already break
+                    m.Add(sum(x[i] for i in idx) + fixed_n <= cap)
     ys: dict[str, list] = defaultdict(list)
     for (cid, fid), idx in yfac.items():
         y = m.NewBoolVar("")
@@ -465,7 +486,7 @@ def solve_focus(ds: Dataset, weights: Weights, refs: dict[str, float], current: 
                 m.Add(B[t] >= o[t])
                 prev = t
             for t in slots:
-                if is_teaching_slot(tc, d, t):
+                if is_teaching_slot(tc, d, t) and t not in tc.lunch_window:
                     g = m.NewBoolVar("")
                     m.Add(g >= A[t] + B[t] - 1 - o[t])
                     out.append(g * wgt)

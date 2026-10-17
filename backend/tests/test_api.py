@@ -73,7 +73,10 @@ def test_iiit_surat_demo_official_timetable_is_valid(client):
     assert "IIIT Surat" in r["dataset"]["name"]
     lst = client.get("/api/schedules").json()
     base = client.get(f"/api/schedule/{lst['baseline_id']}").json()
-    assert base["validation"]["hard_count"] == 0 and base["validation"]["scheduled"] == 281
+    # The official sheet places all 281 sessions conflict-free, but 18 class-days have no free hour
+    # in the 12:00–14:00 lunch window; the only hard violations are those lunch breaks.
+    assert base["validation"]["scheduled"] == 281
+    assert {v["code"] for v in base["validation"]["violations"] if v["severity"] == "hard"} == {"LUNCH_BREAK"}
     opt = [s for s in lst["schedules"] if s["kind"] == "optimized"]
     assert opt and opt[0]["hard_count"] == 0
     om = client.get(f"/api/schedule/{opt[0]['id']}").json()["metrics"]

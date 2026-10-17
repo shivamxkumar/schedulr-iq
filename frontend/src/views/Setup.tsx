@@ -495,6 +495,20 @@ function Calendar({ tc, ro, onChange, name, onName }: { tc: TimeConfig; ro: bool
             })}
           </div>
         </Field>
+        <Field label="Student lunch window" hint="Every class (and each lab group) keeps the required free hours inside these periods on every day it has classes. Hard constraint; lunch hours never count as idle time.">
+          <div className="flex flex-wrap items-center gap-1.5">
+            {Array.from({ length: tc.slots_per_day }, (_, t) => {
+              const lw = tc.lunch_window ?? []
+              const on = lw.includes(t)
+              return <button key={t} type="button" disabled={ro} onClick={() => onChange({ ...tc, lunch_window: on ? lw.filter(x => x !== t) : [...lw, t].sort((a, b) => a - b) })}
+                className={`h-7 border px-2 font-mono text-2xs ${on ? 'border-navy bg-lime text-navy' : 'border-slate-200 bg-white'}`}>{slotLabel(tc, t)}</button>
+            })}
+            <span className="ml-2 text-xs text-slate">free hours needed</span>
+            <select value={tc.lunch_slots ?? 1} disabled={ro || !(tc.lunch_window ?? []).length} onChange={e => onChange({ ...tc, lunch_slots: Number(e.target.value) })} className="h-7 border border-slate-200 bg-white px-1 font-mono text-xs">
+              {[1, 2].map(n => <option key={n} value={n}>{n}</option>)}
+            </select>
+          </div>
+        </Field>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
           {tc.days.map((d, i) => (
             <Field key={d} label={`${d} · last slot ends`}>

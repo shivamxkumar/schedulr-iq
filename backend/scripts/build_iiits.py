@@ -307,7 +307,7 @@ def main():
     dataset = dict(
         name="IIIT Surat · Odd Semester 2025–26 (official v4 timetable)",
         time=dict(days=["Mon", "Tue", "Wed", "Thu", "Fri"], day_start="09:00", slot_minutes=60, slots_per_day=9,
-                  break_slots=[], day_slots=[9] * 5),
+                  break_slots=[], day_slots=[9] * 5, lunch_window=[3, 4], lunch_slots=1),
         rooms=rooms, faculty=faculty, batches=batches, courses=courses, fixed=[])
     payload = {"dataset": dataset, "official": official,
                "source": "Timetable Committee, IIIT Surat — all_class_v4.pdf (aSc Timetables)"}
@@ -331,10 +331,10 @@ def precompute(dataset: dict, official: list[dict], time_limit: float = 30.0) ->
     refs = term_refs(compute_metrics(ds, base).terms)
     res = solve(ds, Weights(), refs, hint=base, time_limit=time_limit)
     rep = validate(ds, res.assignments)
-    assert rep.feasible and rep.complete, "precomputed optimum failed validation"
+    assert rep.feasible and rep.complete, f"precomputed optimum failed validation: {rep.hard_count}"
     return {"assignments": [a.model_dump() for a in res.assignments], "weights": Weights().model_dump(),
             "solver": {"method": "OR-Tools CP-SAT (weighted soft objective, warm-started from the official timetable); "
-                                 "precomputed at build time", "status": res.status, "message": res.message,
+                                 "precomputed at build time; also repairs the official timetable's missing lunch hours", "status": res.status, "message": res.message,
                        "wall_seconds": res.wall_seconds, "objective": res.objective, "best_bound": res.best_bound,
                        "variables": res.num_variables, "constraints": res.num_constraints, "candidates": res.num_candidates,
                        "time_limit": time_limit, "log": res.log}}

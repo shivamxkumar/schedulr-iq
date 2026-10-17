@@ -12,7 +12,7 @@ from typing import Literal, Optional
 from pydantic import BaseModel
 
 from .models import Assignment, Dataset, describe_batches, expand_sessions
-from .timegrid import in_windows, is_teaching_slot, where
+from .timegrid import in_windows, is_teaching_slot, lunch_violation, slot_label, where
 
 HARD_CHECKS = [
     ("FACULTY_OVERLAP", "Faculty never teach two sessions at once"),
@@ -34,6 +34,7 @@ HARD_CHECKS = [
     ("COURSE_SAME_DAY", "At most one session of a course per day"),
     ("TEACHER_CONSISTENCY", "One faculty member teaches all sessions of a course"),
     ("FIXED_VIOLATED", "Fixed (pinned) assignments are respected"),
+    ("LUNCH_BREAK", "Every class keeps a free lunch hour in the lunch window"),
 ]
 
 
@@ -186,6 +187,27 @@ def validate(ds: Dataset, assignments: list[Assignment]) -> ValidationReport:
             add("TEACHER_CONSISTENCY", f"{courses[cid].code} ({cid}) is split across {len(fids)} faculty: "
                 f"{', '.join(sorted(fids))}.", [a.session_id for a in good if sessions[a.session_id].course_id == cid],
                 "course", cid)
+    if tc.lunch_window:
+        occ: dict[tuple[str, int], set[int]] = defaultdict(set)
+        who: dict[tuple[str, int], list[str]] = defaultdict(list)
+        for a in good:
+            sx = sessions[a.session_id]
+            for bid in sx.batch_ids:
+                occ[(bid, a.day)].update(range(a.start, a.start + sx.duration))
+                if any(t in tc.lunch_window for t in range(a.start, a.start + sx.duration)):
+                    who[(bid, a.day)].append(a.session_id)
+        bad: dict[int, list[str]] = defaultdict(list)
+        for (bid, d), o in occ.items():
+            if lunch_violation(tc, o):
+                bad[d].append(bid)
+        win = f"{slot_label(tc, min(tc.lunch_window))}–{slot_label(tc, max(tc.lunch_window) + 1)}"
+        for d, bids in sorted(bad.items()):
+            for sec in dict.fromkeys(_section(ds, b) for b in bids):
+                members = [b for b in bids if _section(ds, b) == sec]
+                sids = sorted({s for b in members for s in who[(b, d)]})
+                add("LUNCH_BREAK", f"{describe_batches(ds, members)} has no free lunch hour on {tc.days[d]} "
+                    f"({win}); classes there: {', '.join(sids)}.", sids, "batch", sec, d,
+                    min(tc.lunch_window), max(tc.lunch_window) + 1)
     for fx in ds.fixed:
         a = seen.get(fx.session_id)
         if a and (a.day != fx.day or a.start != fx.start or (fx.room_id and a.room_id != fx.room_id)):
@@ -284,6 +306,18 @@ def placement_violations(ds: Dataset, assignments: list[Assignment], cand: Assig
         if shared:
             add("BATCH_OVERLAP", f"{describe_batches(ds, shared)} already has {a.session_id} {where_}.",
                 [a.session_id, cand.session_id], "batch", _section(ds, shared[0]))
+    if tc.lunch_window and any(t in tc.lunch_window for t in span):
+        occ_b: dict[str, set[int]] = defaultdict(set)
+        for a in assignments:
+            o = sessions.get(a.session_id)
+            if a.session_id == cand.session_id or not o or a.day != cand.day:
+                continue
+            for bid in set(o.batch_ids) & set(s.batch_ids):
+                occ_b[bid].update(range(a.start, a.start + o.duration))
+        starved = [b for b in s.batch_ids if lunch_violation(tc, occ_b[b] | set(span))]
+        if starved:
+            add("LUNCH_BREAK", f"{describe_batches(ds, starved)} would have no free lunch hour on {tc.days[cand.day]}.",
+                kind="batch", rid=_section(ds, starved[0]))
     if day_load > f.max_daily_slots:
         add("FACULTY_DAILY_LOAD", f"{f.name} would teach {day_load} slots on {tc.days[cand.day]} (max {f.max_daily_slots}).",
             kind="faculty", rid=f.id)

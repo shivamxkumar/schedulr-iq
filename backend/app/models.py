@@ -28,6 +28,10 @@ class TimeConfig(BaseModel):
     slots_per_day: int = Field(default=8, ge=1, le=16)
     break_slots: list[int] = [4]
     day_slots: list[int] = [8, 8, 8, 8, 8, 4]
+    # Student lunch: every class (each lab group) keeps at least `lunch_slots` free slots inside
+    # `lunch_window` on every day it has classes. Empty window = no lunch constraint.
+    lunch_window: list[int] = []
+    lunch_slots: int = Field(default=1, ge=1)
 
 
 class Room(BaseModel):

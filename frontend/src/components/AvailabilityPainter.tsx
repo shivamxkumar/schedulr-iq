@@ -87,41 +87,43 @@ export default function AvailabilityPainter({ tc, cells, onChange, modes, disabl
             <span className="font-mono text-2xs text-slate">{counts[m.state]}</span>
           </button>
         ))}
-        <span className="ml-auto text-2xs text-slate">Click or drag cells · click a day or time to fill it</span>
+        <span className="ml-auto text-2xs text-slate">Click or drag cells · click a day or a period to fill it</span>
       </div>
       <div className="overflow-x-auto border border-navy/15 bg-white">
-        <table className="w-full min-w-[460px] border-collapse">
+        <table className="w-full min-w-[560px] border-collapse">
           <thead>
             <tr>
-              <th className="w-14" />
-              {tc.days.map((d, i) => (
-                <th key={d} className="p-0">
-                  <button type="button" disabled={disabled} onClick={() => toggleDay(i)} className="w-full py-1.5 font-mono text-2xs uppercase tracking-wider text-slate hover:bg-ivory hover:text-navy disabled:hover:bg-transparent">{d}</button>
+              <th className="w-12" />
+              {Array.from({ length: tc.slots_per_day }, (_, t) => (
+                <th key={t} className="p-0">
+                  <button type="button" disabled={disabled} onClick={() => toggleRow(t)} className={`w-full py-1.5 font-mono text-[9.5px] text-slate hover:bg-ivory hover:text-navy disabled:hover:bg-transparent ${(tc.lunch_window ?? []).includes(t) ? 'bg-lime-50' : ''}`}>
+                    {slotLabel(tc, t)}{(tc.lunch_window ?? []).includes(t) && <span className="block text-[8px] uppercase tracking-wider">lunch</span>}
+                  </button>
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
-            {Array.from({ length: tc.slots_per_day }, (_, t) => (
-              <tr key={t}>
+            {tc.days.map((dname, d) => (
+              <tr key={d}>
                 <td className="p-0">
-                  <button type="button" disabled={disabled} onClick={() => toggleRow(t)} className="w-full pr-2 text-right font-mono text-2xs text-slate hover:text-navy">{slotLabel(tc, t)}</button>
+                  <button type="button" disabled={disabled} onClick={() => toggleDay(d)} className="w-full pr-2 text-right font-display text-sm font-semibold hover:text-navy/70">{dname.slice(0, 2)}</button>
                 </td>
-                {tc.days.map((_, d) => {
+                {Array.from({ length: tc.slots_per_day }, (_, t) => {
                   const ok = isTeaching(tc, d, t)
                   const st = cells[d]?.[t] ?? 'free'
                   const lab = overlay?.[`${d}-${t}`]
                   return (
-                    <td key={d} className="border border-navy/[0.07] p-0">
+                    <td key={t} className="border border-navy/[0.07] p-0">
                       {ok ? (
                         <button type="button" disabled={disabled}
                           onMouseDown={() => { const target = st === mode ? 'free' : mode; setPainting(target); set([[d, t]], target) }}
                           onMouseEnter={() => painting && set([[d, t]], painting)}
                           title={`${tc.days[d]} ${slotLabel(tc, t)} · ${modes.find(m => m.state === st)?.label ?? 'Available'}${lab ? ` · scheduled: ${lab}` : ''}`}
-                          className={`relative block h-7 w-full transition-colors ${SW[st]} ${!disabled ? 'hover:outline hover:outline-1 hover:outline-navy' : ''}`}>
+                          className={`relative block h-8 w-full transition-colors ${SW[st]} ${!disabled ? 'hover:outline hover:outline-1 hover:outline-navy' : ''}`}>
                           {lab && <span className={`absolute inset-0 flex items-center justify-center font-mono text-[9px] ${st === 'off' ? 'text-lime' : 'text-navy'}`}>{lab}</span>}
                         </button>
-                      ) : <span className={`block h-7 ${tc.break_slots.includes(t) ? 'hatch-break' : 'hatch-closed'}`} />}
+                      ) : <span className={`block h-8 ${tc.break_slots.includes(t) ? 'hatch-break' : 'hatch-closed'}`} />}
                     </td>
                   )
                 })}

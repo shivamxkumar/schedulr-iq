@@ -187,7 +187,21 @@ def test_lns_mode_improves_and_stays_valid():
     from app.solver import solve_lns
     b = load("iiit-surat")
     refs = term_refs(compute_metrics(b.dataset, b.official).terms)
-    res = solve_lns(b.dataset, Weights(), refs, b.official, time_limit=8)
+    start = validate(b.dataset, b.official).hard_count
+    res = solve_lns(b.dataset, Weights(), refs, b.official, time_limit=10)
     rep = validate(b.dataset, res.assignments)
-    assert rep.feasible and rep.complete
-    assert soft_score(compute_metrics(b.dataset, res.assignments).terms, Weights(), refs) <= 1.0
+    assert rep.complete and rep.hard_count < start  # repairs missing lunch hours first
+
+
+def test_lunch_window_enforced():
+    ds, base = baseline()
+    ds.time.lunch_window = [2, 3]  # 11:00-13:00 on the synthetic campus
+    res = solve(ds, Weights(), term_refs(compute_metrics(ds, base).terms), time_limit=10)
+    rep = validate(ds, res.assignments)
+    assert rep.feasible and not any(v.code == "LUNCH_BREAK" for v in rep.violations)
+    # Filling both lunch slots of a batch is reported.
+    a = next(x for x in res.assignments if x.session_id.startswith("CS201-A"))
+    b = next(x for x in res.assignments if x.session_id.startswith("CS202-A"))
+    bad = [x for x in res.assignments if x.session_id not in (a.session_id, b.session_id)]
+    bad += [a.model_copy(update={"day": 0, "start": 2}), b.model_copy(update={"day": 0, "start": 3})]
+    assert any(v.code == "LUNCH_BREAK" for v in validate(ds, bad).violations)

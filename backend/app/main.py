@@ -383,8 +383,14 @@ def api_optimize(body: OptimizeBody):
     before, after = view(base), view(rec)
     sb = soft_score(compute_metrics(d, base.assignments).terms, body.weights, r)
     sa = after["score"]
-    note = ("No improvement found: the base schedule already scores best for these weights."
-            if sa >= sb - 1e-9 else f"Weighted soft score {sb:.3f} → {sa:.3f} (lower is better).")
+    hb, ha = base_rep.hard_count, after["validation"]["hard_count"]
+    if ha < hb:
+        note = (f"Repaired {hb - ha} hard violation(s) ({hb} → {ha}, e.g. missing lunch hours). Weighted soft score "
+                f"{sb:.3f} → {sa:.3f}" + (" — higher, the cost of satisfying the hard rules." if sa > sb + 1e-9 else "."))
+    elif sa >= sb - 1e-9:
+        note = "No improvement found: the base schedule already scores best for these weights."
+    else:
+        note = f"Weighted soft score {sb:.3f} → {sa:.3f} (lower is better)."
     return {"status": "ok", "schedule": after, "base": before, "base_score_same_weights": sb, "note": note}
 
 

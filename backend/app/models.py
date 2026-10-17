@@ -55,6 +55,7 @@ class Batch(BaseModel):
     name: str
     size: int = Field(ge=1)
     program: str = ""
+    section: str = ""  # groups atomic batches (lab groups / elective divisions) of one class
 
 
 class Course(BaseModel):

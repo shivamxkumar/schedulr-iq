@@ -29,7 +29,7 @@ export const session = {
 /** Adds the session token to a GET URL used by plain links (downloads). */
 export const withToken = (url: string) => (token ? `${url}${url.includes('?') ? '&' : '?'}token=${encodeURIComponent(token)}` : url)
 
-export interface User { username: string; role: 'admin' | 'viewer'; name: string }
+export interface User { username: string; role: 'admin' | 'viewer' | 'demo'; name: string }
 
 async function req<T>(path: string, init?: RequestInit): Promise<T> {
   let res: Response
@@ -58,6 +58,7 @@ const post = <T>(p: string, b?: unknown) => req<T>(p, { method: 'POST', body: b 
 export const api = {
   login: (username: string, password: string) => post<{ token: string; user: User }>('/auth/login', { username, password }),
   me: () => req<User>('/auth/me'),
+  demoLogin: () => post<{ token: string; user: User }>('/auth/demo'),
   health: () => req<{ ok: boolean; solver: string }>('/health'),
   meta: () => req<{ hard_checks: { code: string; label: string }[]; default_weights: Weights }>('/meta'),
   dataset: () => req<DatasetPayload>('/dataset'),

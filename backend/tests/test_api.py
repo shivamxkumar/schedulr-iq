@@ -9,7 +9,7 @@ def client(tmp_path, monkeypatch):
     with TestClient(main.app) as c:
         tok = c.post("/api/auth/login", json={"username": "admin", "password": "admin@iiits"}).json()["token"]
         c.headers["Authorization"] = f"Bearer {tok}"
-        c.post("/api/dataset/reset")
+        c.post("/api/dataset/reset?demo=synthetic")
         yield c
 
 
@@ -66,3 +66,27 @@ def test_auth_required_and_viewer_is_read_only(client):
     assert anon.get("/api/schedules", headers=h).status_code == 200
     assert anon.post("/api/schedule/generate", headers=h).status_code == 403
     assert anon.get("/api/schedules", headers={"Authorization": "Bearer forged.sig"}).status_code == 401
+
+
+def test_iiit_surat_demo_official_timetable_is_valid(client):
+    r = client.post("/api/dataset/reset?demo=iiit-surat").json()
+    assert "IIIT Surat" in r["dataset"]["name"]
+    lst = client.get("/api/schedules").json()
+    base = client.get(f"/api/schedule/{lst['baseline_id']}").json()
+    assert base["validation"]["hard_count"] == 0 and base["validation"]["scheduled"] == 281
+    opt = [s for s in lst["schedules"] if s["kind"] == "optimized"]
+    assert opt and opt[0]["hard_count"] == 0
+    om = client.get(f"/api/schedule/{opt[0]['id']}").json()["metrics"]
+    assert om["student_idle_minutes"] < base["metrics"]["student_idle_minutes"]
+
+
+def test_demo_visitor_permissions(client):
+    from fastapi.testclient import TestClient
+    from app import main
+    anon = TestClient(main.app)
+    tok = anon.post("/api/auth/demo").json()["token"]
+    h = {"Authorization": f"Bearer {tok}"}
+    sid = anon.get("/api/schedules", headers=h).json()["baseline_id"]
+    assert anon.post(f"/api/schedule/{sid}/activate", headers=h).status_code == 200
+    assert anon.post("/api/dataset/reset", headers=h).status_code == 403
+    assert anon.post(f"/api/schedule/{sid}/publish", headers=h).status_code == 403

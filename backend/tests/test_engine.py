@@ -141,3 +141,19 @@ def test_infeasible_instance_reported():
 def test_reproducible_baseline():
     ds = demo_dataset()
     assert first_fit(ds) == first_fit(ds)
+
+
+def test_fast_placement_check_matches_full_validator():
+    import random
+    from app.validator import placement_violations, placement_violations_full
+    ds, base = baseline()
+    rng = random.Random(3)
+    rooms = [r.id for r in ds.rooms]
+    for _ in range(150):
+        a = rng.choice(base)
+        cand = a.model_copy(update={"day": rng.randrange(6), "start": rng.randrange(8), "room_id": rng.choice(rooms)})
+        fast = {v.code for v in placement_violations(ds, base, cand)}
+        full = {v.code for v in placement_violations_full(ds, base, cand)}
+        # Pre-existing load issues are attributed identically; weekly-load only differs when the
+        # baseline itself is over the limit, which a valid baseline never is.
+        assert fast == full, (cand, fast, full)

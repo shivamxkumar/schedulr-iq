@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from typing import Optional
 
+import re
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
@@ -13,6 +14,7 @@ from pydantic import BaseModel, Field, ValidationError
 from . import auth, csvio
 from .baseline import first_fit
 from .dataset_check import check_dataset
+from . import demos
 from .demo import demo_dataset
 from .explain import diff_schedules, explain_session, suggest_fixes
 from .metrics import TERM_KEYS, compute_metrics, soft_score, term_refs
@@ -27,7 +29,9 @@ app = FastAPI(title="SCHEDULR IQ", version="1.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 store = Store()
 
-PUBLIC = {"/api/health", "/api/auth/login"}
+PUBLIC = {"/api/health", "/api/auth/login", "/api/auth/demo"}
+# What a "View demo" visitor may change: run the optimizer and try moves on schedule copies.
+DEMO_WRITES = re.compile(r"^/api/(schedule/optimize|schedule/[^/]+/(move|diagnostic|activate)|dataset/validate|auth/me)$")
 
 
 @app.middleware("http")
@@ -42,8 +46,11 @@ async def require_auth(request: Request, call_next):
     if not user:
         return JSONResponse({"detail": "Not signed in or session expired."}, status_code=401)
     if request.method != "GET" and user["role"] != "admin" and path != "/api/auth/me":
-        return JSONResponse({"detail": "Read-only account: only administrators can change data or schedules."},
-                            status_code=403)
+        if not (user["role"] == "demo" and DEMO_WRITES.match(path)):
+            msg = ("Demo mode: you can optimize and try moves, but editing data, importing, resetting and "
+                   "publishing need an administrator account.") if user["role"] == "demo" else \
+                "Read-only account: only administrators can change data or schedules."
+            return JSONResponse({"detail": msg}, status_code=403)
     request.state.user = user
     return await call_next(request)
 
@@ -58,6 +65,12 @@ def login(body: LoginBody):
     user = auth.authenticate(body.username, body.password)
     if not user:
         raise HTTPException(401, "Incorrect username or password.")
+    return {"token": auth.issue(user), "user": user}
+
+
+@app.post("/api/auth/demo")
+def demo_login():
+    user = {"username": "demo", "role": "demo", "name": "Demo visitor"}
     return {"token": auth.issue(user), "user": user}
 
 
@@ -141,11 +154,40 @@ def generate_baseline() -> dict:
     return {"status": "ok", "schedule": view(rec)}
 
 
+def seed_demo(name: str) -> None:
+    """Load a demo dataset. With an official timetable it becomes the (validated) baseline."""
+    bundle = demos.load(name)
+    store.reset(bundle.dataset)
+    d = ds()
+    if not bundle.official:
+        generate_baseline()
+        return
+    rep = validate(d, bundle.official)
+    base = store.add(ScheduleRecord(
+        id=store.next_id(), label="Official timetable v4 (imported)", kind="baseline", created_at=now(),
+        assignments=bundle.official,
+        solver={"method": f"Imported, not generated: {bundle.source}. Independently validated: "
+                          f"{rep.hard_count} hard violations, {rep.scheduled}/{rep.required} sessions.",
+                "status": "imported"}))
+    store.state.baseline_id = base.id
+    opt = bundle.optimized
+    if opt:
+        assigns = [Assignment(**a) for a in opt["assignments"]]
+        orep = validate(d, assigns)
+        if orep.feasible and orep.complete:
+            store.add(ScheduleRecord(
+                id=store.next_id(), label="Optimized run 1 (precomputed)", kind="optimized", parent_id=base.id,
+                created_at=now(), assignments=assigns, weights=opt["weights"], solver=opt["solver"],
+                changes=[c.model_dump() for c in diff_schedules(d, bundle.official, assigns)]), activate=False)
+    store.state.active_id = base.id
+    store.save()
+
+
 @app.on_event("startup")
 def _startup():
     if not store.state.schedules:
         try:
-            generate_baseline()
+            seed_demo(demos.DEFAULT)
         except HTTPException:
             pass
 
@@ -198,9 +240,11 @@ def validate_dataset(body: Dataset):
 
 
 @app.post("/api/dataset/reset")
-def reset_dataset():
-    store.reset()
-    generate_baseline()
+def reset_dataset(demo: str = demos.DEFAULT):
+    try:
+        seed_demo(demo)
+    except KeyError:
+        raise HTTPException(404, f"Unknown demo '{demo}'.")
     return dataset_payload()
 
 
@@ -208,10 +252,10 @@ def reset_dataset():
 def scenario(name: str):
     d = demo_dataset()
     if name == "hall-closed":
-        d.name = "Diagnostic · Main Lecture Hall closed (infeasible)"
+        d.name = "Diagnostic · synthetic campus, Main Lecture Hall closed (infeasible)"
         d.rooms = [r for r in d.rooms if r.id != "LH-101"]
     elif name == "visiting-overload":
-        d.name = "Diagnostic · Visiting faculty also unavailable Wednesday (infeasible)"
+        d.name = "Diagnostic · synthetic campus, visiting faculty also unavailable Wednesday (infeasible)"
         f = next(x for x in d.faculty if x.id == "F08")
         f.unavailable.append(f.unavailable[0].model_copy(update={"day": 2}))
     else:
@@ -471,22 +515,49 @@ def api_diagnostic(sid: str):
     by = {a.session_id: a for a in assigns}
     sess = {s.id: s for s in expand_sessions(d)}
     notes = []
-    # 1. Batch overlap: put a CSE-2B session on top of another CSE-2B session.
-    b_sessions = [a for a in assigns if "CSE-2B" in sess[a.session_id].batch_ids and sess[a.session_id].duration == 1]
-    if len(b_sessions) >= 2:
-        x, y = b_sessions[0], b_sessions[1]
-        y.day, y.start = x.day, x.start
-        notes.append(f"{y.session_id} moved onto {x.session_id}'s slot (batch overlap)")
-    # 2. Capacity / room type: a 48-student lecture into the 40-seat seminar room.
-    ec = by.get("EC201-S1")
-    if ec and any(r.id == "SR-301" for r in d.rooms):
-        ec.room_id = "SR-301"
-        notes.append("EC201-S1 assigned to SR-301 (capacity and room type)")
-    # 3. Faculty unavailability: visiting professor's class moved to Tuesday.
-    ma = by.get("MA211-S1")
-    if ma:
-        ma.day = 1
-        notes.append("MA211-S1 moved to Tuesday (faculty unavailable)")
+    tc = d.time
+    ordered = sorted(assigns, key=lambda a: (a.day, a.start, a.session_id))
+    touched: set[str] = set()
+    # 1. Batch overlap: move a 1-slot session onto another session of the same batch.
+    for x in ordered:
+        sx = sess[x.session_id]
+        y = next((y for y in ordered if y.session_id not in touched | {x.session_id} and sess[y.session_id].duration == 1
+                  and set(sess[y.session_id].batch_ids) & set(sx.batch_ids) and y.day != x.day), None)
+        if y:
+            y.day, y.start = x.day, x.start
+            touched |= {x.session_id, y.session_id}
+            notes.append(f"{y.session_id} moved onto {x.session_id}'s slot (batch overlap)")
+            break
+    # 2. Capacity / room type: put the largest lecture into the smallest room.
+    small = min(d.rooms, key=lambda r: r.capacity)
+    big = max((a for a in ordered if a.session_id not in touched and sess[a.session_id].enrollment > small.capacity),
+              key=lambda a: sess[a.session_id].enrollment, default=None)
+    if big:
+        big.room_id = small.id
+        touched.add(big.session_id)
+        notes.append(f"{big.session_id} ({sess[big.session_id].enrollment} students) assigned to {small.id} "
+                     f"({small.capacity} seats, {small.room_type})")
+    # 3. Faculty: move a session into its teacher's unavailability, or onto another of their classes.
+    fac = {f.id: f for f in d.faculty}
+    done = False
+    for a in ordered:
+        if a.session_id in touched:
+            continue
+        f = fac.get(a.faculty_id)
+        if f and f.unavailable:
+            w = f.unavailable[0]
+            a.day, a.start = w.day, w.start
+            notes.append(f"{a.session_id} moved into {f.name}'s unavailable window ({tc.days[w.day]})")
+            done = True
+            break
+    if not done:
+        for a in ordered:
+            other = next((b for b in ordered if b.faculty_id == a.faculty_id and b.session_id != a.session_id
+                          and b.session_id not in touched and a.session_id not in touched and b.day != a.day), None)
+            if other:
+                other.day, other.start = a.day, a.start
+                notes.append(f"{other.session_id} moved onto {a.session_id} — same teacher (faculty double-booking)")
+                break
     new = store.add(ScheduleRecord(
         id=store.next_id(), label=f"Diagnostic example (corrupted copy of {sid})", kind="diagnostic", parent_id=sid,
         created_at=now(), assignments=assigns,

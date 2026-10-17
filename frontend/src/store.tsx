@@ -16,6 +16,7 @@ interface Lookups {
 interface Ctx {
   user: User
   canEdit: boolean
+  canRun: boolean
   logout: () => void
   data: DatasetPayload | null
   list: ScheduleListItem[]
@@ -137,7 +138,7 @@ export function AppProvider({ children, user, logout }: { children: ReactNode; u
 
   return (
     <C.Provider value={{
-      user, canEdit: user.role === 'admin', logout,
+      user, canEdit: user.role === 'admin', canRun: user.role !== 'viewer', logout,
       data, list, baselineId, active, baseline, loading, fatal, view, setView, selected, select, filters, setFilters, focus,
       refresh, activate, adopt, toast, toasts, dismiss, L, errMsg,
     }}>

@@ -1,0 +1,8994 @@
+{
+ "dataset": {
+  "name": "IIIT Surat \u00b7 Odd Semester 2025\u201326 (official v4 timetable)",
+  "time": {
+   "days": [
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri"
+   ],
+   "day_start": "09:00",
+   "slot_minutes": 60,
+   "slots_per_day": 9,
+   "break_slots": [],
+   "day_slots": [
+    9,
+    9,
+    9,
+    9,
+    9
+   ]
+  },
+  "rooms": [
+   {
+    "id": "CR-1",
+    "name": "Classroom 1",
+    "capacity": 80,
+    "room_type": "lecture",
+    "equipment": [
+     "projector"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CR-2",
+    "name": "Classroom 2",
+    "capacity": 90,
+    "room_type": "lecture",
+    "equipment": [
+     "projector"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CR-3",
+    "name": "Classroom 3",
+    "capacity": 90,
+    "room_type": "lecture",
+    "equipment": [
+     "projector"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CR-4",
+    "name": "Classroom 4",
+    "capacity": 80,
+    "room_type": "lecture",
+    "equipment": [
+     "projector"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CR-5",
+    "name": "Classroom 5",
+    "capacity": 100,
+    "room_type": "lecture",
+    "equipment": [
+     "projector"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CR-6",
+    "name": "Classroom 6",
+    "capacity": 80,
+    "room_type": "lecture",
+    "equipment": [
+     "projector"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CSE-LAB-1",
+    "name": "CSE Lab 1",
+    "capacity": 60,
+    "room_type": "lab",
+    "equipment": [
+     "computers"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CSE-LAB-2",
+    "name": "CSE Lab 2",
+    "capacity": 40,
+    "room_type": "lab",
+    "equipment": [
+     "computers"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "CSE-LAB-3",
+    "name": "CSE Lab 3",
+    "capacity": 40,
+    "room_type": "lab",
+    "equipment": [
+     "computers"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "ECE-LAB-2",
+    "name": "ECE Lab 2",
+    "capacity": 40,
+    "room_type": "lab",
+    "equipment": [
+     "electronics"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "ECE-LAB-3",
+    "name": "ECE Lab 3",
+    "capacity": 70,
+    "room_type": "lab",
+    "equipment": [
+     "electronics"
+    ],
+    "unavailable": []
+   },
+   {
+    "id": "PHY-LAB-1",
+    "name": "PHY Lab 1",
+    "capacity": 60,
+    "room_type": "lab",
+    "equipment": [
+     "physics"
+    ],
+    "unavailable": []
+   }
+  ],
+  "faculty": [
+   {
+    "id": "AD",
+    "name": "Dr. Abisek Dahal",
+    "department": "Computer Science & Engineering \u00b7 initials AD (matched)",
+    "courses": [
+     "CS101-S1CSED",
+     "CS101L-S1CSED-G1",
+     "CS101L-S1CSED-G2",
+     "CS501L-S5CSE-G1",
+     "CS501L-S5CSE-G2",
+     "CS503-S5CSE",
+     "CS503L-S5CSE-G1",
+     "CS503L-S5CSE-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 5,
+    "max_weekly_slots": 22
+   },
+   {
+    "id": "AP",
+    "name": "Dr. Aarti Patle",
+    "department": "Mathematical & Computational Sciences \u00b7 initials AP (matched)",
+    "courses": [
+     "MS101-S1CSEB",
+     "MS101-S1CSED"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 8
+   },
+   {
+    "id": "APS",
+    "name": "Dr. Anand Pratap Singh",
+    "department": "Mathematical & Computational Sciences \u00b7 initials APS (matched)",
+    "courses": [
+     "MS101-S1ECEA",
+     "MS101TT-S1CSEB",
+     "MS101TT-S1CSEC",
+     "MS101TT-S1CSED",
+     "MS101TT-S1ECEA"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 11
+   },
+   {
+    "id": "BP",
+    "name": "Dr. Bikash Patra",
+    "department": "Physical & Applied Sciences \u00b7 initials BP (matched)",
+    "courses": [
+     "AS101-S1CSEB",
+     "AS101L-S1CSEB-G2",
+     "HS911-MTCSE+MTDSC+MTECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 11
+   },
+   {
+    "id": "DN",
+    "name": "Dr. Nidhi Nitin Desai",
+    "department": "Computer Science & Engineering \u00b7 initials DN (inferred)",
+    "courses": [
+     "CS302-S3CSEA",
+     "CS302-S3CSEB",
+     "CS302L-S3CSEA-G1",
+     "CS302L-S3CSEA-G2",
+     "CS302L-S3CSEB-G1",
+     "CS302L-S3CSEB-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "DP",
+    "name": "Dr. Dhiraj Kumar Patel",
+    "department": "Electronics & Communication Engineering \u00b7 initials DP (matched)",
+    "courses": [
+     "EC101L-S1CSEC-G1-2",
+     "EC101L-S1CSEC-G2",
+     "EC101L-S1CSED-G1",
+     "EC102-S1CSEC",
+     "EC102-S1CSED"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 14
+   },
+   {
+    "id": "DR",
+    "name": "Dr. Diksha Rangwani",
+    "department": "Computer Science & Engineering \u00b7 initials DR (matched)",
+    "courses": [
+     "CS101-S1CSEB",
+     "CS101-S1CSEC",
+     "CS101L-S1CSEB-G1",
+     "CS101L-S1CSEB-G2",
+     "CS101L-S1CSEC-G1",
+     "CS101L-S1CSEC-G2",
+     "CS913L-MTCSE+S7CSE-G1D1.G1D2.G1D3",
+     "CS913L-S7CSE-G2D1.G2D2.G2D3"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 22
+   },
+   {
+    "id": "HG",
+    "name": "Dr. Hemantkumar Sahijram Goklani",
+    "department": "Electronics & Communication Engineering \u00b7 initials HG (matched)",
+    "courses": [
+     "EC101L-S1CSED-G1-2",
+     "EC101L-S1CSED-G2",
+     "EC503-S5ECE",
+     "EC503L-S5ECE-G1D1.G1D2",
+     "EC503L-S5ECE-G2D1.G2D2",
+     "EC9111-MTDSC+MTECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 5,
+    "max_weekly_slots": 16
+   },
+   {
+    "id": "HSS-F1-HS101",
+    "name": "HSS faculty F1 \u00b7 HS101 (to be assigned)",
+    "department": "Humanities & Social Sciences \u00b7 initials HSS (placeholder)",
+    "courses": [
+     "HS101-S1CSEC",
+     "HS101-S1ECEA"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 8
+   },
+   {
+    "id": "HSS-F2-HM505",
+    "name": "HSS faculty F2 \u00b7 HM505 (to be assigned)",
+    "department": "Humanities & Social Sciences \u00b7 initials HSS (placeholder)",
+    "courses": [
+     "HM505-S5CSE",
+     "HM505-S5ECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 8
+   },
+   {
+    "id": "HSS-F2-HS101",
+    "name": "HSS faculty F2 \u00b7 HS101 (to be assigned)",
+    "department": "Humanities & Social Sciences \u00b7 initials HSS (placeholder)",
+    "courses": [
+     "HS101-S1CSEB",
+     "HS101-S1CSED"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 8
+   },
+   {
+    "id": "HSS-F3-HS301",
+    "name": "HSS faculty F3 \u00b7 HS301 (to be assigned)",
+    "department": "Humanities & Social Sciences \u00b7 initials HSS (placeholder)",
+    "courses": [
+     "HS301-S3CSEA",
+     "HS301-S3CSEB",
+     "HS301-S3ECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 10
+   },
+   {
+    "id": "KD",
+    "name": "Dr. Kaustubh Dhondge",
+    "department": "Computer Science & Engineering / ECE \u00b7 initials KD (matched)",
+    "courses": [
+     "CS504-S5CSE",
+     "CS504-S5ECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 10
+   },
+   {
+    "id": "KY",
+    "name": "Dr. Khamosh Yadav",
+    "department": "Physical & Applied Sciences \u00b7 initials KY (matched)",
+    "courses": [
+     "AS101-S1CSEC",
+     "AS101L-S1CSEC-G1",
+     "AS101L-S1CSEC-G2",
+     "AS101L-S1CSED-G1",
+     "AS101L-S1CSED-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 15
+   },
+   {
+    "id": "LC",
+    "name": "Dr. Lokendra Chouhan",
+    "department": "Electronics & Communication Engineering \u00b7 initials LC (matched)",
+    "courses": [
+     "CS9106-MTCSE+S7CSE+S7ECE-G1D3.G2D3",
+     "CS9106L-MTCSE+S7CSE+S7ECE-G1D3.G2D3",
+     "EC301-S3ECE",
+     "EC301L-S3ECE-G1",
+     "EC301L-S3ECE-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 15
+   },
+   {
+    "id": "MR",
+    "name": "Dr. Manish Kumar Rai",
+    "department": "Electronics & Communication Engineering \u00b7 initials MR (matched)",
+    "courses": [
+     "CS301-S3CSEB",
+     "CS301-S3ECE",
+     "EC101L-S1CSEC-G1",
+     "EC912-MTDSC+MTECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 14
+   },
+   {
+    "id": "NA",
+    "name": "Dr. Neelima Agrawal",
+    "department": "Electronics & Communication Engineering \u00b7 initials NA (matched)",
+    "courses": [
+     "EC101L-S1ECEA-G1",
+     "EC101L-S1ECEA-G2-2",
+     "EC102-S1CSEB",
+     "EC102-S1ECEA-2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 12
+   },
+   {
+    "id": "NB",
+    "name": "Dr. Nayan Behera",
+    "department": "Computer Science & Engineering \u00b7 initials NB (matched)",
+    "courses": [
+     "CS101-S1ECEA",
+     "CS101L-S1ECEA-G1",
+     "CS101L-S1ECEA-G2",
+     "CS502-S5CSE",
+     "CS502L-S5CSE-G1",
+     "CS502L-S5CSE-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 5,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "ND",
+    "name": "Dr. Nishad Gopal Deshpande",
+    "department": "Physical & Applied Sciences \u00b7 initials ND (matched)",
+    "courses": [
+     "AS101-S1CSED",
+     "AS101-S1ECEA",
+     "AS101L-S1CSEB-G1",
+     "AS101L-S1ECEA-G1",
+     "AS101L-S1ECEA-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 16
+   },
+   {
+    "id": "PAS-F1-AS102",
+    "name": "PAS faculty F1 \u00b7 AS102 (to be assigned)",
+    "department": "Physical & Applied Sciences \u00b7 initials PAS (placeholder)",
+    "courses": [
+     "AS102-S1CSEC",
+     "AS102-S1ECEA"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 8
+   },
+   {
+    "id": "PAS-F2-AS102",
+    "name": "PAS faculty F2 \u00b7 AS102 (to be assigned)",
+    "department": "Physical & Applied Sciences \u00b7 initials PAS (placeholder)",
+    "courses": [
+     "AS102-S1CSEB",
+     "AS102-S1CSED"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 8
+   },
+   {
+    "id": "PJM",
+    "name": "Dr. Prarthana Jagat Mehta",
+    "department": "Computer Science & Engineering \u00b7 initials PJM (matched)",
+    "courses": [
+     "CS301-S3CSEA",
+     "CS9116-MTCSE+S7CSE-G1D1.G2D1",
+     "CS9116-S7ECE-G1D1.G2D1",
+     "CS9116L-S7CSE-G1D1.G1D2.G1D3",
+     "CS9116L-S7CSE-G2D1.G2D2.G2D3",
+     "CS9116L-S7ECE-G1D1.G2D1"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 19
+   },
+   {
+    "id": "PS",
+    "name": "Dr. Pradeep Singh",
+    "department": "Mathematical & Computational Sciences / CSE \u00b7 initials PS (matched)",
+    "courses": [
+     "CS303-S3ECE",
+     "CS303L-S3ECE-G1",
+     "CS303L-S3ECE-G2",
+     "CS911-MTCSE",
+     "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "RDM",
+    "name": "Dr. Rahul Dev Mishra",
+    "department": "Electronics & Communication Engineering \u00b7 initials RDM (matched)",
+    "courses": [
+     "EC101L-S1CSED-G2-2",
+     "EC101L-S1ECEA-G2",
+     "EC9103-MTECE+S5ECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 11
+   },
+   {
+    "id": "RK",
+    "name": "Dr. Ritesh Kumar",
+    "department": "Computer Science & Engineering \u00b7 initials RK (matched)",
+    "courses": [
+     "CS701-S7CSE",
+     "CS701-S7ECE",
+     "CS701L-S7CSE-G1D1.G1D2.G1D3",
+     "CS701L-S7CSE-G2D1.G2D2.G2D3",
+     "CS701L-S7ECE-G1D1.G1D2.G1D3",
+     "CS701L-S7ECE-G2D1.G2D2.G2D3"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "RN",
+    "name": "Dr. Rachit Nimavat",
+    "department": "Computer Science & Engineering \u00b7 initials RN (matched)",
+    "courses": [
+     "CS303-S3CSEA",
+     "CS303-S3CSEB",
+     "CS303L-S3CSEA-G1",
+     "CS303L-S3CSEA-G2",
+     "CS303L-S3CSEB-G1",
+     "CS303L-S3CSEB-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "RP",
+    "name": "Mr. Rahul K Patel",
+    "department": "Electronics & Communication Engineering \u00b7 initials RP (inferred)",
+    "courses": [
+     "CS753-S7CSE",
+     "EC101L-S1CSEB-G1-2",
+     "EC101L-S1CSEB-G2",
+     "EC702-S7ECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 14
+   },
+   {
+    "id": "RRP",
+    "name": "Dr. Reema Patel",
+    "department": "Computer Science & Engineering \u00b7 initials RRP (inferred)",
+    "courses": [
+     "CS304-S3CSEA",
+     "CS304-S3CSEB",
+     "CS304L-S3CSEA-G1",
+     "CS304L-S3CSEA-G2",
+     "CS304L-S3CSEB-G1",
+     "CS304L-S3CSEB-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "SA",
+    "name": "Dr. Shreya Agarwal",
+    "department": "Computer Science & Engineering \u00b7 initials SA (inferred)",
+    "courses": [
+     "CS501-S5CSE",
+     "CS913-MTCSE+S7CSE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 10
+   },
+   {
+    "id": "SKS",
+    "name": "Dr. Sameer Kumar Singh",
+    "department": "Electronics & Communication Engineering \u00b7 initials SKS (matched)",
+    "courses": [
+     "CS753-S7ECE",
+     "EC302-S3ECE",
+     "EC302L-S3ECE-G1",
+     "EC302L-S3ECE-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 14
+   },
+   {
+    "id": "SM",
+    "name": "Dr. Shikha Maurya",
+    "department": "Electronics & Communication Engineering \u00b7 initials SM (matched)",
+    "courses": [
+     "EC101L-S1CSEB-G2-2",
+     "EC501-S5ECE",
+     "EC501L-S5ECE-G1D1.G1D2",
+     "EC501L-S5ECE-G2D1.G2D2",
+     "EC9111L-MTDSC+MTECE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 15
+   },
+   {
+    "id": "SR",
+    "name": "SR (initials only)",
+    "department": "Not on public faculty pages \u00b7 initials SR (unlisted)",
+    "courses": [
+     "CS504L-S5CSE-G1",
+     "CS504L-S5CSE-G2",
+     "CS504L-S5ECE-G1D1.G1D2",
+     "CS504L-S5ECE-G2D1.G2D2",
+     "EC102-S1CSEB-2",
+     "EC102-S1CSEC-2",
+     "EC102-S1CSED-2",
+     "EC102-S1ECEA",
+     "EC912-MTDSC+MTECE-2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 18
+   },
+   {
+    "id": "SRS",
+    "name": "SRS (initials only)",
+    "department": "Not on public faculty pages \u00b7 initials SRS (unlisted)",
+    "courses": [
+     "CS514-S5CSE",
+     "CS514-S5ECE-G1D1.G2D1"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 10
+   },
+   {
+    "id": "SVR",
+    "name": "Dr. Sivavenkateswara Rao V.",
+    "department": "Electronics & Communication Engineering \u00b7 initials SVR (matched)",
+    "courses": [
+     "ECD911-MTDSC",
+     "ECD911L-MTDSC",
+     "ECD913L-MTDSC"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 10
+   },
+   {
+    "id": "TD",
+    "name": "Dr. Tanmay Dubey",
+    "department": "Electronics & Communication Engineering \u00b7 initials TD (matched)",
+    "courses": [
+     "EC101L-S1CSEB-G1",
+     "EC101L-S1ECEA-G1-2",
+     "EC911-MTECE",
+     "EC913L-MTECE+S5ECE-G1D2.G2D2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 16
+   },
+   {
+    "id": "TG",
+    "name": "Ms. Trupti Gondaliya",
+    "department": "Computer Science & Engineering \u00b7 initials TG (inferred)",
+    "courses": [
+     "CS305-S3CSEA",
+     "CS305-S3CSEB",
+     "CS912L-MTCSE"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 14
+   },
+   {
+    "id": "VAP",
+    "name": "Dr. Venkata Annapurna Priyadarshini Chavali",
+    "department": "Electronics & Communication Engineering \u00b7 initials VAP (matched)",
+    "courses": [
+     "EC101L-S1CSEC-G2-2",
+     "EC303-MTDSC+S3ECE",
+     "EC303L-MTDSC+S3ECE-G1",
+     "EC303L-S3ECE-G2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 13
+   },
+   {
+    "id": "VP",
+    "name": "Dr. Vijay Kumar Patel",
+    "department": "Mathematical & Computational Sciences \u00b7 initials VP (matched)",
+    "courses": [
+     "MS101-S1CSEC",
+     "MS101-S1CSED-2"
+    ],
+    "unavailable": [],
+    "dispreferred": [
+     {
+      "day": 0,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 1,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 2,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 3,
+      "start": 8,
+      "end": 9
+     },
+     {
+      "day": 4,
+      "start": 8,
+      "end": 9
+     }
+    ],
+    "max_daily_slots": 4,
+    "max_weekly_slots": 9
+   }
+  ],
+  "batches": [
+   {
+    "id": "S1-ECEA-G1",
+    "name": "B.Tech ECE Sem 1 Sec A \u00b7 G1",
+    "size": 35,
+    "program": "B.Tech ECE Sem 1 Sec A",
+    "section": "S1-ECEA"
+   },
+   {
+    "id": "S1-ECEA-G2",
+    "name": "B.Tech ECE Sem 1 Sec A \u00b7 G2",
+    "size": 35,
+    "program": "B.Tech ECE Sem 1 Sec A",
+    "section": "S1-ECEA"
+   },
+   {
+    "id": "S1-CSEB-G1",
+    "name": "B.Tech CSE Sem 1 Sec B \u00b7 G1",
+    "size": 35,
+    "program": "B.Tech CSE Sem 1 Sec B",
+    "section": "S1-CSEB"
+   },
+   {
+    "id": "S1-CSEB-G2",
+    "name": "B.Tech CSE Sem 1 Sec B \u00b7 G2",
+    "size": 35,
+    "program": "B.Tech CSE Sem 1 Sec B",
+    "section": "S1-CSEB"
+   },
+   {
+    "id": "S1-CSEC-G1",
+    "name": "B.Tech CSE Sem 1 Sec C \u00b7 G1",
+    "size": 35,
+    "program": "B.Tech CSE Sem 1 Sec C",
+    "section": "S1-CSEC"
+   },
+   {
+    "id": "S1-CSEC-G2",
+    "name": "B.Tech CSE Sem 1 Sec C \u00b7 G2",
+    "size": 35,
+    "program": "B.Tech CSE Sem 1 Sec C",
+    "section": "S1-CSEC"
+   },
+   {
+    "id": "S1-CSED-G1",
+    "name": "B.Tech CSE Sem 1 Sec D \u00b7 G1",
+    "size": 35,
+    "program": "B.Tech CSE Sem 1 Sec D",
+    "section": "S1-CSED"
+   },
+   {
+    "id": "S1-CSED-G2",
+    "name": "B.Tech CSE Sem 1 Sec D \u00b7 G2",
+    "size": 35,
+    "program": "B.Tech CSE Sem 1 Sec D",
+    "section": "S1-CSED"
+   },
+   {
+    "id": "S3-ECE-G1",
+    "name": "B.Tech ECE Sem 3 \u00b7 G1",
+    "size": 34,
+    "program": "B.Tech ECE Sem 3",
+    "section": "S3-ECE"
+   },
+   {
+    "id": "S3-ECE-G2",
+    "name": "B.Tech ECE Sem 3 \u00b7 G2",
+    "size": 34,
+    "program": "B.Tech ECE Sem 3",
+    "section": "S3-ECE"
+   },
+   {
+    "id": "S3-CSEA-G1",
+    "name": "B.Tech CSE Sem 3 Sec A \u00b7 G1",
+    "size": 35,
+    "program": "B.Tech CSE Sem 3 Sec A",
+    "section": "S3-CSEA"
+   },
+   {
+    "id": "S3-CSEA-G2",
+    "name": "B.Tech CSE Sem 3 Sec A \u00b7 G2",
+    "size": 35,
+    "program": "B.Tech CSE Sem 3 Sec A",
+    "section": "S3-CSEA"
+   },
+   {
+    "id": "S3-CSEB-G1",
+    "name": "B.Tech CSE Sem 3 Sec B \u00b7 G1",
+    "size": 35,
+    "program": "B.Tech CSE Sem 3 Sec B",
+    "section": "S3-CSEB"
+   },
+   {
+    "id": "S3-CSEB-G2",
+    "name": "B.Tech CSE Sem 3 Sec B \u00b7 G2",
+    "size": 35,
+    "program": "B.Tech CSE Sem 3 Sec B",
+    "section": "S3-CSEB"
+   },
+   {
+    "id": "S5-ECE-G1D1",
+    "name": "B.Tech ECE Sem 5 \u00b7 G1D1",
+    "size": 15,
+    "program": "B.Tech ECE Sem 5",
+    "section": "S5-ECE"
+   },
+   {
+    "id": "S5-ECE-G1D2",
+    "name": "B.Tech ECE Sem 5 \u00b7 G1D2",
+    "size": 15,
+    "program": "B.Tech ECE Sem 5",
+    "section": "S5-ECE"
+   },
+   {
+    "id": "S5-ECE-G2D1",
+    "name": "B.Tech ECE Sem 5 \u00b7 G2D1",
+    "size": 15,
+    "program": "B.Tech ECE Sem 5",
+    "section": "S5-ECE"
+   },
+   {
+    "id": "S5-ECE-G2D2",
+    "name": "B.Tech ECE Sem 5 \u00b7 G2D2",
+    "size": 15,
+    "program": "B.Tech ECE Sem 5",
+    "section": "S5-ECE"
+   },
+   {
+    "id": "S5-CSE-G1",
+    "name": "B.Tech CSE Sem 5 \u00b7 G1",
+    "size": 36,
+    "program": "B.Tech CSE Sem 5",
+    "section": "S5-CSE"
+   },
+   {
+    "id": "S5-CSE-G2",
+    "name": "B.Tech CSE Sem 5 \u00b7 G2",
+    "size": 36,
+    "program": "B.Tech CSE Sem 5",
+    "section": "S5-CSE"
+   },
+   {
+    "id": "S7-ECE-G1D1",
+    "name": "B.Tech ECE Sem 7 \u00b7 G1D1",
+    "size": 10,
+    "program": "B.Tech ECE Sem 7",
+    "section": "S7-ECE"
+   },
+   {
+    "id": "S7-ECE-G1D2",
+    "name": "B.Tech ECE Sem 7 \u00b7 G1D2",
+    "size": 10,
+    "program": "B.Tech ECE Sem 7",
+    "section": "S7-ECE"
+   },
+   {
+    "id": "S7-ECE-G1D3",
+    "name": "B.Tech ECE Sem 7 \u00b7 G1D3",
+    "size": 10,
+    "program": "B.Tech ECE Sem 7",
+    "section": "S7-ECE"
+   },
+   {
+    "id": "S7-ECE-G2D1",
+    "name": "B.Tech ECE Sem 7 \u00b7 G2D1",
+    "size": 10,
+    "program": "B.Tech ECE Sem 7",
+    "section": "S7-ECE"
+   },
+   {
+    "id": "S7-ECE-G2D2",
+    "name": "B.Tech ECE Sem 7 \u00b7 G2D2",
+    "size": 10,
+    "program": "B.Tech ECE Sem 7",
+    "section": "S7-ECE"
+   },
+   {
+    "id": "S7-ECE-G2D3",
+    "name": "B.Tech ECE Sem 7 \u00b7 G2D3",
+    "size": 10,
+    "program": "B.Tech ECE Sem 7",
+    "section": "S7-ECE"
+   },
+   {
+    "id": "S7-CSE-G1D1",
+    "name": "B.Tech CSE Sem 7 \u00b7 G1D1",
+    "size": 12,
+    "program": "B.Tech CSE Sem 7",
+    "section": "S7-CSE"
+   },
+   {
+    "id": "S7-CSE-G1D2",
+    "name": "B.Tech CSE Sem 7 \u00b7 G1D2",
+    "size": 12,
+    "program": "B.Tech CSE Sem 7",
+    "section": "S7-CSE"
+   },
+   {
+    "id": "S7-CSE-G1D3",
+    "name": "B.Tech CSE Sem 7 \u00b7 G1D3",
+    "size": 12,
+    "program": "B.Tech CSE Sem 7",
+    "section": "S7-CSE"
+   },
+   {
+    "id": "S7-CSE-G2D1",
+    "name": "B.Tech CSE Sem 7 \u00b7 G2D1",
+    "size": 12,
+    "program": "B.Tech CSE Sem 7",
+    "section": "S7-CSE"
+   },
+   {
+    "id": "S7-CSE-G2D2",
+    "name": "B.Tech CSE Sem 7 \u00b7 G2D2",
+    "size": 12,
+    "program": "B.Tech CSE Sem 7",
+    "section": "S7-CSE"
+   },
+   {
+    "id": "S7-CSE-G2D3",
+    "name": "B.Tech CSE Sem 7 \u00b7 G2D3",
+    "size": 12,
+    "program": "B.Tech CSE Sem 7",
+    "section": "S7-CSE"
+   },
+   {
+    "id": "MT-ECE",
+    "name": "M.Tech ECE Sem 1",
+    "size": 18,
+    "program": "M.Tech ECE Sem 1",
+    "section": "MT-ECE"
+   },
+   {
+    "id": "MT-CSE",
+    "name": "M.Tech CSE Sem 1",
+    "size": 20,
+    "program": "M.Tech CSE Sem 1",
+    "section": "MT-CSE"
+   },
+   {
+    "id": "MT-DSC",
+    "name": "M.Tech DS & Communication Sem 1",
+    "size": 18,
+    "program": "M.Tech DS & Communication Sem 1",
+    "section": "MT-DSC"
+   }
+  ],
+  "courses": [
+   {
+    "id": "AS101L-S1CSEB-G1",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101-S1CSEB",
+    "code": "AS 101",
+    "name": "Engineering Physics",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1CSEB-G2",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1CSEC-G1",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEC-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101-S1CSEC",
+    "code": "AS 101",
+    "name": "Engineering Physics",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1CSEC-G2",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1CSED-G1",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSED-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101-S1CSED",
+    "code": "AS 101",
+    "name": "Engineering Physics",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1CSED-G2",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1ECEA-G1",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-ECEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101-S1ECEA",
+    "code": "AS 101",
+    "name": "Engineering Physics",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS101L-S1ECEA-G2",
+    "code": "AS 101",
+    "name": "Engineering Physics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "sci",
+    "batch_ids": [
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS102-S1CSEB",
+    "code": "AS 102",
+    "name": "Fundamentals of Biological Sciences",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS102-S1CSEC",
+    "code": "AS 102",
+    "name": "Fundamentals of Biological Sciences",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS102-S1CSED",
+    "code": "AS 102",
+    "name": "Fundamentals of Biological Sciences",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "AS102-S1ECEA",
+    "code": "AS 102",
+    "name": "Fundamentals of Biological Sciences",
+    "course_type": "lecture",
+    "category": "sci",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1CSEB-G1",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101-S1CSEB",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1CSEB-G2",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1CSEC-G1",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSEC-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101-S1CSEC",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1CSEC-G2",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1CSED-G1",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSED-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101-S1CSED",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1CSED-G2",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1ECEA-G1",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-ECEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101-S1ECEA",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS101L-S1ECEA-G2",
+    "code": "CS 101",
+    "name": "Fundamentals of Computer & C Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS301-S3CSEA",
+    "code": "CS 301",
+    "name": "Computer Organization and Architecture",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1",
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS301-S3CSEB",
+    "code": "CS 301",
+    "name": "Computer Organization and Architecture",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1",
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS301-S3ECE",
+    "code": "CS 301",
+    "name": "Computer Organization and Architecture",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-ECE-G1",
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS302L-S3CSEA-G1",
+    "code": "CS 302",
+    "name": "Object Oriented Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS302-S3CSEA",
+    "code": "CS 302",
+    "name": "Object Oriented Programming",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1",
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS302L-S3CSEA-G2",
+    "code": "CS 302",
+    "name": "Object Oriented Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS302L-S3CSEB-G1",
+    "code": "CS 302",
+    "name": "Object Oriented Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS302-S3CSEB",
+    "code": "CS 302",
+    "name": "Object Oriented Programming",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1",
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS302L-S3CSEB-G2",
+    "code": "CS 302",
+    "name": "Object Oriented Programming \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303L-S3CSEA-G1",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303-S3CSEA",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1",
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303L-S3CSEA-G2",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303L-S3CSEB-G1",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303-S3CSEB",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1",
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303L-S3CSEB-G2",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303L-S3ECE-G1",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-ECE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303-S3ECE",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-ECE-G1",
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS303L-S3ECE-G2",
+    "code": "CS 303",
+    "name": "Programming for Problem Solving \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS304L-S3CSEA-G1",
+    "code": "CS 304",
+    "name": "Database Management Systems \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS304-S3CSEA",
+    "code": "CS 304",
+    "name": "Database Management Systems",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1",
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS304L-S3CSEA-G2",
+    "code": "CS 304",
+    "name": "Database Management Systems \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS304L-S3CSEB-G1",
+    "code": "CS 304",
+    "name": "Database Management Systems \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS304-S3CSEB",
+    "code": "CS 304",
+    "name": "Database Management Systems",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1",
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS304L-S3CSEB-G2",
+    "code": "CS 304",
+    "name": "Database Management Systems \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS305-S3CSEA",
+    "code": "CS 305",
+    "name": "Software Engineering",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEA-G1",
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS305-S3CSEB",
+    "code": "CS 305",
+    "name": "Software Engineering",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S3-CSEB-G1",
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS501L-S5CSE-G1",
+    "code": "CS 501",
+    "name": "Data Science \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS501-S5CSE",
+    "code": "CS 501",
+    "name": "Data Science",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1",
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS501L-S5CSE-G2",
+    "code": "CS 501",
+    "name": "Data Science \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS502L-S5CSE-G1",
+    "code": "CS 502",
+    "name": "Computer Graphics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS502-S5CSE",
+    "code": "CS 502",
+    "name": "Computer Graphics",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1",
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS502L-S5CSE-G2",
+    "code": "CS 502",
+    "name": "Computer Graphics \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS503L-S5CSE-G1",
+    "code": "CS 503",
+    "name": "High Performance Computing \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS503-S5CSE",
+    "code": "CS 503",
+    "name": "High Performance Computing",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1",
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS503L-S5CSE-G2",
+    "code": "CS 503",
+    "name": "High Performance Computing \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS504L-S5CSE-G1",
+    "code": "CS 504",
+    "name": "Cloud Computing & Big Data Infrastructure \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS504-S5CSE",
+    "code": "CS 504",
+    "name": "Cloud Computing & Big Data Infrastructure",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1",
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS504L-S5CSE-G2",
+    "code": "CS 504",
+    "name": "Cloud Computing & Big Data Infrastructure \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS504L-S5ECE-G1D1.G1D2",
+    "code": "CS 504",
+    "name": "Cloud Computing & Big Data Infrastructure \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS504-S5ECE",
+    "code": "CS 504",
+    "name": "Cloud Computing & Big Data Infrastructure",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2",
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS504L-S5ECE-G2D1.G2D2",
+    "code": "CS 504",
+    "name": "Cloud Computing & Big Data Infrastructure \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS514-S5CSE",
+    "code": "CS 514",
+    "name": "Fuzzy & Neural Networks (elective)",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-CSE-G1",
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS514-S5ECE-G1D1.G2D1",
+    "code": "CS 514",
+    "name": "Fuzzy & Neural Networks (elective)",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G2D1"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS701L-S7CSE-G1D1.G1D2.G1D3",
+    "code": "CS 701",
+    "name": "Artificial Intelligence \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G1D1",
+     "S7-CSE-G1D2",
+     "S7-CSE-G1D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS701-S7CSE",
+    "code": "CS 701",
+    "name": "Artificial Intelligence",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G1D1",
+     "S7-CSE-G1D2",
+     "S7-CSE-G1D3",
+     "S7-CSE-G2D1",
+     "S7-CSE-G2D2",
+     "S7-CSE-G2D3"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS701L-S7CSE-G2D1.G2D2.G2D3",
+    "code": "CS 701",
+    "name": "Artificial Intelligence \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G2D1",
+     "S7-CSE-G2D2",
+     "S7-CSE-G2D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS701L-S7ECE-G1D1.G1D2.G1D3",
+    "code": "CS 701",
+    "name": "Artificial Intelligence \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-ECE-G1D1",
+     "S7-ECE-G1D2",
+     "S7-ECE-G1D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS701-S7ECE",
+    "code": "CS 701",
+    "name": "Artificial Intelligence",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S7-ECE-G1D1",
+     "S7-ECE-G1D2",
+     "S7-ECE-G1D3",
+     "S7-ECE-G2D1",
+     "S7-ECE-G2D2",
+     "S7-ECE-G2D3"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS701L-S7ECE-G2D1.G2D2.G2D3",
+    "code": "CS 701",
+    "name": "Artificial Intelligence \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-ECE-G2D1",
+     "S7-ECE-G2D2",
+     "S7-ECE-G2D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS753-S7CSE",
+    "code": "CS 753",
+    "name": "Wireless Communication (elective)",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G1D1",
+     "S7-CSE-G1D2",
+     "S7-CSE-G1D3",
+     "S7-CSE-G2D1",
+     "S7-CSE-G2D2",
+     "S7-CSE-G2D3"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS753-S7ECE",
+    "code": "CS 753",
+    "name": "Wireless Communication (elective)",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S7-ECE-G1D1",
+     "S7-ECE-G1D2",
+     "S7-ECE-G1D3",
+     "S7-ECE-G2D1",
+     "S7-ECE-G2D2",
+     "S7-ECE-G2D3"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9106L-MTCSE+S7CSE+S7ECE-G1D3.G2D3",
+    "code": "CS 9106/EC 761",
+    "name": "VLSI Testing & Verification (elective) \u00b7 cross-listed CS 9106/EC 761 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE",
+     "S7-CSE-G1D3",
+     "S7-CSE-G2D3",
+     "S7-ECE-G1D3",
+     "S7-ECE-G2D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9106-MTCSE+S7CSE+S7ECE-G1D3.G2D3",
+    "code": "CS 9106/EC 761",
+    "name": "VLSI Testing & Verification (elective) \u00b7 cross-listed CS 9106/EC 761",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE",
+     "S7-CSE-G1D3",
+     "S7-CSE-G2D3",
+     "S7-ECE-G1D3",
+     "S7-ECE-G2D3"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS911-MTCSE",
+    "code": "CS 911",
+    "name": "CS 911 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE"
+    ],
+    "sessions_per_week": 4,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9116-MTCSE+S7CSE-G1D1.G2D1",
+    "code": "CS 9116/CS 742",
+    "name": "Cyber Security (elective) \u00b7 cross-listed CS 9116/CS 742",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE",
+     "S7-CSE-G1D1",
+     "S7-CSE-G2D1"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9116L-S7CSE-G1D1.G1D2.G1D3",
+    "code": "CS 9116/CS 742",
+    "name": "Cyber Security (elective) \u00b7 cross-listed CS 9116/CS 742 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G1D1",
+     "S7-CSE-G1D2",
+     "S7-CSE-G1D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9116L-S7CSE-G2D1.G2D2.G2D3",
+    "code": "CS 9116/CS 742",
+    "name": "Cyber Security (elective) \u00b7 cross-listed CS 9116/CS 742 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G2D1",
+     "S7-CSE-G2D2",
+     "S7-CSE-G2D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9116L-S7ECE-G1D1.G2D1",
+    "code": "CS 9116/CS 742",
+    "name": "Cyber Security (elective) \u00b7 cross-listed CS 9116/CS 742 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-ECE-G1D1",
+     "S7-ECE-G2D1"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9116-S7ECE-G1D1.G2D1",
+    "code": "CS 9116/CS 742",
+    "name": "Cyber Security (elective) \u00b7 cross-listed CS 9116/CS 742",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "S7-ECE-G1D1",
+     "S7-ECE-G2D1"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2",
+    "code": "CS 9117/CS 743",
+    "name": "Deep Learning (elective) \u00b7 cross-listed CS 9117/CS 743",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE",
+     "S7-CSE-G1D2",
+     "S7-CSE-G2D2",
+     "S7-ECE-G1D2",
+     "S7-ECE-G2D2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS912L-MTCSE",
+    "code": "CS 912",
+    "name": "CS 912 \u00b7 M.Tech course (name not in public curriculum) \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS913L-MTCSE+S7CSE-G1D1.G1D2.G1D3",
+    "code": "CS 913/CS 702",
+    "name": "Natural Language Processing \u00b7 cross-listed CS 913/CS 702 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE",
+     "S7-CSE-G1D1",
+     "S7-CSE-G1D2",
+     "S7-CSE-G1D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS913-MTCSE+S7CSE",
+    "code": "CS 913/CS 702",
+    "name": "Natural Language Processing \u00b7 cross-listed CS 913/CS 702",
+    "course_type": "lecture",
+    "category": "cs",
+    "batch_ids": [
+     "MT-CSE",
+     "S7-CSE-G1D1",
+     "S7-CSE-G1D2",
+     "S7-CSE-G1D3",
+     "S7-CSE-G2D1",
+     "S7-CSE-G2D2",
+     "S7-CSE-G2D3"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "CS913L-S7CSE-G2D1.G2D2.G2D3",
+    "code": "CS 913/CS 702",
+    "name": "Natural Language Processing \u00b7 cross-listed CS 913/CS 702 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "cs",
+    "batch_ids": [
+     "S7-CSE-G2D1",
+     "S7-CSE-G2D2",
+     "S7-CSE-G2D3"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "computers"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEB-G1",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEB-G1-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEB-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEB-G2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEB-G2-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEC-G1",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEC-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEC-G1-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEC-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEC-G2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSEC-G2-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSED-G1",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSED-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSED-G1-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSED-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSED-G2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1CSED-G2-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1ECEA-G1",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-ECEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1ECEA-G1-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-ECEA-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1ECEA-G2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC101L-S1ECEA-G2-2",
+    "code": "EC 101",
+    "name": "ICT Workshop - I \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1CSEB",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1CSEB-2",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1CSEC",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1CSEC-2",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1CSED",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1CSED-2",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1ECEA",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC102-S1ECEA-2",
+    "code": "EC 102",
+    "name": "Introduction to Electrical Engineering",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC301L-S3ECE-G1",
+    "code": "EC 301",
+    "name": "Signal and Systems \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC301-S3ECE",
+    "code": "EC 301",
+    "name": "Signal and Systems",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G1",
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC301L-S3ECE-G2",
+    "code": "EC 301",
+    "name": "Signal and Systems \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC302L-S3ECE-G1",
+    "code": "EC 302",
+    "name": "Electronics Devices and Circuits \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC302-S3ECE",
+    "code": "EC 302",
+    "name": "Electronics Devices and Circuits",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G1",
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC302L-S3ECE-G2",
+    "code": "EC 302",
+    "name": "Electronics Devices and Circuits \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC303L-MTDSC+S3ECE-G1",
+    "code": "EC 303/EC 9108",
+    "name": "Sensors and Instrumentation \u00b7 cross-listed EC 303/EC 9108 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC",
+     "S3-ECE-G1"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC303-MTDSC+S3ECE",
+    "code": "EC 303/EC 9108",
+    "name": "Sensors and Instrumentation \u00b7 cross-listed EC 303/EC 9108",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC",
+     "S3-ECE-G1",
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC303L-S3ECE-G2",
+    "code": "EC 303/EC 9108",
+    "name": "Sensors and Instrumentation \u00b7 cross-listed EC 303/EC 9108 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC501L-S5ECE-G1D1.G1D2",
+    "code": "EC 501",
+    "name": "Wireless Communication \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC501-S5ECE",
+    "code": "EC 501",
+    "name": "Wireless Communication",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2",
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC501L-S5ECE-G2D1.G2D2",
+    "code": "EC 501",
+    "name": "Wireless Communication \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC503L-S5ECE-G1D1.G1D2",
+    "code": "EC 503",
+    "name": "Image Processing & Computer Vision \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC503-S5ECE",
+    "code": "EC 503",
+    "name": "Image Processing & Computer Vision",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2",
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC503L-S5ECE-G2D1.G2D2",
+    "code": "EC 503",
+    "name": "Image Processing & Computer Vision \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC702-S7ECE",
+    "code": "EC 702",
+    "name": "Electric Vehicle Technology",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "S7-ECE-G1D1",
+     "S7-ECE-G1D2",
+     "S7-ECE-G1D3",
+     "S7-ECE-G2D1",
+     "S7-ECE-G2D2",
+     "S7-ECE-G2D3"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC9103-MTECE+S5ECE",
+    "code": "EC 9103/EC 502",
+    "name": "Nanoscale Device Engineering \u00b7 cross-listed EC 9103/EC 502",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-ECE",
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2",
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC911-MTECE",
+    "code": "EC 911",
+    "name": "EC 911 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-ECE"
+    ],
+    "sessions_per_week": 4,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC9111-MTDSC+MTECE",
+    "code": "EC 9111",
+    "name": "EC 9111 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC",
+     "MT-ECE"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC9111L-MTDSC+MTECE",
+    "code": "EC 9111",
+    "name": "EC 9111 \u00b7 M.Tech course (name not in public curriculum) \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC",
+     "MT-ECE"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC912-MTDSC+MTECE",
+    "code": "EC 912",
+    "name": "EC 912 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC",
+     "MT-ECE"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC912-MTDSC+MTECE-2",
+    "code": "EC 912",
+    "name": "EC 912 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC",
+     "MT-ECE"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "EC913L-MTECE+S5ECE-G1D2.G2D2",
+    "code": "EC 913/EC 513",
+    "name": "Hardware Description Languages (elective) \u00b7 cross-listed EC 913/EC 513 \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "MT-ECE",
+     "S5-ECE-G1D2",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "ECD911L-MTDSC",
+    "code": "ECD 911",
+    "name": "ECD 911 \u00b7 M.Tech course (name not in public curriculum) \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "physics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "ECD911-MTDSC",
+    "code": "ECD 911",
+    "name": "ECD 911 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "ECD913L-MTDSC",
+    "code": "ECD 913",
+    "name": "ECD 913 \u00b7 M.Tech course (name not in public curriculum) \u00b7 Lab",
+    "course_type": "lab",
+    "category": "ece",
+    "batch_ids": [
+     "MT-DSC"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 2,
+    "room_types": [
+     "lab"
+    ],
+    "equipment": [
+     "electronics"
+    ],
+    "eligible_starts": []
+   },
+   {
+    "id": "HM505-S5CSE",
+    "code": "HM 505",
+    "name": "Innovation & Entrepreneurship",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S5-CSE-G1",
+     "S5-CSE-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HM505-S5ECE",
+    "code": "HM 505",
+    "name": "Innovation & Entrepreneurship",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S5-ECE-G1D1",
+     "S5-ECE-G1D2",
+     "S5-ECE-G2D1",
+     "S5-ECE-G2D2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS101-S1CSEB",
+    "code": "HS 101",
+    "name": "Communication Skills and Personality Development",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS101-S1CSEC",
+    "code": "HS 101",
+    "name": "Communication Skills and Personality Development",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS101-S1CSED",
+    "code": "HS 101",
+    "name": "Communication Skills and Personality Development",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS101-S1ECEA",
+    "code": "HS 101",
+    "name": "Communication Skills and Personality Development",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS301-S3CSEA",
+    "code": "HS 301",
+    "name": "Economics & Business Management",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S3-CSEA-G1",
+     "S3-CSEA-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS301-S3CSEB",
+    "code": "HS 301",
+    "name": "Economics & Business Management",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S3-CSEB-G1",
+     "S3-CSEB-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS301-S3ECE",
+    "code": "HS 301",
+    "name": "Economics & Business Management",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "S3-ECE-G1",
+     "S3-ECE-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "HS911-MTCSE+MTDSC+MTECE",
+    "code": "HS 911",
+    "name": "HS 911 \u00b7 M.Tech course (name not in public curriculum)",
+    "course_type": "lecture",
+    "category": "hum",
+    "batch_ids": [
+     "MT-CSE",
+     "MT-DSC",
+     "MT-ECE"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture",
+     "lab"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101-S1CSEB",
+    "code": "MS 101",
+    "name": "Engineering Mathematics",
+    "course_type": "lecture",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101-S1CSEC",
+    "code": "MS 101",
+    "name": "Engineering Mathematics",
+    "course_type": "lecture",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101-S1CSED",
+    "code": "MS 101",
+    "name": "Engineering Mathematics",
+    "course_type": "lecture",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101-S1CSED-2",
+    "code": "MS 101",
+    "name": "Engineering Mathematics",
+    "course_type": "lecture",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 2,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101-S1ECEA",
+    "code": "MS 101",
+    "name": "Engineering Mathematics",
+    "course_type": "lecture",
+    "category": "math",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 3,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101TT-S1CSEB",
+    "code": "MS 101",
+    "name": "Engineering Mathematics (Tutorial)",
+    "course_type": "tutorial",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSEB-G1",
+     "S1-CSEB-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101TT-S1CSEC",
+    "code": "MS 101",
+    "name": "Engineering Mathematics (Tutorial)",
+    "course_type": "tutorial",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSEC-G1",
+     "S1-CSEC-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101TT-S1CSED",
+    "code": "MS 101",
+    "name": "Engineering Mathematics (Tutorial)",
+    "course_type": "tutorial",
+    "category": "math",
+    "batch_ids": [
+     "S1-CSED-G1",
+     "S1-CSED-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   },
+   {
+    "id": "MS101TT-S1ECEA",
+    "code": "MS 101",
+    "name": "Engineering Mathematics (Tutorial)",
+    "course_type": "tutorial",
+    "category": "math",
+    "batch_ids": [
+     "S1-ECEA-G1",
+     "S1-ECEA-G2"
+    ],
+    "sessions_per_week": 1,
+    "duration_slots": 1,
+    "room_types": [
+     "lecture"
+    ],
+    "equipment": [],
+    "eligible_starts": []
+   }
+  ],
+  "fixed": []
+ },
+ "official": [
+  {
+   "session_id": "AS101L-S1CSEB-G1-S1",
+   "day": 2,
+   "start": 2,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101-S1CSEB-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CR-5",
+   "faculty_id": "BP"
+  },
+  {
+   "session_id": "AS101-S1CSEB-S2",
+   "day": 3,
+   "start": 1,
+   "room_id": "CR-6",
+   "faculty_id": "BP"
+  },
+  {
+   "session_id": "AS101-S1CSEB-S3",
+   "day": 4,
+   "start": 5,
+   "room_id": "CR-5",
+   "faculty_id": "BP"
+  },
+  {
+   "session_id": "AS101L-S1CSEB-G2-S1",
+   "day": 1,
+   "start": 2,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "BP"
+  },
+  {
+   "session_id": "AS101L-S1CSEC-G1-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101-S1CSEC-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "CR-4",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101-S1CSEC-S2",
+   "day": 2,
+   "start": 2,
+   "room_id": "CR-4",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101-S1CSEC-S3",
+   "day": 3,
+   "start": 2,
+   "room_id": "CR-4",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101L-S1CSEC-G2-S1",
+   "day": 4,
+   "start": 4,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101L-S1CSED-G1-S1",
+   "day": 2,
+   "start": 6,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101-S1CSED-S1",
+   "day": 0,
+   "start": 3,
+   "room_id": "CR-2",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101-S1CSED-S2",
+   "day": 1,
+   "start": 5,
+   "room_id": "CR-3",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101-S1CSED-S3",
+   "day": 4,
+   "start": 3,
+   "room_id": "CR-3",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101L-S1CSED-G2-S1",
+   "day": 4,
+   "start": 6,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "KY"
+  },
+  {
+   "session_id": "AS101L-S1ECEA-G1-S1",
+   "day": 0,
+   "start": 0,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101-S1ECEA-S1",
+   "day": 2,
+   "start": 5,
+   "room_id": "CR-6",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101-S1ECEA-S2",
+   "day": 3,
+   "start": 5,
+   "room_id": "CR-6",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101-S1ECEA-S3",
+   "day": 4,
+   "start": 4,
+   "room_id": "CR-6",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS101L-S1ECEA-G2-S1",
+   "day": 3,
+   "start": 0,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "ND"
+  },
+  {
+   "session_id": "AS102-S1CSEB-S1",
+   "day": 2,
+   "start": 5,
+   "room_id": "CR-5",
+   "faculty_id": "PAS-F2-AS102"
+  },
+  {
+   "session_id": "AS102-S1CSEB-S2",
+   "day": 3,
+   "start": 6,
+   "room_id": "CR-5",
+   "faculty_id": "PAS-F2-AS102"
+  },
+  {
+   "session_id": "AS102-S1CSEC-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CR-4",
+   "faculty_id": "PAS-F1-AS102"
+  },
+  {
+   "session_id": "AS102-S1CSEC-S2",
+   "day": 1,
+   "start": 2,
+   "room_id": "CR-4",
+   "faculty_id": "PAS-F1-AS102"
+  },
+  {
+   "session_id": "AS102-S1CSED-S1",
+   "day": 2,
+   "start": 3,
+   "room_id": "CR-2",
+   "faculty_id": "PAS-F2-AS102"
+  },
+  {
+   "session_id": "AS102-S1CSED-S2",
+   "day": 3,
+   "start": 5,
+   "room_id": "CR-3",
+   "faculty_id": "PAS-F2-AS102"
+  },
+  {
+   "session_id": "AS102-S1ECEA-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CR-6",
+   "faculty_id": "PAS-F1-AS102"
+  },
+  {
+   "session_id": "AS102-S1ECEA-S2",
+   "day": 1,
+   "start": 1,
+   "room_id": "CR-6",
+   "faculty_id": "PAS-F1-AS102"
+  },
+  {
+   "session_id": "CS101L-S1CSEB-G1-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101-S1CSEB-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "CR-5",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101-S1CSEB-S2",
+   "day": 2,
+   "start": 1,
+   "room_id": "CR-5",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101-S1CSEB-S3",
+   "day": 4,
+   "start": 6,
+   "room_id": "CR-5",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101L-S1CSEB-G2-S1",
+   "day": 3,
+   "start": 2,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101L-S1CSEC-G1-S1",
+   "day": 3,
+   "start": 4,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101-S1CSEC-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CR-6",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101-S1CSEC-S2",
+   "day": 2,
+   "start": 6,
+   "room_id": "CR-4",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101-S1CSEC-S3",
+   "day": 4,
+   "start": 1,
+   "room_id": "CR-4",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101L-S1CSEC-G2-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS101L-S1CSED-G1-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS101-S1CSED-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CR-2",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS101-S1CSED-S2",
+   "day": 3,
+   "start": 7,
+   "room_id": "CR-3",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS101-S1CSED-S3",
+   "day": 4,
+   "start": 2,
+   "room_id": "CR-3",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS101L-S1CSED-G2-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS101L-S1ECEA-G1-S1",
+   "day": 2,
+   "start": 0,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS101-S1ECEA-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "CR-6",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS101-S1ECEA-S2",
+   "day": 1,
+   "start": 5,
+   "room_id": "CR-6",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS101-S1ECEA-S3",
+   "day": 4,
+   "start": 2,
+   "room_id": "CR-6",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS101L-S1ECEA-G2-S1",
+   "day": 4,
+   "start": 0,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS301-S3CSEA-S1",
+   "day": 0,
+   "start": 7,
+   "room_id": "CR-1",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS301-S3CSEA-S2",
+   "day": 2,
+   "start": 2,
+   "room_id": "CR-1",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS301-S3CSEA-S3",
+   "day": 4,
+   "start": 4,
+   "room_id": "CR-1",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS301-S3CSEB-S1",
+   "day": 1,
+   "start": 8,
+   "room_id": "CR-6",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "CS301-S3CSEB-S2",
+   "day": 3,
+   "start": 6,
+   "room_id": "CR-2",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "CS301-S3CSEB-S3",
+   "day": 4,
+   "start": 7,
+   "room_id": "CR-6",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "CS301-S3ECE-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CR-3",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "CS301-S3ECE-S2",
+   "day": 3,
+   "start": 3,
+   "room_id": "CR-2",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "CS301-S3ECE-S3",
+   "day": 4,
+   "start": 5,
+   "room_id": "CR-2",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "CS302L-S3CSEA-G1-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302-S3CSEA-S1",
+   "day": 0,
+   "start": 3,
+   "room_id": "CR-1",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302-S3CSEA-S2",
+   "day": 1,
+   "start": 5,
+   "room_id": "CR-2",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302-S3CSEA-S3",
+   "day": 2,
+   "start": 8,
+   "room_id": "CR-1",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302L-S3CSEA-G2-S1",
+   "day": 3,
+   "start": 6,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302L-S3CSEB-G1-S1",
+   "day": 4,
+   "start": 4,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302-S3CSEB-S1",
+   "day": 0,
+   "start": 7,
+   "room_id": "CR-3",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302-S3CSEB-S2",
+   "day": 1,
+   "start": 3,
+   "room_id": "CR-4",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302-S3CSEB-S3",
+   "day": 3,
+   "start": 4,
+   "room_id": "CR-3",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS302L-S3CSEB-G2-S1",
+   "day": 2,
+   "start": 6,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "DN"
+  },
+  {
+   "session_id": "CS303L-S3CSEA-G1-S1",
+   "day": 4,
+   "start": 6,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303-S3CSEA-S1",
+   "day": 0,
+   "start": 8,
+   "room_id": "CR-1",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303-S3CSEA-S2",
+   "day": 1,
+   "start": 2,
+   "room_id": "CR-1",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303-S3CSEA-S3",
+   "day": 2,
+   "start": 4,
+   "room_id": "CR-1",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303L-S3CSEA-G2-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303L-S3CSEB-G1-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303-S3CSEB-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CR-4",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303-S3CSEB-S2",
+   "day": 2,
+   "start": 8,
+   "room_id": "CR-5",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303-S3CSEB-S3",
+   "day": 3,
+   "start": 7,
+   "room_id": "CR-2",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303L-S3CSEB-G2-S1",
+   "day": 4,
+   "start": 4,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "RN"
+  },
+  {
+   "session_id": "CS303L-S3ECE-G1-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS303-S3ECE-S1",
+   "day": 2,
+   "start": 8,
+   "room_id": "CR-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS303-S3ECE-S2",
+   "day": 3,
+   "start": 2,
+   "room_id": "CR-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS303-S3ECE-S3",
+   "day": 4,
+   "start": 6,
+   "room_id": "CR-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS303L-S3ECE-G2-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS304L-S3CSEA-G1-S1",
+   "day": 3,
+   "start": 6,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304-S3CSEA-S1",
+   "day": 1,
+   "start": 3,
+   "room_id": "CR-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304-S3CSEA-S2",
+   "day": 2,
+   "start": 3,
+   "room_id": "CR-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304-S3CSEA-S3",
+   "day": 3,
+   "start": 3,
+   "room_id": "CR-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304L-S3CSEA-G2-S1",
+   "day": 4,
+   "start": 6,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304L-S3CSEB-G1-S1",
+   "day": 2,
+   "start": 6,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304-S3CSEB-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CR-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304-S3CSEB-S2",
+   "day": 1,
+   "start": 7,
+   "room_id": "CR-6",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304-S3CSEB-S3",
+   "day": 4,
+   "start": 3,
+   "room_id": "CR-2",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS304L-S3CSEB-G2-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "RRP"
+  },
+  {
+   "session_id": "CS305-S3CSEA-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CR-1",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS305-S3CSEA-S2",
+   "day": 1,
+   "start": 8,
+   "room_id": "CR-1",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS305-S3CSEA-S3",
+   "day": 3,
+   "start": 4,
+   "room_id": "CR-1",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS305-S3CSEB-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CR-1",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS305-S3CSEB-S2",
+   "day": 1,
+   "start": 6,
+   "room_id": "CR-6",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS305-S3CSEB-S3",
+   "day": 2,
+   "start": 3,
+   "room_id": "CR-5",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS501L-S5CSE-G1-S1",
+   "day": 1,
+   "start": 2,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS501-S5CSE-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CR-3",
+   "faculty_id": "SA"
+  },
+  {
+   "session_id": "CS501-S5CSE-S2",
+   "day": 1,
+   "start": 1,
+   "room_id": "CR-3",
+   "faculty_id": "SA"
+  },
+  {
+   "session_id": "CS501-S5CSE-S3",
+   "day": 2,
+   "start": 1,
+   "room_id": "CR-2",
+   "faculty_id": "SA"
+  },
+  {
+   "session_id": "CS501L-S5CSE-G2-S1",
+   "day": 3,
+   "start": 2,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS502L-S5CSE-G1-S1",
+   "day": 2,
+   "start": 2,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS502-S5CSE-S1",
+   "day": 2,
+   "start": 6,
+   "room_id": "CR-3",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS502-S5CSE-S2",
+   "day": 3,
+   "start": 7,
+   "room_id": "CR-6",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS502-S5CSE-S3",
+   "day": 4,
+   "start": 4,
+   "room_id": "CR-4",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS502L-S5CSE-G2-S1",
+   "day": 3,
+   "start": 4,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "NB"
+  },
+  {
+   "session_id": "CS503L-S5CSE-G1-S1",
+   "day": 3,
+   "start": 4,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS503-S5CSE-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CR-4",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS503-S5CSE-S2",
+   "day": 2,
+   "start": 8,
+   "room_id": "CR-3",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS503-S5CSE-S3",
+   "day": 4,
+   "start": 6,
+   "room_id": "CR-1",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS503L-S5CSE-G2-S1",
+   "day": 2,
+   "start": 2,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "AD"
+  },
+  {
+   "session_id": "CS504L-S5CSE-G1-S1",
+   "day": 3,
+   "start": 2,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "CS504-S5CSE-S1",
+   "day": 1,
+   "start": 7,
+   "room_id": "CR-3",
+   "faculty_id": "KD"
+  },
+  {
+   "session_id": "CS504-S5CSE-S2",
+   "day": 2,
+   "start": 7,
+   "room_id": "CR-3",
+   "faculty_id": "KD"
+  },
+  {
+   "session_id": "CS504-S5CSE-S3",
+   "day": 4,
+   "start": 7,
+   "room_id": "CR-1",
+   "faculty_id": "KD"
+  },
+  {
+   "session_id": "CS504L-S5CSE-G2-S1",
+   "day": 1,
+   "start": 2,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "CS504L-S5ECE-G1D1.G1D2-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "CS504-S5ECE-S1",
+   "day": 0,
+   "start": 7,
+   "room_id": "CR-4",
+   "faculty_id": "KD"
+  },
+  {
+   "session_id": "CS504-S5ECE-S2",
+   "day": 2,
+   "start": 1,
+   "room_id": "CR-6",
+   "faculty_id": "KD"
+  },
+  {
+   "session_id": "CS504-S5ECE-S3",
+   "day": 3,
+   "start": 5,
+   "room_id": "CR-4",
+   "faculty_id": "KD"
+  },
+  {
+   "session_id": "CS504L-S5ECE-G2D1.G2D2-S1",
+   "day": 4,
+   "start": 0,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "CS514-S5CSE-S1",
+   "day": 0,
+   "start": 3,
+   "room_id": "CR-4",
+   "faculty_id": "SRS"
+  },
+  {
+   "session_id": "CS514-S5CSE-S2",
+   "day": 1,
+   "start": 6,
+   "room_id": "CR-3",
+   "faculty_id": "SRS"
+  },
+  {
+   "session_id": "CS514-S5CSE-S3",
+   "day": 4,
+   "start": 3,
+   "room_id": "CR-4",
+   "faculty_id": "SRS"
+  },
+  {
+   "session_id": "CS514-S5ECE-G1D1.G2D1-S1",
+   "day": 2,
+   "start": 3,
+   "room_id": "CR-6",
+   "faculty_id": "SRS"
+  },
+  {
+   "session_id": "CS514-S5ECE-G1D1.G2D1-S2",
+   "day": 3,
+   "start": 1,
+   "room_id": "CR-3",
+   "faculty_id": "SRS"
+  },
+  {
+   "session_id": "CS514-S5ECE-G1D1.G2D1-S3",
+   "day": 4,
+   "start": 5,
+   "room_id": "CR-3",
+   "faculty_id": "SRS"
+  },
+  {
+   "session_id": "CS701L-S7CSE-G1D1.G1D2.G1D3-S1",
+   "day": 4,
+   "start": 2,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701-S7CSE-S1",
+   "day": 1,
+   "start": 3,
+   "room_id": "CR-5",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701-S7CSE-S2",
+   "day": 2,
+   "start": 1,
+   "room_id": "CR-1",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701-S7CSE-S3",
+   "day": 3,
+   "start": 2,
+   "room_id": "CR-5",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701L-S7CSE-G2D1.G2D2.G2D3-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701L-S7ECE-G1D1.G1D2.G1D3-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701-S7ECE-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CR-2",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701-S7ECE-S2",
+   "day": 1,
+   "start": 1,
+   "room_id": "CR-1",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701-S7ECE-S3",
+   "day": 3,
+   "start": 4,
+   "room_id": "CR-2",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS701L-S7ECE-G2D1.G2D2.G2D3-S1",
+   "day": 4,
+   "start": 6,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "RK"
+  },
+  {
+   "session_id": "CS753-S7CSE-S1",
+   "day": 1,
+   "start": 5,
+   "room_id": "CR-4",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "CS753-S7CSE-S2",
+   "day": 2,
+   "start": 7,
+   "room_id": "CR-5",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "CS753-S7CSE-S3",
+   "day": 4,
+   "start": 6,
+   "room_id": "CR-6",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "CS753-S7ECE-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CR-2",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "CS753-S7ECE-S2",
+   "day": 2,
+   "start": 3,
+   "room_id": "CR-3",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "CS753-S7ECE-S3",
+   "day": 3,
+   "start": 0,
+   "room_id": "CR-1",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "CS9106L-MTCSE+S7CSE+S7ECE-G1D3.G2D3-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "CS9106-MTCSE+S7CSE+S7ECE-G1D3.G2D3-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "CR-2",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "CS9106-MTCSE+S7CSE+S7ECE-G1D3.G2D3-S2",
+   "day": 4,
+   "start": 1,
+   "room_id": "CR-1",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "CS911-MTCSE-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS911-MTCSE-S2",
+   "day": 1,
+   "start": 1,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS911-MTCSE-S3",
+   "day": 2,
+   "start": 6,
+   "room_id": "CR-1",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS911-MTCSE-S4",
+   "day": 4,
+   "start": 2,
+   "room_id": "CR-1",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS9116-MTCSE+S7CSE-G1D1.G2D1-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CR-6",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116-MTCSE+S7CSE-G1D1.G2D1-S2",
+   "day": 1,
+   "start": 4,
+   "room_id": "CR-2",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116L-S7CSE-G1D1.G1D2.G1D3-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116L-S7CSE-G2D1.G2D2.G2D3-S1",
+   "day": 3,
+   "start": 0,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116L-S7ECE-G1D1.G2D1-S1",
+   "day": 1,
+   "start": 2,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116L-S7ECE-G1D1.G2D1-S2",
+   "day": 4,
+   "start": 2,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116-S7ECE-G1D1.G2D1-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "CR-2",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9116-S7ECE-G1D1.G2D1-S2",
+   "day": 3,
+   "start": 2,
+   "room_id": "CR-1",
+   "faculty_id": "PJM"
+  },
+  {
+   "session_id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2-S1",
+   "day": 0,
+   "start": 0,
+   "room_id": "CR-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2-S2",
+   "day": 1,
+   "start": 0,
+   "room_id": "CR-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2-S3",
+   "day": 4,
+   "start": 4,
+   "room_id": "CR-2",
+   "faculty_id": "PS"
+  },
+  {
+   "session_id": "CS912L-MTCSE-S1",
+   "day": 2,
+   "start": 0,
+   "room_id": "CSE-LAB-3",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS912L-MTCSE-S2",
+   "day": 3,
+   "start": 0,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "TG"
+  },
+  {
+   "session_id": "CS913L-MTCSE+S7CSE-G1D1.G1D2.G1D3-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "CS913-MTCSE+S7CSE-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CR-5",
+   "faculty_id": "SA"
+  },
+  {
+   "session_id": "CS913-MTCSE+S7CSE-S2",
+   "day": 1,
+   "start": 2,
+   "room_id": "CR-5",
+   "faculty_id": "SA"
+  },
+  {
+   "session_id": "CS913-MTCSE+S7CSE-S3",
+   "day": 2,
+   "start": 2,
+   "room_id": "CR-5",
+   "faculty_id": "SA"
+  },
+  {
+   "session_id": "CS913L-S7CSE-G2D1.G2D2.G2D3-S1",
+   "day": 4,
+   "start": 2,
+   "room_id": "CSE-LAB-1",
+   "faculty_id": "DR"
+  },
+  {
+   "session_id": "EC101L-S1CSEB-G1-S1",
+   "day": 1,
+   "start": 2,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC101L-S1CSEB-G1-2-S1",
+   "day": 3,
+   "start": 2,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "EC101L-S1CSEB-G2-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "EC101L-S1CSEB-G2-2-S1",
+   "day": 2,
+   "start": 2,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC101L-S1CSEC-G1-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "EC101L-S1CSEC-G1-2-S1",
+   "day": 4,
+   "start": 4,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC101L-S1CSEC-G2-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC101L-S1CSEC-G2-2-S1",
+   "day": 3,
+   "start": 4,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "VAP"
+  },
+  {
+   "session_id": "EC101L-S1CSED-G1-S1",
+   "day": 1,
+   "start": 6,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC101L-S1CSED-G1-2-S1",
+   "day": 4,
+   "start": 6,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC101L-S1CSED-G2-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC101L-S1CSED-G2-2-S1",
+   "day": 2,
+   "start": 6,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "RDM"
+  },
+  {
+   "session_id": "EC101L-S1ECEA-G1-S1",
+   "day": 3,
+   "start": 0,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "NA"
+  },
+  {
+   "session_id": "EC101L-S1ECEA-G1-2-S1",
+   "day": 4,
+   "start": 0,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC101L-S1ECEA-G2-S1",
+   "day": 0,
+   "start": 0,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "RDM"
+  },
+  {
+   "session_id": "EC101L-S1ECEA-G2-2-S1",
+   "day": 2,
+   "start": 0,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "NA"
+  },
+  {
+   "session_id": "EC102-S1CSEB-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "CR-5",
+   "faculty_id": "NA"
+  },
+  {
+   "session_id": "EC102-S1CSEB-S2",
+   "day": 1,
+   "start": 5,
+   "room_id": "CR-5",
+   "faculty_id": "NA"
+  },
+  {
+   "session_id": "EC102-S1CSEB-2-S1",
+   "day": 4,
+   "start": 2,
+   "room_id": "CR-5",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "EC102-S1CSEC-S1",
+   "day": 2,
+   "start": 1,
+   "room_id": "CR-4",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC102-S1CSEC-S2",
+   "day": 4,
+   "start": 2,
+   "room_id": "CR-4",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC102-S1CSEC-2-S1",
+   "day": 3,
+   "start": 1,
+   "room_id": "CR-4",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "EC102-S1CSED-S1",
+   "day": 1,
+   "start": 3,
+   "room_id": "CR-2",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC102-S1CSED-S2",
+   "day": 3,
+   "start": 2,
+   "room_id": "CR-3",
+   "faculty_id": "DP"
+  },
+  {
+   "session_id": "EC102-S1CSED-2-S1",
+   "day": 2,
+   "start": 2,
+   "room_id": "CR-2",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "EC102-S1ECEA-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "CR-6",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "EC102-S1ECEA-2-S1",
+   "day": 3,
+   "start": 2,
+   "room_id": "CR-6",
+   "faculty_id": "NA"
+  },
+  {
+   "session_id": "EC102-S1ECEA-2-S2",
+   "day": 4,
+   "start": 5,
+   "room_id": "CR-6",
+   "faculty_id": "NA"
+  },
+  {
+   "session_id": "EC301L-S3ECE-G1-S1",
+   "day": 4,
+   "start": 2,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "EC301-S3ECE-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CR-3",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "EC301-S3ECE-S2",
+   "day": 1,
+   "start": 2,
+   "room_id": "CR-3",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "EC301-S3ECE-S3",
+   "day": 2,
+   "start": 2,
+   "room_id": "CR-3",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "EC301L-S3ECE-G2-S1",
+   "day": 3,
+   "start": 6,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "LC"
+  },
+  {
+   "session_id": "EC302L-S3ECE-G1-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "EC302-S3ECE-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "CR-3",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "EC302-S3ECE-S2",
+   "day": 1,
+   "start": 7,
+   "room_id": "CR-2",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "EC302-S3ECE-S3",
+   "day": 3,
+   "start": 5,
+   "room_id": "CR-2",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "EC302L-S3ECE-G2-S1",
+   "day": 4,
+   "start": 2,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "SKS"
+  },
+  {
+   "session_id": "EC303L-MTDSC+S3ECE-G1-S1",
+   "day": 3,
+   "start": 6,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "VAP"
+  },
+  {
+   "session_id": "EC303-MTDSC+S3ECE-S1",
+   "day": 0,
+   "start": 3,
+   "room_id": "CR-3",
+   "faculty_id": "VAP"
+  },
+  {
+   "session_id": "EC303-MTDSC+S3ECE-S2",
+   "day": 1,
+   "start": 3,
+   "room_id": "CR-3",
+   "faculty_id": "VAP"
+  },
+  {
+   "session_id": "EC303-MTDSC+S3ECE-S3",
+   "day": 2,
+   "start": 7,
+   "room_id": "CR-2",
+   "faculty_id": "VAP"
+  },
+  {
+   "session_id": "EC303L-S3ECE-G2-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "VAP"
+  },
+  {
+   "session_id": "EC501L-S5ECE-G1D1.G1D2-S1",
+   "day": 1,
+   "start": 0,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC501-S5ECE-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CR-4",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC501-S5ECE-S2",
+   "day": 3,
+   "start": 4,
+   "room_id": "CR-4",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC501-S5ECE-S3",
+   "day": 4,
+   "start": 2,
+   "room_id": "CR-2",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC501L-S5ECE-G2D1.G2D2-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC503L-S5ECE-G1D1.G1D2-S1",
+   "day": 4,
+   "start": 0,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC503-S5ECE-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CR-1",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC503-S5ECE-S2",
+   "day": 2,
+   "start": 7,
+   "room_id": "CR-6",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC503-S5ECE-S3",
+   "day": 4,
+   "start": 4,
+   "room_id": "CR-3",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC503L-S5ECE-G2D1.G2D2-S1",
+   "day": 1,
+   "start": 0,
+   "room_id": "ECE-LAB-2",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC702-S7ECE-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CR-5",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "EC702-S7ECE-S2",
+   "day": 2,
+   "start": 1,
+   "room_id": "CR-3",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "EC702-S7ECE-S3",
+   "day": 3,
+   "start": 1,
+   "room_id": "CR-2",
+   "faculty_id": "RP"
+  },
+  {
+   "session_id": "EC9103-MTECE+S5ECE-S1",
+   "day": 1,
+   "start": 5,
+   "room_id": "CR-1",
+   "faculty_id": "RDM"
+  },
+  {
+   "session_id": "EC9103-MTECE+S5ECE-S2",
+   "day": 3,
+   "start": 3,
+   "room_id": "CR-4",
+   "faculty_id": "RDM"
+  },
+  {
+   "session_id": "EC9103-MTECE+S5ECE-S3",
+   "day": 4,
+   "start": 6,
+   "room_id": "CR-3",
+   "faculty_id": "RDM"
+  },
+  {
+   "session_id": "EC911-MTECE-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CR-1",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC911-MTECE-S2",
+   "day": 1,
+   "start": 4,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC911-MTECE-S3",
+   "day": 2,
+   "start": 7,
+   "room_id": "CR-4",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC911-MTECE-S4",
+   "day": 4,
+   "start": 2,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC9111-MTDSC+MTECE-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "HG"
+  },
+  {
+   "session_id": "EC9111L-MTDSC+MTECE-S1",
+   "day": 4,
+   "start": 4,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "SM"
+  },
+  {
+   "session_id": "EC912-MTDSC+MTECE-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CSE-LAB-2",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "EC912-MTDSC+MTECE-S2",
+   "day": 2,
+   "start": 6,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "MR"
+  },
+  {
+   "session_id": "EC912-MTDSC+MTECE-2-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "EC912-MTDSC+MTECE-2-S2",
+   "day": 1,
+   "start": 6,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "SR"
+  },
+  {
+   "session_id": "EC913L-MTECE+S5ECE-G1D2.G2D2-S1",
+   "day": 2,
+   "start": 2,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "EC913L-MTECE+S5ECE-G1D2.G2D2-S2",
+   "day": 3,
+   "start": 0,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "TD"
+  },
+  {
+   "session_id": "ECD911L-MTDSC-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "SVR"
+  },
+  {
+   "session_id": "ECD911-MTDSC-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CR-3",
+   "faculty_id": "SVR"
+  },
+  {
+   "session_id": "ECD911-MTDSC-S2",
+   "day": 2,
+   "start": 5,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "SVR"
+  },
+  {
+   "session_id": "ECD913L-MTDSC-S1",
+   "day": 3,
+   "start": 2,
+   "room_id": "ECE-LAB-3",
+   "faculty_id": "SVR"
+  },
+  {
+   "session_id": "HM505-S5CSE-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CR-2",
+   "faculty_id": "HSS-F2-HM505"
+  },
+  {
+   "session_id": "HM505-S5CSE-S2",
+   "day": 2,
+   "start": 5,
+   "room_id": "CR-3",
+   "faculty_id": "HSS-F2-HM505"
+  },
+  {
+   "session_id": "HM505-S5ECE-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "CR-4",
+   "faculty_id": "HSS-F2-HM505"
+  },
+  {
+   "session_id": "HM505-S5ECE-S2",
+   "day": 2,
+   "start": 6,
+   "room_id": "CR-6",
+   "faculty_id": "HSS-F2-HM505"
+  },
+  {
+   "session_id": "HS101-S1CSEB-S1",
+   "day": 2,
+   "start": 6,
+   "room_id": "CR-5",
+   "faculty_id": "HSS-F2-HS101"
+  },
+  {
+   "session_id": "HS101-S1CSEB-S2",
+   "day": 3,
+   "start": 5,
+   "room_id": "CR-5",
+   "faculty_id": "HSS-F2-HS101"
+  },
+  {
+   "session_id": "HS101-S1CSEC-S1",
+   "day": 0,
+   "start": 2,
+   "room_id": "CR-4",
+   "faculty_id": "HSS-F1-HS101"
+  },
+  {
+   "session_id": "HS101-S1CSEC-S2",
+   "day": 1,
+   "start": 1,
+   "room_id": "CR-4",
+   "faculty_id": "HSS-F1-HS101"
+  },
+  {
+   "session_id": "HS101-S1CSED-S1",
+   "day": 2,
+   "start": 5,
+   "room_id": "CR-2",
+   "faculty_id": "HSS-F2-HS101"
+  },
+  {
+   "session_id": "HS101-S1CSED-S2",
+   "day": 3,
+   "start": 6,
+   "room_id": "CR-3",
+   "faculty_id": "HSS-F2-HS101"
+  },
+  {
+   "session_id": "HS101-S1ECEA-S1",
+   "day": 0,
+   "start": 4,
+   "room_id": "CR-6",
+   "faculty_id": "HSS-F1-HS101"
+  },
+  {
+   "session_id": "HS101-S1ECEA-S2",
+   "day": 1,
+   "start": 2,
+   "room_id": "CR-6",
+   "faculty_id": "HSS-F1-HS101"
+  },
+  {
+   "session_id": "HS301-S3CSEA-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "CR-1",
+   "faculty_id": "HSS-F3-HS301"
+  },
+  {
+   "session_id": "HS301-S3CSEA-S2",
+   "day": 2,
+   "start": 7,
+   "room_id": "CR-1",
+   "faculty_id": "HSS-F3-HS301"
+  },
+  {
+   "session_id": "HS301-S3CSEB-S1",
+   "day": 0,
+   "start": 6,
+   "room_id": "CR-3",
+   "faculty_id": "HSS-F3-HS301"
+  },
+  {
+   "session_id": "HS301-S3CSEB-S2",
+   "day": 2,
+   "start": 5,
+   "room_id": "CR-1",
+   "faculty_id": "HSS-F3-HS301"
+  },
+  {
+   "session_id": "HS301-S3ECE-S1",
+   "day": 0,
+   "start": 7,
+   "room_id": "CR-2",
+   "faculty_id": "HSS-F3-HS301"
+  },
+  {
+   "session_id": "HS301-S3ECE-S2",
+   "day": 2,
+   "start": 6,
+   "room_id": "CR-2",
+   "faculty_id": "HSS-F3-HS301"
+  },
+  {
+   "session_id": "HS911-MTCSE+MTDSC+MTECE-S1",
+   "day": 1,
+   "start": 7,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "BP"
+  },
+  {
+   "session_id": "HS911-MTCSE+MTDSC+MTECE-S2",
+   "day": 3,
+   "start": 4,
+   "room_id": "PHY-LAB-1",
+   "faculty_id": "BP"
+  },
+  {
+   "session_id": "MS101-S1CSEB-S1",
+   "day": 0,
+   "start": 1,
+   "room_id": "CR-5",
+   "faculty_id": "AP"
+  },
+  {
+   "session_id": "MS101-S1CSEB-S2",
+   "day": 1,
+   "start": 1,
+   "room_id": "CR-5",
+   "faculty_id": "AP"
+  },
+  {
+   "session_id": "MS101-S1CSEB-S3",
+   "day": 4,
+   "start": 1,
+   "room_id": "CR-5",
+   "faculty_id": "AP"
+  },
+  {
+   "session_id": "MS101-S1CSEC-S1",
+   "day": 2,
+   "start": 4,
+   "room_id": "CR-4",
+   "faculty_id": "VP"
+  },
+  {
+   "session_id": "MS101-S1CSEC-S2",
+   "day": 3,
+   "start": 6,
+   "room_id": "CR-4",
+   "faculty_id": "VP"
+  },
+  {
+   "session_id": "MS101-S1CSEC-S3",
+   "day": 4,
+   "start": 6,
+   "room_id": "CR-4",
+   "faculty_id": "VP"
+  },
+  {
+   "session_id": "MS101-S1CSED-S1",
+   "day": 1,
+   "start": 2,
+   "room_id": "CR-2",
+   "faculty_id": "AP"
+  },
+  {
+   "session_id": "MS101-S1CSED-2-S1",
+   "day": 3,
+   "start": 3,
+   "room_id": "CR-3",
+   "faculty_id": "VP"
+  },
+  {
+   "session_id": "MS101-S1CSED-2-S2",
+   "day": 4,
+   "start": 5,
+   "room_id": "CR-4",
+   "faculty_id": "VP"
+  },
+  {
+   "session_id": "MS101-S1ECEA-S1",
+   "day": 1,
+   "start": 0,
+   "room_id": "CR-6",
+   "faculty_id": "APS"
+  },
+  {
+   "session_id": "MS101-S1ECEA-S2",
+   "day": 2,
+   "start": 2,
+   "room_id": "CR-6",
+   "faculty_id": "APS"
+  },
+  {
+   "session_id": "MS101-S1ECEA-S3",
+   "day": 3,
+   "start": 4,
+   "room_id": "CR-6",
+   "faculty_id": "APS"
+  },
+  {
+   "session_id": "MS101TT-S1CSEB-S1",
+   "day": 4,
+   "start": 3,
+   "room_id": "CR-5",
+   "faculty_id": "APS"
+  },
+  {
+   "session_id": "MS101TT-S1CSEC-S1",
+   "day": 2,
+   "start": 5,
+   "room_id": "CR-4",
+   "faculty_id": "APS"
+  },
+  {
+   "session_id": "MS101TT-S1CSED-S1",
+   "day": 0,
+   "start": 5,
+   "room_id": "CR-2",
+   "faculty_id": "APS"
+  },
+  {
+   "session_id": "MS101TT-S1ECEA-S1",
+   "day": 1,
+   "start": 4,
+   "room_id": "CR-6",
+   "faculty_id": "APS"
+  }
+ ],
+ "source": "Timetable Committee, IIIT Surat \u2014 all_class_v4.pdf (aSc Timetables)",
+ "optimized": {
+  "assignments": [
+   {
+    "session_id": "AS101L-S1ECEA-G1-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS101L-S1CSED-G1-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS911-MTCSE-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC101L-S1CSED-G2-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G2-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "EC102-S1CSEB-S1",
+    "day": 0,
+    "start": 0,
+    "room_id": "CR-1",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "CS101-S1CSEC-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS301-S3CSEA-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC912-MTDSC+MTECE-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "MS101-S1CSEB-S1",
+    "day": 0,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "AP"
+   },
+   {
+    "session_id": "AS101-S1CSED-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "AS102-S1ECEA-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "PAS-F1-AS102"
+   },
+   {
+    "session_id": "CS101L-S1CSEB-G2-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS301-S3ECE-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS305-S3CSEB-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS504L-S5ECE-G1D1.G1D2-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "CS701L-S7ECE-G1D1.G1D2.G1D3-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS913-MTCSE+S7CSE-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G1-2-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "EC501L-S5ECE-G2D1.G2D2-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "EC9111-MTDSC+MTECE-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "HS101-S1CSEC-S1",
+    "day": 0,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "HSS-F1-HS101"
+   },
+   {
+    "session_id": "AS102-S1CSEC-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-4",
+    "faculty_id": "PAS-F1-AS102"
+   },
+   {
+    "session_id": "CS304-S3CSEB-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS305-S3CSEA-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS9116-MTCSE+S7CSE-G1D1.G2D1-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-1",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC303-MTDSC+S3ECE-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-2",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "EC911-MTECE-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "HS101-S1ECEA-S1",
+    "day": 0,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F1-HS101"
+   },
+   {
+    "session_id": "AS101-S1CSEB-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CR-2",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "AS101L-S1CSEC-G2-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS101-S1CSED-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS101-S1ECEA-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS303L-S3CSEB-G1-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS304L-S3CSEB-G2-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS701-S7ECE-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CR-3",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS9116L-S7CSE-G1D1.G1D2.G1D3-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC101L-S1CSEC-G1-2-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC501-S5ECE-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CR-4",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "EC912-MTDSC+MTECE-2-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "HS301-S3ECE-S1",
+    "day": 0,
+    "start": 4,
+    "room_id": "CR-5",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "CS503-S5CSE-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS504-S5ECE-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-5",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS753-S7ECE-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC301-S3ECE-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-3",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "HS301-S3CSEA-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "MS101TT-S1CSED-S1",
+    "day": 0,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS101L-S1CSED-G1-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS302-S3CSEA-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-5",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS514-S5CSE-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-3",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "CS9106L-MTCSE+S7CSE+S7ECE-G1D3.G2D3-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "EC302-S3ECE-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-4",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "ECD913L-MTDSC-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "HM505-S5ECE-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-1",
+    "faculty_id": "HSS-F2-HM505"
+   },
+   {
+    "session_id": "HS301-S3CSEB-S1",
+    "day": 0,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "CS302-S3CSEB-S1",
+    "day": 0,
+    "start": 7,
+    "room_id": "CR-2",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS303-S3CSEA-S1",
+    "day": 0,
+    "start": 7,
+    "room_id": "CR-5",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS514-S5ECE-G1D1.G2D1-S1",
+    "day": 0,
+    "start": 7,
+    "room_id": "CR-6",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "HM505-S5CSE-S1",
+    "day": 0,
+    "start": 7,
+    "room_id": "CR-4",
+    "faculty_id": "HSS-F2-HM505"
+   },
+   {
+    "session_id": "CS302-S3CSEA-S2",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-5",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS9106-MTCSE+S7CSE+S7ECE-G1D3.G2D3-S1",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-6",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "EC102-S1CSED-S1",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-3",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "HS101-S1CSEC-S2",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-2",
+    "faculty_id": "HSS-F1-HS101"
+   },
+   {
+    "session_id": "MS101-S1ECEA-S1",
+    "day": 1,
+    "start": 0,
+    "room_id": "CR-4",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS101L-S1CSEB-G2-S1",
+    "day": 1,
+    "start": 1,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "AS102-S1CSEC-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "PAS-F1-AS102"
+   },
+   {
+    "session_id": "CS302L-S3CSEA-G1-S1",
+    "day": 1,
+    "start": 1,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS501-S5CSE-S1",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "CS701-S7ECE-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS753-S7CSE-S1",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-2",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS911-MTCSE-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC101L-S1CSED-G1-S1",
+    "day": 1,
+    "start": 1,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC301-S3ECE-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "HS101-S1ECEA-S2",
+    "day": 1,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "HSS-F1-HS101"
+   },
+   {
+    "session_id": "AS101-S1CSEC-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "AS102-S1ECEA-S2",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "PAS-F1-AS102"
+   },
+   {
+    "session_id": "CS101L-S1CSED-G2-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS301-S3CSEB-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS303L-S3ECE-G1-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS502-S5CSE-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS701-S7CSE-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G1-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "EC702-S7ECE-S1",
+    "day": 1,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS101-S1ECEA-S2",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS302-S3CSEB-S2",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-2",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS304-S3CSEA-S1",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-4",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS504-S5CSE-S1",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-1",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS9116L-S7ECE-G1D1.G2D1-S1",
+    "day": 1,
+    "start": 3,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS913-MTCSE+S7CSE-S2",
+    "day": 1,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "EC101L-S1CSEC-G1-S1",
+    "day": 1,
+    "start": 3,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "AS101-S1CSED-S2",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS101-S1CSEB-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-2",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS303-S3CSEA-S2",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS304-S3CSEB-S2",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-3",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS503L-S5CSE-G1-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS504L-S5CSE-G2-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2-S2",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-4",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC303L-S3ECE-G2-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "EC503-S5ECE-S1",
+    "day": 1,
+    "start": 4,
+    "room_id": "CR-5",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC911-MTECE-S2",
+    "day": 1,
+    "start": 4,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "CS101L-S1CSEC-G2-S1",
+    "day": 1,
+    "start": 5,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS303-S3CSEB-S1",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-5",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS305-S3CSEA-S2",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS9116-MTCSE+S7CSE-G1D1.G2D1-S2",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC102-S1CSEB-S2",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-2",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "EC9103-MTECE+S5ECE-S1",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "ECD911-MTDSC-S1",
+    "day": 1,
+    "start": 5,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "MS101-S1CSED-S1",
+    "day": 1,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "AP"
+   },
+   {
+    "session_id": "CS303L-S3CSEA-G2-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS305-S3CSEB-S2",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-5",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "EC302-S3ECE-S2",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC501L-S5ECE-G1D1.G1D2-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "EC503L-S5ECE-G2D1.G2D2-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC912-MTDSC+MTECE-2-S2",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "HS101-S1CSEB-S1",
+    "day": 1,
+    "start": 6,
+    "room_id": "CR-4",
+    "faculty_id": "HSS-F2-HS101"
+   },
+   {
+    "session_id": "EC303-MTDSC+S3ECE-S2",
+    "day": 1,
+    "start": 7,
+    "room_id": "CR-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "CS101L-S1ECEA-G1-S1",
+    "day": 2,
+    "start": 0,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS302L-S3CSEB-G2-S1",
+    "day": 2,
+    "start": 0,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS504-S5ECE-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CR-5",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS753-S7CSE-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CR-3",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS912L-MTCSE-S1",
+    "day": 2,
+    "start": 0,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G2-2-S1",
+    "day": 2,
+    "start": 0,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "HM505-S5CSE-S2",
+    "day": 2,
+    "start": 0,
+    "room_id": "CR-4",
+    "faculty_id": "HSS-F2-HM505"
+   },
+   {
+    "session_id": "CS501-S5CSE-S2",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "CS701-S7CSE-S2",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "EC102-S1CSEC-S1",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC702-S7ECE-S2",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "HM505-S5ECE-S2",
+    "day": 2,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F2-HM505"
+   },
+   {
+    "session_id": "AS101-S1CSEC-S2",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "AS101L-S1CSEB-G1-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS302-S3CSEA-S3",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS303-S3CSEB-S2",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS501L-S5CSE-G2-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS502L-S5CSE-G1-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS701-S7ECE-S3",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS913-MTCSE+S7CSE-S3",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "EC102-S1ECEA-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC913L-MTECE+S5ECE-G1D2.G2D2-S1",
+    "day": 2,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "CS301-S3CSEA-S2",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS302-S3CSEB-S3",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS701L-S7CSE-G2D1.G2D2.G2D3-S1",
+    "day": 2,
+    "start": 3,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS753-S7ECE-S2",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-2",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G2-2-S1",
+    "day": 2,
+    "start": 3,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "EC102-S1CSED-2-S1",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-4",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "HS301-S3ECE-S2",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "MS101-S1ECEA-S2",
+    "day": 2,
+    "start": 3,
+    "room_id": "CR-1",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS101-S1ECEA-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-4",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "AS102-S1CSED-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "PAS-F2-AS102"
+   },
+   {
+    "session_id": "CS303L-S3ECE-G2-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS503-S5CSE-S2",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-2",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS9116-S7ECE-G1D1.G2D1-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS913L-MTCSE+S7CSE-G1D1.G1D2.G1D3-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "EC302L-S3ECE-G1-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC911-MTECE-S3",
+    "day": 2,
+    "start": 4,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "HS301-S3CSEB-S2",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-5",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "MS101TT-S1CSEC-S1",
+    "day": 2,
+    "start": 4,
+    "room_id": "CR-3",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS102-S1CSEB-S1",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "PAS-F2-AS102"
+   },
+   {
+    "session_id": "CS304L-S3CSEB-G1-S1",
+    "day": 2,
+    "start": 5,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS514-S5CSE-S2",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "EC912-MTDSC+MTECE-S2",
+    "day": 2,
+    "start": 5,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "HS101-S1CSED-S1",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "HSS-F2-HS101"
+   },
+   {
+    "session_id": "HS301-S3CSEA-S2",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-5",
+    "faculty_id": "HSS-F3-HS301"
+   },
+   {
+    "session_id": "MS101-S1CSEC-S1",
+    "day": 2,
+    "start": 5,
+    "room_id": "CR-2",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "CS101-S1CSEC-S2",
+    "day": 2,
+    "start": 6,
+    "room_id": "CR-4",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS303-S3CSEA-S3",
+    "day": 2,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS303-S3ECE-S1",
+    "day": 2,
+    "start": 6,
+    "room_id": "CR-2",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC101L-S1CSED-G1-2-S1",
+    "day": 2,
+    "start": 6,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC101L-S1CSED-G2-2-S1",
+    "day": 2,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "ECD911-MTDSC-S2",
+    "day": 2,
+    "start": 6,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "MS101-S1CSEB-S2",
+    "day": 2,
+    "start": 6,
+    "room_id": "CR-5",
+    "faculty_id": "AP"
+   },
+   {
+    "session_id": "CS101-S1CSEB-S2",
+    "day": 2,
+    "start": 7,
+    "room_id": "CR-6",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS304-S3CSEA-S2",
+    "day": 2,
+    "start": 7,
+    "room_id": "CR-3",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "EC303-MTDSC+S3ECE-S3",
+    "day": 2,
+    "start": 7,
+    "room_id": "CR-5",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "CS9116L-S7CSE-G2D1.G2D2.G2D3-S1",
+    "day": 3,
+    "start": 0,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G1-S1",
+    "day": 3,
+    "start": 0,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "EC102-S1CSED-S2",
+    "day": 3,
+    "start": 0,
+    "room_id": "CR-6",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC913L-MTECE+S5ECE-G1D2.G2D2-S2",
+    "day": 3,
+    "start": 0,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "AS101-S1CSEB-S2",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-6",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "CS101-S1CSED-S2",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS514-S5ECE-G1D1.G2D1-S2",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "EC102-S1CSEC-2-S1",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC702-S7ECE-S3",
+    "day": 3,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "AS101-S1CSEC-S3",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS101L-S1CSEB-G1-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS503L-S5CSE-G2-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS504L-S5CSE-G1-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "CS701-S7CSE-S3",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS753-S7ECE-S3",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC101L-S1CSEB-G2-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "EC102-S1ECEA-2-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "EC501-S5ECE-S2",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "HS911-MTCSE+MTDSC+MTECE-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "MS101-S1CSED-2-S1",
+    "day": 3,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "AS102-S1CSED-S2",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "PAS-F2-AS102"
+   },
+   {
+    "session_id": "CS911-MTCSE-S3",
+    "day": 3,
+    "start": 3,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS9116-S7ECE-G1D1.G2D1-S2",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "EC302-S3ECE-S3",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC9103-MTECE+S5ECE-S2",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-2",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "ECD911L-MTDSC-S1",
+    "day": 3,
+    "start": 3,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "SVR"
+   },
+   {
+    "session_id": "MS101-S1CSEC-S2",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-4",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "MS101-S1ECEA-S3",
+    "day": 3,
+    "start": 3,
+    "room_id": "CR-1",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS101-S1ECEA-S2",
+    "day": 3,
+    "start": 4,
+    "room_id": "CR-2",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "AS102-S1CSEB-S2",
+    "day": 3,
+    "start": 4,
+    "room_id": "CR-4",
+    "faculty_id": "PAS-F2-AS102"
+   },
+   {
+    "session_id": "CS101L-S1CSEC-G1-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS303-S3ECE-S2",
+    "day": 3,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS305-S3CSEA-S3",
+    "day": 3,
+    "start": 4,
+    "room_id": "CR-3",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS501L-S5CSE-G1-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS502L-S5CSE-G2-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "EC101L-S1CSEC-G2-2-S1",
+    "day": 3,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "EC503-S5ECE-S2",
+    "day": 3,
+    "start": 4,
+    "room_id": "CR-5",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "HS101-S1CSED-S2",
+    "day": 3,
+    "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "HSS-F2-HS101"
+   },
+   {
+    "session_id": "AS101L-S1ECEA-G2-S1",
+    "day": 3,
+    "start": 5,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS301-S3ECE-S2",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS304-S3CSEA-S3",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS305-S3CSEB-S3",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-5",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "CS504-S5ECE-S3",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-4",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "HS101-S1CSEB-S2",
+    "day": 3,
+    "start": 5,
+    "room_id": "CR-3",
+    "faculty_id": "HSS-F2-HS101"
+   },
+   {
+    "session_id": "CS301-S3CSEB-S2",
+    "day": 3,
+    "start": 6,
+    "room_id": "CR-2",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS302L-S3CSEA-G2-S1",
+    "day": 3,
+    "start": 6,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS304L-S3CSEA-G1-S1",
+    "day": 3,
+    "start": 6,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS504-S5CSE-S2",
+    "day": 3,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "EC301L-S3ECE-G2-S1",
+    "day": 3,
+    "start": 6,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "EC303L-MTDSC+S3ECE-G1-S1",
+    "day": 3,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "VAP"
+   },
+   {
+    "session_id": "CS303-S3CSEB-S3",
+    "day": 3,
+    "start": 7,
+    "room_id": "CR-6",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS502-S5CSE-S2",
+    "day": 3,
+    "start": 7,
+    "room_id": "CR-3",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS101L-S1ECEA-G2-S1",
+    "day": 4,
+    "start": 0,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS302L-S3CSEB-G1-S1",
+    "day": 4,
+    "start": 0,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "DN"
+   },
+   {
+    "session_id": "CS501-S5CSE-S3",
+    "day": 4,
+    "start": 0,
+    "room_id": "CR-6",
+    "faculty_id": "SA"
+   },
+   {
+    "session_id": "CS912L-MTCSE-S2",
+    "day": 4,
+    "start": 0,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "TG"
+   },
+   {
+    "session_id": "EC101L-S1CSEC-G2-S1",
+    "day": 4,
+    "start": 0,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC101L-S1ECEA-G1-2-S1",
+    "day": 4,
+    "start": 0,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "CS301-S3ECE-S3",
+    "day": 4,
+    "start": 1,
+    "room_id": "CR-1",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS503-S5CSE-S3",
+    "day": 4,
+    "start": 1,
+    "room_id": "CR-3",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS514-S5ECE-G1D1.G2D1-S3",
+    "day": 4,
+    "start": 1,
+    "room_id": "CR-4",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "CS753-S7CSE-S3",
+    "day": 4,
+    "start": 1,
+    "room_id": "CR-5",
+    "faculty_id": "RP"
+   },
+   {
+    "session_id": "CS101-S1CSED-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-3",
+    "faculty_id": "AD"
+   },
+   {
+    "session_id": "CS101-S1ECEA-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-6",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "CS301-S3CSEB-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-1",
+    "faculty_id": "MR"
+   },
+   {
+    "session_id": "CS514-S5CSE-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-2",
+    "faculty_id": "SRS"
+   },
+   {
+    "session_id": "CS701L-S7CSE-G1D1.G1D2.G1D3-S1",
+    "day": 4,
+    "start": 2,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS9116L-S7ECE-G1D1.G2D1-S2",
+    "day": 4,
+    "start": 2,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS913L-S7CSE-G2D1.G2D2.G2D3-S1",
+    "day": 4,
+    "start": 2,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "EC102-S1CSEC-S2",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-4",
+    "faculty_id": "DP"
+   },
+   {
+    "session_id": "EC301L-S3ECE-G1-S1",
+    "day": 4,
+    "start": 2,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "EC302L-S3ECE-G2-S1",
+    "day": 4,
+    "start": 2,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "SKS"
+   },
+   {
+    "session_id": "EC503-S5ECE-S3",
+    "day": 4,
+    "start": 2,
+    "room_id": "CR-5",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC911-MTECE-S4",
+    "day": 4,
+    "start": 2,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "TD"
+   },
+   {
+    "session_id": "AS101-S1CSED-S3",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-5",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "CS304-S3CSEB-S3",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-3",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS502-S5CSE-S3",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-1",
+    "faculty_id": "NB"
+   },
+   {
+    "session_id": "EC102-S1CSEB-2-S1",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-6",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "EC102-S1ECEA-2-S2",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-2",
+    "faculty_id": "NA"
+   },
+   {
+    "session_id": "EC501-S5ECE-S3",
+    "day": 4,
+    "start": 3,
+    "room_id": "CR-4",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "HS911-MTCSE+MTDSC+MTECE-S2",
+    "day": 4,
+    "start": 3,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "AS101-S1CSEB-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-4",
+    "faculty_id": "BP"
+   },
+   {
+    "session_id": "AS101-S1ECEA-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-3",
+    "faculty_id": "ND"
+   },
+   {
+    "session_id": "AS101L-S1CSEC-G1-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS301-S3CSEA-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-6",
+    "faculty_id": "PJM"
+   },
+   {
+    "session_id": "CS303L-S3CSEB-G2-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS504-S5CSE-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-5",
+    "faculty_id": "KD"
+   },
+   {
+    "session_id": "CS504L-S5ECE-G2D1.G2D2-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "SR"
+   },
+   {
+    "session_id": "CS9117-MTCSE+S7CSE+S7ECE-G1D2.G2D2-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-2",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC301-S3ECE-S3",
+    "day": 4,
+    "start": 4,
+    "room_id": "CR-1",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "EC503L-S5ECE-G1D1.G1D2-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "HG"
+   },
+   {
+    "session_id": "EC9111L-MTDSC+MTECE-S1",
+    "day": 4,
+    "start": 4,
+    "room_id": "ECE-LAB-2",
+    "faculty_id": "SM"
+   },
+   {
+    "session_id": "CS101-S1CSEB-S3",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-2",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "CS303-S3ECE-S3",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-3",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "CS304L-S3CSEA-G2-S1",
+    "day": 4,
+    "start": 5,
+    "room_id": "CSE-LAB-3",
+    "faculty_id": "RRP"
+   },
+   {
+    "session_id": "CS9106-MTCSE+S7CSE+S7ECE-G1D3.G2D3-S2",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-1",
+    "faculty_id": "LC"
+   },
+   {
+    "session_id": "MS101-S1CSED-2-S2",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-6",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "MS101TT-S1ECEA-S1",
+    "day": 4,
+    "start": 5,
+    "room_id": "CR-5",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "AS101L-S1CSED-G2-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "PHY-LAB-1",
+    "faculty_id": "KY"
+   },
+   {
+    "session_id": "CS303L-S3CSEA-G1-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "CSE-LAB-2",
+    "faculty_id": "RN"
+   },
+   {
+    "session_id": "CS701L-S7ECE-G2D1.G2D2.G2D3-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "CSE-LAB-1",
+    "faculty_id": "RK"
+   },
+   {
+    "session_id": "CS911-MTCSE-S4",
+    "day": 4,
+    "start": 6,
+    "room_id": "ECE-LAB-3",
+    "faculty_id": "PS"
+   },
+   {
+    "session_id": "EC9103-MTECE+S5ECE-S3",
+    "day": 4,
+    "start": 6,
+    "room_id": "CR-6",
+    "faculty_id": "RDM"
+   },
+   {
+    "session_id": "MS101-S1CSEC-S3",
+    "day": 4,
+    "start": 6,
+    "room_id": "CR-5",
+    "faculty_id": "VP"
+   },
+   {
+    "session_id": "MS101TT-S1CSEB-S1",
+    "day": 4,
+    "start": 6,
+    "room_id": "CR-4",
+    "faculty_id": "APS"
+   },
+   {
+    "session_id": "CS101-S1CSEC-S3",
+    "day": 4,
+    "start": 7,
+    "room_id": "CR-4",
+    "faculty_id": "DR"
+   },
+   {
+    "session_id": "MS101-S1CSEB-S3",
+    "day": 4,
+    "start": 7,
+    "room_id": "CR-1",
+    "faculty_id": "AP"
+   }
+  ],
+  "weights": {
+   "student_idle": 5,
+   "faculty_idle": 3,
+   "room_fit": 2,
+   "workload_balance": 3,
+   "preferences": 4
+  },
+  "solver": {
+   "method": "OR-Tools CP-SAT (weighted soft objective, warm-started from the official timetable); precomputed at build time",
+   "status": "feasible",
+   "message": "Time limit reached: best feasible timetable found, optimality not proven (remaining gap to bound \u2248 49%).",
+   "wall_seconds": 31.15,
+   "objective": 10490.0,
+   "best_bound": 5312.0,
+   "variables": 74399,
+   "constraints": 85790,
+   "candidates": 64310,
+   "time_limit": 30.0,
+   "log": [
+    "Sessions: 281 \u00b7 legal candidates: 64310",
+    "Objective weights (normalized): student_idle=0.29, faculty_idle=0.18, room_fit=0.12, workload_balance=0.18, preferences=0.24",
+    "Warm start: baseline schedule supplied as solution hint.",
+    "Model: 74399 variables \u00b7 85790 constraints",
+    "CP-SAT status FEASIBLE after 30.08s \u00b7 18684 branches \u00b7 0 conflicts",
+    "Time limit reached: best feasible timetable found, optimality not proven (remaining gap to bound \u2248 49%)."
+   ]
+  }
+ }
+}

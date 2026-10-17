@@ -11,7 +11,7 @@ import { CAT_LABEL, catColor, whereLabel } from '../format'
 type ViewBy = 'batch' | 'faculty' | 'room'
 
 export default function Studio() {
-  const { data, active, baseline, L, selected, select, filters, setFilters, adopt, activate, toast, errMsg } = useApp()
+  const { data, active, baseline, L, selected, select, filters, setFilters, adopt, activate, toast, errMsg, canRun } = useApp()
   const [viewBy, setViewBy] = useState<ViewBy>('batch')
   const [compare, setCompare] = useState(false)
   const [verdict, setVerdict] = useState<MoveVerdict | null>(null)
@@ -21,26 +21,38 @@ export default function Studio() {
   const sessions = L.sessions
   const f = filters
 
+  // Atomic batches (lab groups / elective divisions) roll up into their class section.
+  const sectionOf = useMemo(() => Object.fromEntries((data?.dataset.batches ?? []).map(b => [b.id, b.section || b.id])), [data])
+  const sections = useMemo(() => {
+    const seen = new Map<string, { id: string; label: string; size: number }>()
+    for (const b of data?.dataset.batches ?? []) {
+      const id = b.section || b.id
+      const cur = seen.get(id)
+      seen.set(id, { id, label: b.section ? b.program || id : b.name, size: (cur?.size ?? 0) + b.size })
+    }
+    return [...seen.values()]
+  }, [data])
+
   const visible = useCallback((a: Assignment) => {
     const s = sessions[a.session_id]
     if (!s) return false
-    if (f.batch && !s.batch_ids.includes(f.batch)) return false
+    if (f.batch && !s.batch_ids.some(b => sectionOf[b] === f.batch)) return false
     if (f.faculty && a.faculty_id !== f.faculty) return false
     if (f.room && a.room_id !== f.room) return false
     if (f.course && L.courses[s.course_id]?.code !== f.course) return false
     return true
-  }, [f, sessions, L.courses])
+  }, [f, sessions, L.courses, sectionOf])
 
   const lanes: Lane[] = useMemo(() => {
     if (!data) return []
     const ds = data.dataset
-    if (viewBy === 'batch') return ds.batches.filter(b => !f.batch || b.id === f.batch).map(b => ({ id: b.id, label: b.name }))
+    if (viewBy === 'batch') return sections.filter(x => !f.batch || x.id === f.batch).map(x => ({ id: x.id, label: x.label }))
     if (viewBy === 'faculty') return ds.faculty.filter(x => !f.faculty || x.id === f.faculty).map(x => ({ id: x.id, label: x.name }))
     return ds.rooms.filter(r => !f.room || r.id === f.room).map(r => ({ id: r.id, label: r.name }))
-  }, [data, viewBy, f])
+  }, [data, viewBy, f, sections])
 
-  const laneKeys = useCallback((a: Assignment) => viewBy === 'batch' ? (sessions[a.session_id]?.batch_ids ?? [])
-    : viewBy === 'faculty' ? [a.faculty_id] : [a.room_id], [viewBy, sessions])
+  const laneKeys = useCallback((a: Assignment) => viewBy === 'batch' ? [...new Set((sessions[a.session_id]?.batch_ids ?? []).map(b => sectionOf[b]))]
+    : viewBy === 'faculty' ? [a.faculty_id] : [a.room_id], [viewBy, sessions, sectionOf])
 
   const conflicts = useMemo(() => new Set(active?.validation.violations.filter(v => v.severity === 'hard').flatMap(v => v.session_ids) ?? []), [active])
 
@@ -144,9 +156,9 @@ export default function Studio() {
         </div>
 
         <div className="mb-3 grid grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-6">
-          <Select label="Batch" value={f.batch} onChange={v => setFilters({ ...f, batch: v })}>
-            <option value="">All batches</option>
-            {data.dataset.batches.map(b => <option key={b.id} value={b.id}>{b.id} · {b.size}</option>)}
+          <Select label="Class / batch" value={f.batch} onChange={v => setFilters({ ...f, batch: v })}>
+            <option value="">All classes</option>
+            {sections.map(b => <option key={b.id} value={b.id}>{b.label} · {b.size}</option>)}
           </Select>
           <Select label="Faculty" value={f.faculty} onChange={v => setFilters({ ...f, faculty: v })}>
             <option value="">All faculty</option>
@@ -161,7 +173,7 @@ export default function Studio() {
             {codes.map(c => <option key={c} value={c}>{c}</option>)}
           </Select>
           <Select label="Day" value={f.day} onChange={v => setFilters({ ...f, day: v })}>
-            <option value="">Mon – Sat</option>
+            <option value="">{tc.days[0]} – {tc.days[tc.days.length - 1]}</option>
             {tc.days.map((d, i) => <option key={d} value={i}>{d}</option>)}
           </Select>
           <div className="flex items-end">
@@ -172,7 +184,7 @@ export default function Studio() {
         </div>
 
         <div className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-2xs text-slate-600">
-          {['cs', 'math', 'ece', 'ds'].map(c => (
+          {[...new Set(data.dataset.courses.map(c => c.category))].map(c => (
             <span key={c} className="flex items-center gap-1.5"><span className="h-3 w-[3px]" style={{ background: catColor(c) }} />{CAT_LABEL[c]}</span>
           ))}
           <span className="h-3 w-px bg-navy/15" />
@@ -194,7 +206,7 @@ export default function Studio() {
             tc={tc} assignments={active.record.assignments} sessions={sessions} courses={L.courses}
             lanes={lanes} laneKeys={laneKeys} days={days} visible={visible} conflicts={conflicts}
             ghosts={compare ? ghosts : []} moved={moved} selected={selected} onSelect={s => { select(s); setVerdict(null) }}
-            onDropSession={(sid, d, t) => tryMove(sid, d, t)}
+            onDropSession={canRun ? (sid, d, t) => tryMove(sid, d, t) : undefined}
           />
         )}
 

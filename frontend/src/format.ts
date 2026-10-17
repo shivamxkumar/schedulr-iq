@@ -19,11 +19,11 @@ export const pct = (v: number, d = 1) => `${(v * 100).toFixed(d)}%`
 export const mins = (v: number) => `${v.toLocaleString()} min`
 
 export const CAT_COLOR: Record<string, string> = {
-  cs: '#3D5A80', math: '#9A6B3F', ece: '#3F7A65', ds: '#7A5C8F', core: '#5A6378',
+  cs: '#3D5A80', math: '#9A6B3F', ece: '#3F7A65', ds: '#7A5C8F', sci: '#2F6F7A', hum: '#8A4F5F', core: '#5A6378',
 }
 export const catColor = (c: string) => CAT_COLOR[c] || CAT_COLOR.core
 export const CAT_LABEL: Record<string, string> = {
-  cs: 'Computer Science', math: 'Mathematics', ece: 'Electronics', ds: 'Data Science', core: 'Core',
+  cs: 'Computer Science', math: 'Mathematics', ece: 'Electronics', ds: 'Data Science', sci: 'Sciences', hum: 'Humanities', core: 'Core',
 }
 
 export function download(name: string, text: string, type = 'text/csv') {

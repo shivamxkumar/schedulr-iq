@@ -9,7 +9,7 @@ from typing import Any, Optional
 
 from pydantic import BaseModel
 
-from .demo import demo_dataset
+from .demos import DEFAULT, load
 from .models import Assignment, Dataset
 
 STATE_PATH = Path(__file__).resolve().parent.parent / "data" / "state.json"
@@ -54,7 +54,7 @@ class Store:
                 return State.model_validate_json(self.path.read_text())
             except Exception:
                 pass
-        return State(dataset=demo_dataset())
+        return State(dataset=load(DEFAULT).dataset)
 
     def save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -84,8 +84,8 @@ class Store:
         self.state.active_id = None
         self.save()
 
-    def reset(self) -> None:
-        self.state = State(dataset=demo_dataset(), counter=self.state.counter)
+    def reset(self, ds: Dataset) -> None:
+        self.state = State(dataset=ds, counter=self.state.counter)
         self.save()
 
 

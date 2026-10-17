@@ -19,7 +19,7 @@ interface Props {
 }
 
 export default function Inspector({ sid, onClose, onTryMove, verdict, onForce, onDismissVerdict, busy }: Props) {
-  const { active, data, L, baseline, errMsg } = useApp()
+  const { active, data, L, baseline, errMsg, canRun } = useApp()
   const [ex, setEx] = useState<SessionExplanation | null>(null)
   const [err, setErr] = useState<string | null>(null)
   const [hover, setHover] = useState<string | null>(null)
@@ -133,7 +133,7 @@ export default function Inspector({ sid, onClose, onTryMove, verdict, onForce, o
                 <Eyebrow>Slot map · click to move</Eyebrow>
                 <MousePointerClick className="h-3.5 w-3.5 text-slate" />
               </div>
-              <SlotMap ex={ex} tc={tc} busy={busy} onPick={(d, t, r) => onTryMove(sid, d, t, r)} onHover={setHover} />
+              <SlotMap ex={ex} tc={tc} busy={busy || !canRun} onPick={(d, t, r) => onTryMove(sid, d, t, r)} onHover={setHover} />
               <div className="mt-1.5 h-4 truncate font-mono text-2xs text-slate">{hover || 'Hover a cell for its reason.'}</div>
               <div className="mt-1 flex flex-wrap gap-3 font-mono text-2xs text-slate">
                 <span className="flex items-center gap-1"><span className="h-2.5 w-2.5 bg-navy" />current</span>

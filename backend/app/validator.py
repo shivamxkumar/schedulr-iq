@@ -202,14 +202,95 @@ def validate(ds: Dataset, assignments: list[Assignment]) -> ValidationReport:
                             checks=checks, violations=v)
 
 
-def placement_violations(ds: Dataset, assignments: list[Assignment], cand: Assignment) -> list[Violation]:
-    """Hard violations that `cand` would cause/suffer if it replaced its session's current
-    assignment. Runs the full validator on the hypothetical schedule and keeps only issues
-    that involve this session, so the logic is identical to whole-schedule validation."""
+def placement_violations_full(ds: Dataset, assignments: list[Assignment], cand: Assignment) -> list[Violation]:
+    """Reference implementation: full validation of the hypothetical schedule, filtered to `cand`."""
     others = [a for a in assignments if a.session_id != cand.session_id]
     rep = validate(ds, others + [cand])
     return [v for v in rep.violations if v.severity == "hard" and v.code != "MISSING_SESSION"
             and (cand.session_id in v.session_ids or _load_issue_for(v, cand))]
+
+
+def placement_violations(ds: Dataset, assignments: list[Assignment], cand: Assignment) -> list[Violation]:
+    """Hard violations `cand` would cause if it replaced its session's current assignment.
+
+    O(n) version of `placement_violations_full` (same rules, same codes) used for slot maps and
+    fix suggestions on large timetables; a test asserts both agree on violation codes."""
+    tc = ds.time
+    sessions = {x.id: x for x in expand_sessions(ds)}
+    s = sessions.get(cand.session_id)
+    rooms = {r.id: r for r in ds.rooms}
+    fac = {f.id: f for f in ds.faculty}
+    if not s or cand.room_id not in rooms or cand.faculty_id not in fac:
+        return [Violation(code="UNKNOWN_REFERENCE", severity="hard", message="Unknown session, room or faculty.",
+                          session_ids=[cand.session_id])]
+    c = next(x for x in ds.courses if x.id == s.course_id)
+    r, f = rooms[cand.room_id], fac[cand.faculty_id]
+    span = range(cand.start, cand.start + s.duration)
+    end = cand.start + s.duration
+    out: list[Violation] = []
+
+    def add(code, msg, sids=None, kind=None, rid=None):
+        out.append(Violation(code=code, severity="hard", message=msg, session_ids=sids or [cand.session_id],
+                             resource_kind=kind, resource_id=rid, day=cand.day, start=cand.start, end=end))
+
+    loc = where(tc, cand.day, cand.start, s.duration) if 0 <= cand.day < len(tc.days) else f"day {cand.day}"
+    if any(not is_teaching_slot(tc, cand.day, t) for t in span):
+        add("INVALID_TIME", f"{cand.session_id} at {loc} falls outside operating hours or overlaps a break.")
+    if c.eligible_starts and not in_windows(c.eligible_starts, cand.day, cand.start):
+        add("INELIGIBLE_START", f"{c.code} may only start in its configured windows; {loc} is not one.", kind="course", rid=c.id)
+    if r.capacity < s.enrollment:
+        add("ROOM_CAPACITY", f"{r.id} seats {r.capacity} but {cand.session_id} enrolls {s.enrollment}.", kind="room", rid=r.id)
+    if r.room_type not in c.room_types:
+        add("ROOM_TYPE", f"{c.code} needs a {' / '.join(c.room_types)} room; {r.id} is a {r.room_type}.", kind="room", rid=r.id)
+    lacking = [e for e in c.equipment if e not in r.equipment]
+    if lacking:
+        add("ROOM_EQUIPMENT", f"{r.id} lacks {', '.join(lacking)} required by {c.code}.", kind="room", rid=r.id)
+    if c.id not in f.courses:
+        add("FACULTY_NOT_ELIGIBLE", f"{f.name} is not listed as eligible to teach {c.code} ({c.id}).", kind="faculty", rid=f.id)
+    if any(in_windows(f.unavailable, cand.day, t) for t in span):
+        add("FACULTY_UNAVAILABLE", f"{f.name} is unavailable during {loc}.", kind="faculty", rid=f.id)
+    if any(in_windows(r.unavailable, cand.day, t) for t in span):
+        add("ROOM_UNAVAILABLE", f"{r.id} is unavailable during {loc}.", kind="room", rid=r.id)
+
+    day_load = s.duration
+    week_load = s.duration
+    for a in assignments:
+        if a.session_id == cand.session_id:
+            continue
+        o = sessions.get(a.session_id)
+        if not o:
+            continue
+        if a.faculty_id == cand.faculty_id:
+            week_load += o.duration
+            if a.day == cand.day:
+                day_load += o.duration
+        if o.course_id == s.course_id:
+            if a.day == cand.day:
+                add("COURSE_SAME_DAY", f"{c.code} already meets on {tc.days[cand.day]} ({a.session_id}).",
+                    [a.session_id, cand.session_id], "course", c.id)
+            if a.faculty_id != cand.faculty_id:
+                add("TEACHER_CONSISTENCY", f"{c.code} ({c.id}) is taught by {a.faculty_id} in {a.session_id}.",
+                    [a.session_id, cand.session_id], "course", c.id)
+        if a.day != cand.day or a.start >= end or cand.start >= a.start + o.duration:
+            continue
+        lo, hi = max(a.start, cand.start), min(end, a.start + o.duration)
+        where_ = where(tc, cand.day, lo, hi - lo)
+        if a.faculty_id == cand.faculty_id:
+            add("FACULTY_OVERLAP", f"{f.name} is double-booked {where_}: {a.session_id}.", [a.session_id, cand.session_id], "faculty", f.id)
+        if a.room_id == cand.room_id:
+            add("ROOM_OVERLAP", f"{r.id} is double-booked {where_}: {a.session_id}.", [a.session_id, cand.session_id], "room", r.id)
+        for bid in sorted(set(s.batch_ids) & set(o.batch_ids)):
+            add("BATCH_OVERLAP", f"Batch {bid} already has {a.session_id} {where_}.", [a.session_id, cand.session_id], "batch", bid)
+    if day_load > f.max_daily_slots:
+        add("FACULTY_DAILY_LOAD", f"{f.name} would teach {day_load} slots on {tc.days[cand.day]} (max {f.max_daily_slots}).",
+            kind="faculty", rid=f.id)
+    if week_load > f.max_weekly_slots:
+        add("FACULTY_WEEKLY_LOAD", f"{f.name} would teach {week_load} slots per week (max {f.max_weekly_slots}).",
+            kind="faculty", rid=f.id)
+    for fx in ds.fixed:
+        if fx.session_id == cand.session_id and (cand.day != fx.day or cand.start != fx.start or (fx.room_id and cand.room_id != fx.room_id)):
+            add("FIXED_VIOLATED", f"{fx.session_id} is pinned elsewhere.")
+    return out
 
 
 def _load_issue_for(v: Violation, cand: Assignment) -> bool:

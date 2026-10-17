@@ -1,5 +1,5 @@
 import { useState, type FormEvent } from 'react'
-import { Eye, EyeOff, LogIn, ShieldCheck } from 'lucide-react'
+import { ArrowRight, Eye, EyeOff, LogIn, ShieldCheck } from 'lucide-react'
 import { api, ApiError, session, type User } from '../api'
 import { Button, ErrorBox, Mono } from '../components/ui'
 
@@ -35,6 +35,21 @@ export default function Login({ onLogin }: { onLogin: (u: User) => void }) {
   const [show, setShow] = useState(false)
   const [busy, setBusy] = useState(false)
   const [err, setErr] = useState<string | null>(null)
+  const [demoBusy, setDemoBusy] = useState(false)
+
+  const demo = async () => {
+    setDemoBusy(true)
+    setErr(null)
+    try {
+      const r = await api.demoLogin()
+      session.set(r.token)
+      onLogin(r.user)
+    } catch (ex) {
+      setErr(ex instanceof ApiError ? ex.message : String(ex))
+    } finally {
+      setDemoBusy(false)
+    }
+  }
 
   const submit = async (e: FormEvent) => {
     e.preventDefault()
@@ -106,6 +121,16 @@ export default function Login({ onLogin }: { onLogin: (u: User) => void }) {
           <Button tone="primary" type="submit" loading={busy} className="mt-6 h-11 w-full">
             {!busy && <LogIn className="h-4 w-4" />} Sign in
           </Button>
+
+          <div className="my-6 flex items-center gap-3 font-mono text-2xs uppercase tracking-[0.18em] text-slate"><span className="h-px flex-1 bg-navy/15" />or<span className="h-px flex-1 bg-navy/15" /></div>
+          <button type="button" onClick={demo} disabled={demoBusy}
+            className="group flex w-full items-center gap-3 border border-navy bg-lime px-4 py-3 text-left transition-colors hover:bg-lime-600 disabled:opacity-60">
+            <span className="flex-1">
+              <span className="block font-display text-base font-semibold">View demo</span>
+              <span className="block text-xs text-navy/75">IIIT Surat's official odd-semester timetable · 14 classes · 281 sessions. No sign-in needed.</span>
+            </span>
+            <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-0.5" />
+          </button>
 
           <div className="mt-8 grid grid-cols-2 gap-px border border-navy/10 bg-navy/10 text-xs">
             <div className="bg-white p-3"><div className="flex items-center gap-1.5 font-medium"><ShieldCheck className="h-3.5 w-3.5" />Administrator</div><p className="mt-1 text-slate">Edit data & availability, optimize, publish.</p></div>

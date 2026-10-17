@@ -10,7 +10,7 @@ export interface Faculty {
   id: string; name: string; department: string; courses: string[]; unavailable: Window[]; dispreferred: Window[];
   max_daily_slots: number; max_weekly_slots: number
 }
-export interface Batch { id: string; name: string; size: number; program: string }
+export interface Batch { id: string; name: string; size: number; program: string; section?: string }
 export interface Course {
   id: string; code: string; name: string; course_type: CourseType; category: string; batch_ids: string[];
   sessions_per_week: number; duration_slots: number; room_types: RoomType[]; equipment: string[]; eligible_starts: Window[]

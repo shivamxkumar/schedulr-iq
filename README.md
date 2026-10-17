@@ -18,7 +18,7 @@ cd frontend && npm install && npx vite          # http://localhost:5180
 
 The frontend proxies `/api` to `:8010` (ports chosen to avoid the common 8000/5173).
 
-**Sign in.** Two roles exist: **admin** (edit data, optimize, publish) and **viewer** (read-only). Development
+**Sign in.** Three roles exist: **admin** (edit data, optimize, publish), **viewer** (read-only) and **demo** (via *View demo*: optimize and try moves, no data edits or publishing). Development
 accounts are listed in `backend/.env.example`. In production, set `ADMIN_PASSWORD`, `VIEWER_PASSWORD` and
 `SCHEDULR_SECRET` as environment variables. Tokens are HMAC-signed with a 12 h expiry; every `/api` route
 except health/login requires one, and every non-GET route requires the admin role.
@@ -51,7 +51,7 @@ The same image runs on any Docker host:
 docker build -t schedulr-iq . && docker run -p 8000:8000 -e ADMIN_PASSWORD=... -e VIEWER_PASSWORD=... schedulr-iq
 ```
 
-Tests: `cd backend && .venv/bin/pytest -q` runs 18 tests covering the engine, validator, metrics, API flows, auth and the infeasible case.
+Tests: `cd backend && .venv/bin/pytest -q` runs 21 tests covering the engine, validator, metrics, API flows, auth/demo roles, the IIIT Surat import and the infeasible case.
 
 ## Architecture
 
@@ -105,40 +105,56 @@ Hard constraints are never weighted penalties.
 | Preference satisfaction | share of sessions outside faculty "prefers not to teach" windows | ↑ |
 | Soft score | Σ ŵₖ·termₖ / baselineₖ (each ref ≥ 1). Baseline ≈ 1.000. Relative to the baseline, **not** a % of optimality | ↓ |
 
-## Demo dataset (IIIT Surat, fictional faculty names)
+## Demo data: IIIT Surat official timetable
 
-The dataset has 4 batches (204 students), 7 rooms (2 labs), 8 faculty and 16 course offerings with 40 weekly sessions (1 h lectures and tutorials, 2–3 h labs). Built-in challenges:
+**View demo** on the login page opens a demo session, with no account needed. That session loads the IIIT Surat
+odd-semester timetable, transcribed from the Timetable Committee's `all_class_v4.pdf` (aSc Timetables) into
+[`backend/data_src/iiit_surat_all_class_v4.txt`](backend/data_src/iiit_surat_all_class_v4.txt). The timetable covers 14 classes:
+B.Tech Sem 1 (ECE A, CSE B/C/D), Sem 3 (ECE, CSE A/B), Sem 5 (ECE, CSE), Sem 7 (ECE, CSE), and M.Tech
+ECE / CSE / DS & Comm. It totals 281 weekly sessions, Mon–Fri 09:00–18:00.
 
-- The combined MA201 lecture (118 students) fits only LH-101.
-- The visiting professor is available only Mon/Wed/Fri, and MA211 needs 3 distinct days.
-- Three 3-hour labs share one computing lab, which is closed on Saturday.
-- The electronics lab runs afternoons only.
-- Saturday is a half day.
-- Faculty preferences compete with gap-free student days.
+`scripts/build_iiits.py` turns the transcription into `app/iiits_official.json`:
+- **Batches.** Each class is split into atomic batches by lab group (G1/G2) and elective division (D1–D3). A
+  whole-class lecture attends every atom; a group lab attends half. Strict batch no-overlap therefore also
+  covers labs running in parallel.
+- **Shared sessions.** Sessions printed on several class sheets are merged into one session with all their
+  batches: cross-listed electives (e.g. CS 9117/CS 743), M.Tech/B.Tech pairs, and the common HS 911.
+  Back-to-back hours of the same course are merged into one block.
+- **Faculty.** Initials are decoded with the public faculty lists for CSE, ECE, MSA and PSA. Matches based
+  only on initials are tagged `inferred` (RRP, DN, TG, SA, RP), and two sets of initials not on those pages
+  are kept as-is (`SR`, `SRS`). Placeholders such as `PAS F1` and `HSS F2` stay placeholders, one per
+  course. Teaching assistants and scholars (PG25…, RS25…) are not modelled.
+- **Course names.** These come from the public 2025 and 2023 curricula. M.Tech-only codes whose names are
+  not public are labelled as such.
+- **Assumptions (not public data).** Class sizes, room capacities (raised to the largest class actually seated
+  there), faculty availability (always available; 17:00–18:00 marked "prefers not") and load limits (actual + 4 h).
 
-**Diagnostic examples** are explicitly labelled and never presented as real data:
-- A corrupted schedule copy for the Conflict Inspector.
-- "Hall closed": MA201 has no room, so it is rejected as a dataset error.
-- "Visiting overload": MA211 becomes infeasible, which returns diagnostics and a partial schedule.
+The **official timetable is the baseline**: it is imported, not generated, and passes all 19 hard checks
+with 0 violations. One CP-SAT run (30 s, default weights) is precomputed at build time. Against the official
+timetable it brings student idle time from 12,660 to 3,300 min/week, faculty idle from 8,640 to
+1,080 min/week, workload imbalance from 55 to 53 h, and preference misses from 7 to 0. Seat utilization falls 0.5 points, a reported
+trade-off. Visitors can re-run the optimizer and try moves, but cannot edit data or publish.
+
+A small **synthetic campus** (fictional names) is kept for the unit tests and the two infeasible diagnostic
+scenarios.
 
 ## 3-minute demo script
 
-0. **Sign in** as admin. The IIIT Surat login page explains the admin and viewer roles.
-1. **Overview.** The verdict panel answers "feasible / optimized / publishable" from the validator. The baseline crowds Monday (see the batch heat strip).
-2. **Optimization Lab.** Explain hard constraints (left) vs the 5 weighted soft objectives. Click **Optimize**: the run takes about 10 s and the result is re-validated. Show the baseline vs optimized table: student idle 480 → 0 min, wasted seat-hours 1742 → 402, preference satisfaction 52.5% → 100%, workload imbalance 21 → 3 h, hard violations 0 → 0.
-3. Switch the preset to **Space-efficient** and run again. Seat waste drops further while other terms trade off. Point at the solver status (`OPTIMAL` vs `FEASIBLE (limit)`).
-4. **Timetable.** Toggle *Compare to baseline* to show ghosts of the old positions. Click a block. The Inspector shows the 12 per-session hard checks, "why this slot" (feasible alternatives, local optimality, blocked-start reasons) and the slot map.
-5. Click a grey cell (e.g. Tue for MA211): **rejected** with `FACULTY_UNAVAILABLE`. Click a lime cell: it is accepted, saved as a new version, and Undo is available.
-6. **Conflicts → Load diagnostic example.** Nine violations appear with corrective actions. Apply a validated fix and the count drops. Publishing it is refused (409).
-7. **Publish.** The 19-check verification runs, then mark as final, export CSV, print per batch.
-8. **Setup:** paint a faculty member's availability and watch the live feasibility check react, then save to regenerate.
-9. `pytest -q`: 18 passing tests.
+0. **Login page → View demo.** This opens IIIT Surat's official v4 timetable, with no account needed.
+1. **Overview.** The validator's verdict on the *official* timetable: 19/19 hard checks pass, 281/281 sessions, 0 conflicts. Student idle time is 12,660 min/week.
+2. **Timetable.** One lane per class. Lab groups G1/G2 run side by side, and cross-listed electives span the S7 ECE, S7 CSE and M.Tech lanes. Click a block: the inspector shows its hard checks, why it sits there, and a slot map of every alternative.
+3. **Optimization Lab.** Explain hard constraints vs soft objectives. *Viewing* switches to the precomputed run, which shows the comparison: student idle down 74%, faculty idle down 88%, preferences 7 → 0, and a 0.5-point seat-utilization trade-off. You can also re-run it live: 20 s, with honest `FEASIBLE (time limit)` status.
+4. **Moves.** Drag a block to a clash: the move is rejected with the reason (e.g. `BATCH_OVERLAP`). Drop it on a lime slot: it is accepted, saved as a new version, and Undo is available.
+5. **Conflicts → Load diagnostic example.** You get 9 violations, each with corrective actions and validated fixes. Apply one and the count drops. Publishing the example is refused.
+6. **Sign in as admin → Setup.** Paint a faculty member's availability and watch the live feasibility check react. Save to regenerate. Then **Publish**: 19-check verification, CSV export and print.
+7. `pytest -q`: 21 passing tests.
 
 ## Known limitations
 
 - **Single shared workspace.** State lives in `backend/data/state.json`, so editing the dataset clears existing schedules. On free hosting tiers the disk is ephemeral: a redeploy restores the demo.
 - **Accounts.** There are exactly two (admin and viewer) and they are configured through environment variables. There is no user management UI.
 - **Reproducibility.** The baseline is fully deterministic. CP-SAT runs with a fixed seed and 8 workers, but when it stops at the time limit (not proven optimal), the incumbent can differ between runs. Proven-optimal objective values are reproducible.
+- **IIIT Surat data.** The data is transcribed by hand from the PDF and checked by the validator (0 conflicts), but transcription slips are possible. Sizes, capacities and availability are assumed. Co-teachers on a session are not modelled; only the first-listed teacher is assigned.
 - **Explanations are observational.** They come from diffs, measured effects, and enumerating alternatives. They do not claim to reveal solver internals.
 - **Not modelled:** consecutive-hour caps, student electives at the individual level, and splitting a batch into lab groups.
 - **Testing coverage.** The UI was tested at desktop width. The mobile layout (bottom navigation, drawer inspector) is implemented but not extensively tested.

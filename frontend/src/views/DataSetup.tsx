@@ -265,23 +265,23 @@ export default function DataSetup() {
       </div>
 
       <div className="mt-10">
-        <SectionHead index="C" title="Demo & diagnostic scenarios" sub="Diagnostic examples deliberately break the demo dataset to show how SCHEDULR IQ explains failures. Restore the demo afterwards." />
+        <SectionHead index="C" title="Demo & diagnostic scenarios" sub="Diagnostic examples deliberately break a small synthetic campus to show how SCHEDULR IQ explains failures. Restore the IIIT Surat demo afterwards." />
         <div className="grid gap-4 md:grid-cols-3">
           <div className="flex flex-col border border-navy/10 bg-white p-4">
             <Chip tone="muted" className="w-fit">Demo</Chip>
-            <div className="mt-2 font-display font-semibold">Northfield Institute of Technology</div>
-            <p className="mt-1 flex-1 text-xs text-slate-600">4 batches, 7 rooms, 8 faculty, 16 course offerings, 33 weekly sessions. A feasible timetable exists.</p>
+            <div className="mt-2 font-display font-semibold">IIIT Surat · official v4 timetable</div>
+            <p className="mt-1 flex-1 text-xs text-slate-600">14 classes (35 lab-group / division batches), 12 rooms, 38 faculty, 281 weekly sessions transcribed from all_class_v4.pdf, plus one precomputed optimizer run.</p>
             <Button className="mt-3 w-fit" size="sm" tone="primary" loading={busy === 'reset'} onClick={doReset}><RotateCcw className="h-3.5 w-3.5" />Restore demo</Button>
           </div>
           <div className="flex flex-col border border-navy/10 bg-white p-4">
             <Chip tone="red" className="w-fit">Diagnostic example</Chip>
-            <div className="mt-2 font-display font-semibold">Main Lecture Hall closed</div>
+            <div className="mt-2 font-display font-semibold">Synthetic campus · hall closed</div>
             <p className="mt-1 flex-1 text-xs text-slate-600">LH-101 removed. MA201 (118 students, combined CSE-2A + CSE-2B) has no room large enough → rejected as a dataset error before solving.</p>
             <Button className="mt-3 w-fit" size="sm" tone="danger" loading={busy === 'hall-closed'} onClick={() => doScenario('hall-closed')}>Load scenario</Button>
           </div>
           <div className="flex flex-col border border-navy/10 bg-white p-4">
             <Chip tone="red" className="w-fit">Diagnostic example</Chip>
-            <div className="mt-2 font-display font-semibold">Visiting professor overloaded</div>
+            <div className="mt-2 font-display font-semibold">Synthetic campus · visiting professor overloaded</div>
             <p className="mt-1 flex-1 text-xs text-slate-600">Dr. Banerjee also unavailable Wednesdays. MA211 needs 3 sessions on distinct days but only Mon/Fri remain → infeasible, with a non-publishable partial schedule.</p>
             <Button className="mt-3 w-fit" size="sm" tone="danger" loading={busy === 'visiting-overload'} onClick={() => doScenario('visiting-overload')}>Load scenario</Button>
           </div>

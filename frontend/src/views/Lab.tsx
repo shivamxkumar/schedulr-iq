@@ -48,9 +48,9 @@ function Delta({ a, b, dir, fmt }: { a: number; b: number; dir: 'min' | 'max'; f
 }
 
 export default function Lab() {
-  const { active, baseline, list, activate, adopt, toast, errMsg, focus, data } = useApp()
+  const { active, baseline, list, activate, adopt, toast, errMsg, focus, data, canRun } = useApp()
   const [w, setW] = useState<Weights>(active?.record.weights || DEFAULT)
-  const [limit, setLimit] = useState(10)
+  const [limit, setLimit] = useState((data?.sessions.length ?? 0) > 120 ? 20 : 10)
   const [running, setRunning] = useState(false)
   const [elapsed, setElapsed] = useState(0)
   const [res, setRes] = useState<OptimizeResult | null>(null)
@@ -134,7 +134,7 @@ export default function Lab() {
                 <input type="number" min={1} max={60} value={limit} onChange={e => setLimit(Math.max(1, Math.min(60, Number(e.target.value) || 1)))}
                   className="h-9 w-20 border border-slate-200 bg-white px-2 font-mono text-sm focus:border-navy focus:outline-none" />
               </label>
-              <Button tone="accent" className="h-9 flex-1" onClick={run} loading={running} disabled={invalid || !baseline}>
+              <Button tone="accent" className="h-9 flex-1" onClick={run} loading={running} disabled={invalid || !baseline || !canRun}>
                 {!running && <Play className="h-4 w-4" />} Optimize timetable
               </Button>
             </div>

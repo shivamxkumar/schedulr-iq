@@ -1,4 +1,4 @@
-"""Demo dataset for Indian Institute of Information Technology Surat (faculty names are fictional): 4 batches, 7 rooms, 8 faculty, 12 course codes (16 offerings, 40 weekly sessions).
+"""Small synthetic campus used by unit tests and diagnostic scenarios (all names fictional): 4 batches, 7 rooms, 8 faculty, 12 course codes (16 offerings, 40 weekly sessions).
 
 Built-in scheduling challenges:
   * MA201 is a combined CSE-2A + CSE-2B lecture (118 students) - only LH-101 (130) fits.
@@ -112,5 +112,5 @@ def demo_dataset() -> Dataset:
                 courses=["MA211", "MA201"], unavailable=[_day(1), _day(3), _day(5)],
                 dispreferred=[_day(d, 0, 1) for d in (0, 2, 4)], max_daily_slots=3, max_weekly_slots=8),
     ]
-    return Dataset(name="IIIT Surat · Odd Semester Timetable (demo data)", time=TimeConfig(),
+    return Dataset(name="Synthetic campus (test data)", time=TimeConfig(),
                    rooms=rooms, faculty=faculty, batches=batches, courses=courses)

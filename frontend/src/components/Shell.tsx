@@ -101,7 +101,7 @@ export function TopBar() {
         <div className="ml-1 flex items-center gap-2 border-l border-navy/15 pl-3">
           <div className="hidden text-right leading-tight sm:block">
             <div className="text-xs font-medium">{user.name}</div>
-            <div className="font-mono text-2xs text-slate">{user.username} · {canEdit ? 'admin' : <span className="inline-flex items-center gap-0.5"><Lock className="h-2.5 w-2.5" />read-only</span>}</div>
+            <div className="font-mono text-2xs text-slate">{user.role === 'demo' ? <span className="bg-lime px-1 text-navy">demo mode</span> : <>{user.username} · {canEdit ? 'admin' : <span className="inline-flex items-center gap-0.5"><Lock className="h-2.5 w-2.5" />read-only</span>}</>}</div>
           </div>
           <button onClick={logout} title="Sign out" aria-label="Sign out" className="flex h-8 w-8 items-center justify-center border border-navy/20 bg-white hover:border-navy"><LogOut className="h-3.5 w-3.5" /></button>
         </div>

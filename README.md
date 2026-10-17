@@ -159,6 +159,7 @@ scenarios.
 
 - **Single shared workspace.** State lives in `backend/data/state.json`, so editing the dataset clears existing schedules. On free hosting tiers the disk is ephemeral: a redeploy restores the demo.
 - **Accounts.** There are exactly two (admin and viewer) and they are configured through environment variables. There is no user management UI.
+- **Small hosts.** On Render's free plan (about 0.1 CPU), `SOLVER_MODE=lns` swaps the whole-model solve for a large-neighbourhood search: CP-SAT re-optimizes a couple of classes at a time against the rest of the timetable, and every accepted round is validated. Results improve steadily but are weaker than a full solve on a real CPU.
 - **Reproducibility.** The baseline is fully deterministic. CP-SAT runs with a fixed seed and 8 workers, but when it stops at the time limit (not proven optimal), the incumbent can differ between runs. Proven-optimal objective values are reproducible.
 - **IIIT Surat data.** The data is transcribed by hand from the PDF and checked by the validator (0 conflicts), but transcription slips are possible. Sizes, capacities and availability are assumed. Co-teachers on a session are not modelled; only the first-listed teacher is assigned.
 - **Explanations are observational.** They come from diffs, measured effects, and enumerating alternatives. They do not claim to reveal solver internals.

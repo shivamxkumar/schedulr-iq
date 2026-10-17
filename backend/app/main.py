@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from typing import Optional
 
+import os
 import re
 from pathlib import Path
 
@@ -126,11 +127,16 @@ def generate_baseline() -> dict:
     method = "First-fit heuristic (most-constrained session first, earliest legal slot, first suitable room) with backtracking"
     solver_info: dict = {"method": method, "status": "feasible"}
     if assigns is None:
-        res = solve(d, weights=None, time_limit=10)
+        res = solve(d, weights=None, time_limit=float(os.environ.get("GENERATE_TIME_LIMIT", 30)))
         if res.status in ("optimal", "feasible"):
             assigns = res.assignments
             solver_info = {"method": "First-fit failed within its search budget; CP-SAT feasibility search",
                            "status": "feasible", "log": res.log}
+        elif res.status != "infeasible":
+            # Timed out without a proof either way: say so instead of claiming infeasibility.
+            return {"status": "timeout", "message": f"No timetable found within the time limit ({res.message}). "
+                    "This is not a proof of infeasibility; try again or allow more time.",
+                    "diagnostics": presolve_diagnostics(d), "partial": None}
         else:
             partial = max_partial(d)
             diags = res.diagnostics or presolve_diagnostics(d)
@@ -344,7 +350,13 @@ def api_optimize(body: OptimizeBody):
     base_rep = validate(d, base.assignments)
     hint = base.assignments if base_rep.feasible and base_rep.complete else None
     r = refs()
-    res = solve(d, body.weights, r, hint=hint, time_limit=body.time_limit)
+    if os.environ.get("SOLVER_MODE") == "lns" and hint:
+        # Small hosts (e.g. a 0.1-CPU free instance): improve the base timetable neighbourhood by
+        # neighbourhood instead of solving the whole model at once.
+        from .solver import solve_lns
+        res = solve_lns(d, body.weights, r, hint, time_limit=body.time_limit)
+    else:
+        res = solve(d, body.weights, r, hint=hint, time_limit=body.time_limit)
     if res.status not in ("optimal", "feasible"):
         return {"status": res.status, "message": res.message, "diagnostics": res.diagnostics, "log": res.log}
     rep = validate(d, res.assignments)
@@ -356,7 +368,7 @@ def api_optimize(body: OptimizeBody):
     rec = store.add(ScheduleRecord(
         id=store.next_id(), label=f"Optimized run {n}", kind="optimized", parent_id=base.id, created_at=now(),
         assignments=res.assignments, weights=body.weights.model_dump(),
-        solver={"method": "OR-Tools CP-SAT (weighted soft objective, warm-started from base)", "status": res.status,
+        solver={"method": ("OR-Tools CP-SAT large-neighbourhood search (warm-started from base)" if os.environ.get("SOLVER_MODE") == "lns" else "OR-Tools CP-SAT (weighted soft objective, warm-started from base)"), "status": res.status,
                 "message": res.message, "wall_seconds": res.wall_seconds, "objective": res.objective,
                 "best_bound": res.best_bound, "variables": res.num_variables, "constraints": res.num_constraints,
                 "candidates": res.num_candidates, "time_limit": body.time_limit, "log": res.log},

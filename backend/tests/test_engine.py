@@ -180,3 +180,14 @@ def test_lab_groups_only_split_labs_and_clashes_count_once():
     rep = validate(ds, [x for x in off if x.session_id != other.session_id] + [moved])
     clashes = [v for v in rep.violations if v.code == "BATCH_OVERLAP"]
     assert len(clashes) == 1 and "S1-ECEA has overlapping" in clashes[0].message
+
+
+def test_lns_mode_improves_and_stays_valid():
+    from app.demos import load
+    from app.solver import solve_lns
+    b = load("iiit-surat")
+    refs = term_refs(compute_metrics(b.dataset, b.official).terms)
+    res = solve_lns(b.dataset, Weights(), refs, b.official, time_limit=8)
+    rep = validate(b.dataset, res.assignments)
+    assert rep.feasible and rep.complete
+    assert soft_score(compute_metrics(b.dataset, res.assignments).terms, Weights(), refs) <= 1.0

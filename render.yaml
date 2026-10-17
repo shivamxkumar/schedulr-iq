@@ -5,6 +5,10 @@ services:
     plan: free
     healthCheckPath: /api/health
     envVars:
+      - key: SOLVER_MODE
+        value: lns
+      - key: SOLVER_WORKERS
+        value: "1"
       - key: SCHEDULR_SECRET
         generateValue: true
       - key: ADMIN_USERNAME

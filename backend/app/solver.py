@@ -22,7 +22,7 @@ from ortools.sat.python import cp_model
 
 from .candidates import Cand, build_candidates, explain_no_candidates
 from .metrics import TERM_KEYS
-from .models import Assignment, Dataset, Weights, section_atoms
+from .models import Assignment, Dataset, Weights, expand_sessions, section_atoms
 from .timegrid import in_windows, is_teaching_slot
 
 SCALE = 10_000
@@ -286,3 +286,212 @@ def find_feasible(ds: Dataset, time_limit: float = 10.0) -> SolveResult:
 def max_partial(ds: Dataset, time_limit: float = 8.0) -> SolveResult:
     return solve(ds, weights=None, partial=True, time_limit=time_limit)
 
+
+
+def solve_lns(ds: Dataset, weights: Weights, refs: dict[str, float], hint: list[Assignment], time_limit: float = 20.0,
+              seed: int = 7, neighbourhood: int = 2) -> SolveResult:
+    """Large-neighbourhood search for small hosts (e.g. a 0.1-CPU free instance).
+
+    Each round frees the sessions of a few class sections (plus their teachers' other sessions),
+    pins everything else to the incumbent via `Dataset.fixed`, and lets CP-SAT re-optimize that
+    small model. A round is accepted only if the independent validator passes and the weighted
+    score strictly improves, so the incumbent is always a valid timetable."""
+    import random
+
+    from .metrics import compute_metrics, soft_score
+    from .models import FixedAssignment, section_atoms
+    from .validator import validate
+
+    t0 = time.time()
+    rng = random.Random(seed)
+    sess = {s.id: s for s in expand_sessions(ds)}
+    sec_of = {b: sec for sec, lst in section_atoms(ds).items() for b in lst}
+    sections = sorted(set(sec_of.values()))
+    current = list(hint)
+    best = soft_score(compute_metrics(ds, current).terms, weights, refs)
+    start_score = best
+    log = [f"LNS mode · {len(sess)} sessions · start score {best:.3f}"]
+    rounds = accepted = 0
+    while time.time() - t0 < time_limit - 1.0:
+        rounds += 1
+        chosen = set(rng.sample(sections, min(neighbourhood, len(sections))))
+        free = {a.session_id for a in current if any(sec_of.get(b) in chosen for b in sess[a.session_id].batch_ids)}
+        per_round = min(6.0, max(1.0, time_limit / 6))
+        budget = min(per_round, max(0.5, time_limit - (time.time() - t0) - 0.5))
+        cand_list = solve_focus(ds, weights, refs, current, free, budget, seed=seed + rounds)
+        if cand_list is None:
+            continue
+        res = SolveResult(status="feasible", assignments=cand_list)
+        rep = validate(ds, res.assignments)
+        score = soft_score(compute_metrics(ds, res.assignments).terms, weights, refs)
+        if rep.feasible and rep.complete and score < best - 1e-9:
+            current, best = res.assignments, score
+            accepted += 1
+            log.append(f"round {rounds}: freed {len(free)} sessions ({', '.join(sorted(chosen))}) → score {best:.3f}")
+    msg = (f"Large-neighbourhood search: {accepted} improving rounds of {rounds} in {time.time() - t0:.1f}s, "
+           f"score {start_score:.3f} → {best:.3f}. Optimality not proven.")
+    log.append(msg)
+    return SolveResult(status="feasible", assignments=sorted(current, key=lambda a: (a.day, a.start, a.session_id)),
+                       message=msg, wall_seconds=round(time.time() - t0, 2), log=log)
+
+
+def solve_focus(ds: Dataset, weights: Weights, refs: dict[str, float], current: list[Assignment], focus: set[str],
+                time_limit: float, seed: int = 7) -> Optional[list[Assignment]]:
+    """Re-optimize only the `focus` sessions; every other session is a constant taken from
+    `current`. Builds a small model whose soft terms cover only the batches and teachers the focus
+    sessions touch (all other terms are constant). Returns the full assignment list or None."""
+    from .candidates import build_candidates
+
+    tc = ds.time
+    sessions, cands = build_candidates(ds)
+    sess = {s.id: s for s in sessions}
+    fac = {f.id: f for f in ds.faculty}
+    rooms = {r.id: r for r in ds.rooms}
+    consts = [a for a in current if a.session_id not in focus]
+    busy: set[tuple[str, str, int, int]] = set()
+    fday: dict[tuple[str, int], int] = defaultdict(int)
+    fweek: dict[str, int] = defaultdict(int)
+    cday: set[tuple[str, int]] = set()
+    cfac: dict[str, str] = {}
+    for a in consts:
+        s = sess[a.session_id]
+        for t in range(a.start, a.start + s.duration):
+            busy.add(("room", a.room_id, a.day, t))
+            busy.add(("fac", a.faculty_id, a.day, t))
+            for b in s.batch_ids:
+                busy.add(("batch", b, a.day, t))
+        fday[(a.faculty_id, a.day)] += s.duration
+        fweek[a.faculty_id] += s.duration
+        cday.add((s.course_id, a.day))
+        cfac[s.course_id] = a.faculty_id
+
+    def free_ok(c: Cand) -> bool:
+        s = sess[c.sid]
+        if (s.course_id, c.day) in cday or cfac.get(s.course_id, c.fac) != c.fac:
+            return False
+        for t in c.span:
+            if ("room", c.room, c.day, t) in busy or ("fac", c.fac, c.day, t) in busy:
+                return False
+            if any(("batch", b, c.day, t) in busy for b in s.batch_ids):
+                return False
+        return True
+
+    m = cp_model.CpModel()
+    allc = [c for sid in sorted(focus) for c in cands.get(sid, []) if free_ok(c)]
+    if any(not any(c.sid == sid for c in allc) for sid in focus):
+        return None
+    x = [m.NewBoolVar("") for _ in allc]
+    by_sess: dict[str, list[int]] = defaultdict(list)
+    cover: dict[tuple[str, str, int, int], list[int]] = defaultdict(list)
+    for i, c in enumerate(allc):
+        by_sess[c.sid].append(i)
+        for t in c.span:
+            cover[("room", c.room, c.day, t)].append(i)
+            cover[("fac", c.fac, c.day, t)].append(i)
+            for b in sess[c.sid].batch_ids:
+                cover[("batch", b, c.day, t)].append(i)
+    for sid in focus:
+        m.AddExactlyOne(x[i] for i in by_sess[sid])
+    for idx in cover.values():
+        if len(idx) > 1:
+            m.AddAtMostOne(x[i] for i in idx)
+    lday: dict[tuple[str, int], list[int]] = defaultdict(list)
+    lweek: dict[str, list[int]] = defaultdict(list)
+    sday: dict[tuple[str, int], list[int]] = defaultdict(list)
+    yfac: dict[tuple[str, str], list[int]] = defaultdict(list)
+    for i, c in enumerate(allc):
+        lday[(c.fac, c.day)].append(i)
+        lweek[c.fac].append(i)
+        sday[(sess[c.sid].course_id, c.day)].append(i)
+        yfac[(sess[c.sid].course_id, c.fac)].append(i)
+    for (fid, d), idx in lday.items():
+        m.Add(sum(x[i] * allc[i].dur for i in idx) + fday[(fid, d)] <= fac[fid].max_daily_slots)
+    for fid, idx in lweek.items():
+        m.Add(sum(x[i] * allc[i].dur for i in idx) + fweek[fid] <= fac[fid].max_weekly_slots)
+    for idx in sday.values():
+        if len(idx) > 1:
+            m.AddAtMostOne(x[i] for i in idx)
+    ys: dict[str, list] = defaultdict(list)
+    for (cid, fid), idx in yfac.items():
+        y = m.NewBoolVar("")
+        ys[cid].append(y)
+        for i in idx:
+            m.AddImplication(x[i], y)
+    for lst in ys.values():
+        m.AddAtMostOne(lst)
+
+    w = weights.normalized()
+    U = 60
+    bw = {b: U // len(lst) for lst in section_atoms(ds).values() for b in lst}
+    coef = {k: SCALE * w[k] / refs[k] for k in TERM_KEYS}
+    touched_b = {b for sid in focus for b in sess[sid].batch_ids}
+    touched_f = {c.fac for c in allc}
+    terms = []
+
+    def occ(kind, eid, d, t):
+        if (kind, eid, d, t) in busy:
+            return 1
+        idx = cover.get((kind, eid, d, t), [])
+        return sum(x[i] for i in idx) if idx else 0
+
+    def idle(kind, eid, wgt):
+        out = []
+        for d in range(len(tc.days)):
+            slots = [t for t in range(tc.slots_per_day) if is_teaching_slot(tc, d, t) or t in tc.break_slots]
+            o = {t: occ(kind, eid, d, t) for t in slots}
+            if all(isinstance(v, int) and v == 0 for v in o.values()):
+                continue
+            A, B, prev = {}, {}, None
+            for t in slots:
+                A[t] = m.NewBoolVar("")
+                if prev is not None:
+                    m.Add(A[t] >= A[prev])
+                m.Add(A[t] >= o[t])
+                prev = t
+            prev = None
+            for t in reversed(slots):
+                B[t] = m.NewBoolVar("")
+                if prev is not None:
+                    m.Add(B[t] >= B[prev])
+                m.Add(B[t] >= o[t])
+                prev = t
+            for t in slots:
+                if is_teaching_slot(tc, d, t):
+                    g = m.NewBoolVar("")
+                    m.Add(g >= A[t] + B[t] - 1 - o[t])
+                    out.append(g * wgt)
+        return out
+
+    def peak(kind, eid, wgt):
+        p = m.NewIntVar(0, tc.slots_per_day, "")
+        for d in range(len(tc.days)):
+            m.Add(p >= sum(occ(kind, eid, d, t) for t in range(tc.slots_per_day)))
+        return p * wgt
+
+    if coef["student_idle"] > 0:
+        terms.append((coef["student_idle"], sum(g for b in touched_b for g in idle("batch", b, bw.get(b, U)))))
+    if coef["faculty_idle"] > 0:
+        terms.append((coef["faculty_idle"], sum(g for f in touched_f for g in idle("fac", f, U))))
+    if coef["room_fit"] > 0:
+        terms.append((coef["room_fit"], sum(x[i] * ((rooms[c.room].capacity - sess[c.sid].enrollment) * c.dur * U)
+                                            for i, c in enumerate(allc))))
+    if coef["workload_balance"] > 0:
+        terms.append((coef["workload_balance"], sum([peak("batch", b, bw.get(b, U)) for b in touched_b] +
+                                                    [peak("fac", f, U) for f in touched_f])))
+    if coef["preferences"] > 0:
+        terms.append((coef["preferences"], sum(x[i] * U for i, c in enumerate(allc)
+                                               if any(in_windows(fac[c.fac].dispreferred, c.day, t) for t in c.span))))
+    m.Minimize(sum(int(round(k)) * e for k, e in terms if int(round(k)) > 0))
+    hs = {(a.session_id, a.day, a.start, a.room_id, a.faculty_id) for a in current}
+    for i, c in enumerate(allc):
+        m.AddHint(x[i], 1 if (c.sid, c.day, c.start, c.room, c.fac) in hs else 0)
+    solver = cp_model.CpSolver()
+    solver.parameters.max_time_in_seconds = time_limit
+    solver.parameters.num_workers = int(os.environ.get("SOLVER_WORKERS", min(8, os.cpu_count() or 1)))
+    solver.parameters.random_seed = seed
+    st = solver.Solve(m)
+    if st not in (cp_model.OPTIMAL, cp_model.FEASIBLE):
+        return None
+    new = [Assignment(session_id=c.sid, day=c.day, start=c.start, room_id=c.room, faculty_id=c.fac)
+           for i, c in enumerate(allc) if solver.Value(x[i])]
+    return consts + new

@@ -3,6 +3,7 @@ import { RefreshCw } from 'lucide-react'
 import { AppProvider, useApp, type ViewName } from './store'
 import { api, session, type User } from './api'
 import Login from './views/Login'
+import Credit from './components/Credit'
 import Setup from './views/Setup'
 import { Rail, Toasts, TopBar } from './components/Shell'
 import { Button, ErrorBox, Spinner } from './components/ui'
@@ -74,6 +75,7 @@ export default function App() {
       <div className="md:pl-[72px]">
         <TopBar />
         <main><Body /></main>
+        <Credit className="border-t border-navy/10 pb-20 md:pb-4" />
       </div>
       <Toasts />
     </AppProvider>

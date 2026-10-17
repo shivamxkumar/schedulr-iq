@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react'
 import { ArrowRight, Eye, EyeOff, LogIn, ShieldCheck } from 'lucide-react'
 import { api, ApiError, session, type User } from '../api'
 import { Button, ErrorBox, Mono } from '../components/ui'
+import Credit from '../components/Credit'
 
 export const INSTITUTE = 'Indian Institute of Information Technology Surat'
 
@@ -94,7 +95,7 @@ export default function Login({ onLogin }: { onLogin: (u: User) => void }) {
         </div>
       </section>
 
-      <section className="flex items-center justify-center bg-ivory px-6 py-12">
+      <section className="relative flex items-center justify-center bg-ivory px-6 pb-16 pt-12">
         <form onSubmit={submit} className="w-full max-w-sm">
           <Mono className="text-2xs uppercase tracking-[0.18em] text-slate">Sign in</Mono>
           <h1 className="mt-1 font-display text-3xl font-semibold tracking-tight">Welcome back</h1>
@@ -140,6 +141,7 @@ export default function Login({ onLogin }: { onLogin: (u: User) => void }) {
             <p className="mt-3 font-mono text-2xs text-slate">Dev build · demo accounts are listed in backend/.env.example</p>
           )}
         </form>
+        <Credit className="absolute inset-x-0 bottom-0" />
       </section>
     </div>
   )

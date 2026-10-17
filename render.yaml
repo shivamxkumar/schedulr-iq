@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: schedulr-iq-iiit-surat
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: SCHEDULR_SECRET
+        generateValue: true
+      - key: ADMIN_USERNAME
+        value: admin
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: VIEWER_USERNAME
+        value: viewer
+      - key: VIEWER_PASSWORD
+        sync: false

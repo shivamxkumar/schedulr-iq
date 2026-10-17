@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body, #root { height: 100%; }
+body {
+  @apply bg-ivory text-navy font-sans antialiased;
+  font-feature-settings: 'cv11', 'ss01';
+}
+::selection { background: #D8FF66; color: #17243B; }
+
+.hatch-lab {
+  background-image: repeating-linear-gradient(135deg, rgba(23, 36, 59, 0.07) 0 2px, transparent 2px 7px);
+}
+.hatch-break {
+  background-image: repeating-linear-gradient(45deg, rgba(119, 129, 150, 0.16) 0 1px, transparent 1px 6px);
+}
+.hatch-closed {
+  background-image: repeating-linear-gradient(45deg, rgba(119, 129, 150, 0.22) 0 1px, transparent 1px 4px);
+  background-color: #EEECE4;
+}
+.grid-paper {
+  background-image: linear-gradient(to right, rgba(23, 36, 59, 0.05) 1px, transparent 1px);
+}
+.scroll-thin { scrollbar-width: thin; scrollbar-color: #C5CAD4 transparent; }
+
+@keyframes indet { 0% { transform: translateX(-100%); } 100% { transform: translateX(250%); } }
+.indeterminate { animation: indet 1.3s cubic-bezier(.4, 0, .2, 1) infinite; }
+@keyframes fadeup { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fadeup .25s ease-out both; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white; }
+  .print-page { break-after: page; }
+}

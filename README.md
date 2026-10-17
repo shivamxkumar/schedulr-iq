@@ -6,6 +6,10 @@ built for the **Indian Institute of Information Technology Surat**.
 > We do not just generate a timetable. We generate a **valid** timetable, **independently verify** it,
 > **optimize measurable objectives**, and **explain the trade-offs**.
 
+## Demo video
+
+[`demo/SCHEDULR_IQ_demo.mp4`](demo/SCHEDULR_IQ_demo.mp4) is a 3 min 55 s walkthrough at 1080p/30 fps. It covers login and View demo, every timetable view, the lunch rule, explanations, validated moves, a live optimizer run, the before/after comparison, the conflict inspector, resources, admin setup, import and publish. It was recorded with [`demo/record_demo.py`](demo/record_demo.py): Playwright drives the app and Chrome's screencast captures the frames, which ffmpeg encodes.
+
 ## Run it
 
 ```bash

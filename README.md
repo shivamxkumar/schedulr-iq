@@ -41,6 +41,8 @@ Bulk CSV import is still available under **Import**.
 
 ## Deploy (single container)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/shivamxkumar/schedulr-iq)
+
 `Dockerfile` builds the frontend and serves it from FastAPI on `$PORT`. `render.yaml` is a Render blueprint:
 on Render, choose New → Blueprint, point it at this repo, then set `ADMIN_PASSWORD` and `VIEWER_PASSWORD`.
 The same image runs on any Docker host:

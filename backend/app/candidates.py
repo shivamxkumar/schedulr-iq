@@ -31,13 +31,15 @@ def room_ok(c: Course, s: Session, r: Room) -> bool:
     return r.room_type in c.room_types and all(e in r.equipment for e in c.equipment) and r.capacity >= s.enrollment
 
 
-def build_candidates(ds: Dataset) -> tuple[list[Session], dict[str, list[Cand]]]:
+def build_candidates(ds: Dataset, only: set[str] | None = None) -> tuple[list[Session], dict[str, list[Cand]]]:
     tc = ds.time
     sessions = expand_sessions(ds)
     courses = {c.id: c for c in ds.courses}
     fixed = {f.session_id: f for f in ds.fixed}
     out: dict[str, list[Cand]] = {}
     for s in sessions:
+        if only is not None and s.id not in only:
+            continue
         c = courses[s.course_id]
         rooms = [r for r in ds.rooms if room_ok(c, s, r)]
         facs = [f for f in ds.faculty if c.id in f.courses]

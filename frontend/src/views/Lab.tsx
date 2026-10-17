@@ -50,7 +50,7 @@ function Delta({ a, b, dir, fmt }: { a: number; b: number; dir: 'min' | 'max'; f
 export default function Lab() {
   const { active, baseline, list, activate, adopt, toast, errMsg, focus, data, canRun } = useApp()
   const [w, setW] = useState<Weights>(active?.record.weights || DEFAULT)
-  const [limit, setLimit] = useState((data?.sessions.length ?? 0) > 120 ? 20 : 10)
+  const [limit, setLimit] = useState((data?.sessions.length ?? 0) > 120 ? 40 : 10)
   const [running, setRunning] = useState(false)
   const [elapsed, setElapsed] = useState(0)
   const [res, setRes] = useState<OptimizeResult | null>(null)

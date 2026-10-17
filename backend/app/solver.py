@@ -296,7 +296,7 @@ def max_partial(ds: Dataset, time_limit: float = 8.0) -> SolveResult:
 
 
 def solve_lns(ds: Dataset, weights: Weights, refs: dict[str, float], hint: list[Assignment], time_limit: float = 20.0,
-              seed: int = 7, neighbourhood: int = 2) -> SolveResult:
+              seed: int = 7, neighbourhood: Optional[int] = None) -> SolveResult:
     """Large-neighbourhood search for small hosts (e.g. a 0.1-CPU free instance).
 
     Each round frees the sessions of a few class sections (plus their teachers' other sessions),
@@ -310,6 +310,8 @@ def solve_lns(ds: Dataset, weights: Weights, refs: dict[str, float], hint: list[
     from .validator import validate
 
     t0 = time.time()
+    small_host = bool(os.environ.get("RENDER"))
+    neighbourhood = neighbourhood or (1 if small_host else 2)
     rng = random.Random(seed)
     sess = {s.id: s for s in expand_sessions(ds)}
     sec_of = {b: sec for sec, lst in section_atoms(ds).items() for b in lst}
@@ -323,7 +325,7 @@ def solve_lns(ds: Dataset, weights: Weights, refs: dict[str, float], hint: list[
         rounds += 1
         chosen = set(rng.sample(sections, min(neighbourhood, len(sections))))
         free = {a.session_id for a in current if any(sec_of.get(b) in chosen for b in sess[a.session_id].batch_ids)}
-        per_round = min(6.0, max(1.0, time_limit / 6))
+        per_round = 4.0 if small_host else min(6.0, max(1.0, time_limit / 6))
         budget = min(per_round, max(0.5, time_limit - (time.time() - t0) - 0.5))
         cand_list = solve_focus(ds, weights, refs, current, free, budget, seed=seed + rounds)
         if cand_list is None:
@@ -350,7 +352,7 @@ def solve_focus(ds: Dataset, weights: Weights, refs: dict[str, float], current: 
     from .candidates import build_candidates
 
     tc = ds.time
-    sessions, cands = build_candidates(ds)
+    sessions, cands = build_candidates(ds, only=focus)
     sess = {s.id: s for s in sessions}
     fac = {f.id: f for f in ds.faculty}
     rooms = {r.id: r for r in ds.rooms}

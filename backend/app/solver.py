@@ -28,6 +28,13 @@ from .timegrid import in_windows, is_teaching_slot
 SCALE = 10_000
 
 
+def _workers() -> int:
+    """CPU workers for CP-SAT. Render's free plan reports the host's CPUs but grants ~0.1 CPU."""
+    if os.environ.get("SOLVER_WORKERS"):
+        return int(os.environ["SOLVER_WORKERS"])
+    return 1 if os.environ.get("RENDER") else min(8, os.cpu_count() or 1)
+
+
 @dataclass
 class SolveResult:
     status: str  # optimal | feasible | infeasible | partial | error
@@ -240,7 +247,7 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_limit
-    solver.parameters.num_workers = int(os.environ.get("SOLVER_WORKERS", min(8, os.cpu_count() or 1)))
+    solver.parameters.num_workers = _workers()
     solver.parameters.random_seed = seed
     st = solver.Solve(m)
     name = solver.StatusName(st)
@@ -487,7 +494,7 @@ def solve_focus(ds: Dataset, weights: Weights, refs: dict[str, float], current: 
         m.AddHint(x[i], 1 if (c.sid, c.day, c.start, c.room, c.fac) in hs else 0)
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = time_limit
-    solver.parameters.num_workers = int(os.environ.get("SOLVER_WORKERS", min(8, os.cpu_count() or 1)))
+    solver.parameters.num_workers = _workers()
     solver.parameters.random_seed = seed
     st = solver.Solve(m)
     if st not in (cp_model.OPTIMAL, cp_model.FEASIBLE):

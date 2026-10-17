@@ -328,6 +328,11 @@ def api_generate():
     return generate_baseline()
 
 
+def solver_mode() -> str:
+    """`lns` on small hosts: explicit SOLVER_MODE, else automatic on Render (sets RENDER=true)."""
+    return os.environ.get("SOLVER_MODE") or ("lns" if os.environ.get("RENDER") else "full")
+
+
 class OptimizeBody(BaseModel):
     weights: Weights = Weights()
     time_limit: float = Field(default=10, ge=1, le=60)
@@ -350,7 +355,7 @@ def api_optimize(body: OptimizeBody):
     base_rep = validate(d, base.assignments)
     hint = base.assignments if base_rep.feasible and base_rep.complete else None
     r = refs()
-    if os.environ.get("SOLVER_MODE") == "lns" and hint:
+    if solver_mode() == "lns" and hint:
         # Small hosts (e.g. a 0.1-CPU free instance): improve the base timetable neighbourhood by
         # neighbourhood instead of solving the whole model at once.
         from .solver import solve_lns
@@ -368,7 +373,7 @@ def api_optimize(body: OptimizeBody):
     rec = store.add(ScheduleRecord(
         id=store.next_id(), label=f"Optimized run {n}", kind="optimized", parent_id=base.id, created_at=now(),
         assignments=res.assignments, weights=body.weights.model_dump(),
-        solver={"method": ("OR-Tools CP-SAT large-neighbourhood search (warm-started from base)" if os.environ.get("SOLVER_MODE") == "lns" else "OR-Tools CP-SAT (weighted soft objective, warm-started from base)"), "status": res.status,
+        solver={"method": ("OR-Tools CP-SAT large-neighbourhood search (warm-started from base)" if solver_mode() == "lns" else "OR-Tools CP-SAT (weighted soft objective, warm-started from base)"), "status": res.status,
                 "message": res.message, "wall_seconds": res.wall_seconds, "objective": res.objective,
                 "best_bound": res.best_bound, "variables": res.num_variables, "constraints": res.num_constraints,
                 "candidates": res.num_candidates, "time_limit": body.time_limit, "log": res.log},

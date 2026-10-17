@@ -214,9 +214,20 @@ def main():
         for bi, b in enumerate(buckets):
             base = f"{code.split('/')[0].replace(' ', '')}{'L' if kind == 'lab' else 'T' if kind == 'tut' else ''}-" \
                    f"{'+'.join(x.replace('-', '') for x in secs)}"
-            whole = all(set(f"{sec}{('-' + a) if a else ''}" for a in dims[sec]) <= batches for sec in secs)
-            parts = sorted({x.split('-')[-1] for x in batches if x.count('-') >= 2})
-            cid = base if whole or not parts else f"{base}-{'.'.join(parts)}"
+            tags = set()
+            for sec in secs:
+                members = [f"{sec}{('-' + a) if a else ''}" for a in dims[sec]]
+                have = {m for m in members if m in batches}
+                if have == set(members):
+                    continue  # whole class: no group label
+                for key in ("G1", "G2", "D1", "D2", "D3"):
+                    full = {m for m in members if key in m[len(sec) + 1:]}
+                    if full and full == have:
+                        tags.add(key)
+                        break
+                else:
+                    tags.update(m[len(sec) + 1:] for m in have)
+            cid = f"{base}-{'.'.join(sorted(tags))}" if tags else base
             n = 1
             while (cid if n == 1 else f"{cid}-{n}") in used_ids:
                 n += 1
@@ -247,7 +258,11 @@ def main():
     for sec, atoms in dims.items():
         size = SIZES[sec]
         for a in atoms:
-            batches.append(dict(id=f"{sec}{('-' + a) if a else ''}", name=f"{sections[sec]}{(' · ' + a) if a else ''}",
+            label = " · ".join(("lab group " + a[:2]) if p == 0 else ("elective div " + a[3])
+                               for p in range(2) if (p == 0 and a.startswith("G")) or (p == 1 and "D" in a)) if a else ""
+            if a and a.startswith("D"):
+                label = "elective div " + a[1]
+            batches.append(dict(id=f"{sec}{('-' + a) if a else ''}", name=f"{sections[sec]}{(' · ' + label) if label else ''}",
                                 size=max(1, round(size / len(atoms))), program=sections[sec], section=sec))
     bsize = {b["id"]: b["size"] for b in batches}
 

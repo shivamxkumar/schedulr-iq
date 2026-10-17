@@ -11,7 +11,7 @@ from typing import Literal, Optional
 
 from pydantic import BaseModel
 
-from .models import Assignment, Dataset, expand_sessions
+from .models import Assignment, Dataset, describe_batches, expand_sessions
 from .timegrid import in_windows, is_teaching_slot, where
 
 HARD_CHECKS = [
@@ -154,9 +154,10 @@ def validate(ds: Dataset, assignments: list[Assignment]) -> ValidationReport:
             if a.room_id == b.room_id:
                 add("ROOM_OVERLAP", f"{a.room_id} is double-booked {loc}: {pair[0]} and {pair[1]}.",
                     pair, "room", a.room_id, a.day, lo, hi)
-            for bid in sorted(set(sa.batch_ids) & set(sb.batch_ids)):
-                add("BATCH_OVERLAP", f"Batch {bid} has overlapping classes {loc}: {pair[0]} and {pair[1]}.",
-                    pair, "batch", bid, a.day, lo, hi)
+            shared = sorted(set(sa.batch_ids) & set(sb.batch_ids))
+            if shared:  # one violation per clashing pair, labelled by class / lab group
+                add("BATCH_OVERLAP", f"{describe_batches(ds, shared)} has overlapping classes {loc}: {pair[0]} and {pair[1]}.",
+                    pair, "batch", _section(ds, shared[0]), a.day, lo, hi)
 
     daily: dict[tuple[str, int], int] = defaultdict(int)
     weekly: dict[str, int] = defaultdict(int)
@@ -279,8 +280,10 @@ def placement_violations(ds: Dataset, assignments: list[Assignment], cand: Assig
             add("FACULTY_OVERLAP", f"{f.name} is double-booked {where_}: {a.session_id}.", [a.session_id, cand.session_id], "faculty", f.id)
         if a.room_id == cand.room_id:
             add("ROOM_OVERLAP", f"{r.id} is double-booked {where_}: {a.session_id}.", [a.session_id, cand.session_id], "room", r.id)
-        for bid in sorted(set(s.batch_ids) & set(o.batch_ids)):
-            add("BATCH_OVERLAP", f"Batch {bid} already has {a.session_id} {where_}.", [a.session_id, cand.session_id], "batch", bid)
+        shared = sorted(set(s.batch_ids) & set(o.batch_ids))
+        if shared:
+            add("BATCH_OVERLAP", f"{describe_batches(ds, shared)} already has {a.session_id} {where_}.",
+                [a.session_id, cand.session_id], "batch", _section(ds, shared[0]))
     if day_load > f.max_daily_slots:
         add("FACULTY_DAILY_LOAD", f"{f.name} would teach {day_load} slots on {tc.days[cand.day]} (max {f.max_daily_slots}).",
             kind="faculty", rid=f.id)
@@ -291,6 +294,10 @@ def placement_violations(ds: Dataset, assignments: list[Assignment], cand: Assig
         if fx.session_id == cand.session_id and (cand.day != fx.day or cand.start != fx.start or (fx.room_id and cand.room_id != fx.room_id)):
             add("FIXED_VIOLATED", f"{fx.session_id} is pinned elsewhere.")
     return out
+
+
+def _section(ds: Dataset, batch_id: str) -> str:
+    return next(((b.section or b.id) for b in ds.batches if b.id == batch_id), batch_id)
 
 
 def _load_issue_for(v: Violation, cand: Assignment) -> bool:

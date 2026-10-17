@@ -21,6 +21,8 @@ interface Props {
   onSelect: (sid: string | null) => void
   onDropSession?: (sid: string, day: number, slot: number) => void
   rowH?: number
+  labelBatches?: (ids: string[]) => string
+  facultyName?: (id: string) => string
 }
 
 interface Placed { a: Assignment; lane0: number; lane1: number; sub: number; nsub: number; ghost?: boolean }
@@ -195,11 +197,19 @@ export default function TimetableGrid(p: Props) {
                           <span>{slotLabel(tc, it.a.start)}</span><span className="truncate">{it.a.room_id}</span>
                         </span>
                       ) : (
-                        <span className="mt-auto truncate font-mono text-[9.5px] leading-tight text-slate-600">
-                          {`${slotLabel(tc, it.a.start)}–${slotLabel(tc, it.a.start + s.duration)} · ${it.a.room_id}`}
-                        </span>
+                        it.nsub > 1 ? (
+                          <span className="mt-auto flex flex-col font-mono text-[9.5px] leading-tight text-slate-600">
+                            <span className="truncate">{`${slotLabel(tc, it.a.start)}–${slotLabel(tc, it.a.start + s.duration)}`}</span>
+                            <span className="truncate">{it.a.room_id}</span>
+                          </span>
+                        ) : (
+                          <span className="mt-auto truncate font-mono text-[9.5px] leading-tight text-slate-600">
+                            {`${slotLabel(tc, it.a.start)}–${slotLabel(tc, it.a.start + s.duration)} · ${it.a.room_id}`}
+                          </span>
+                        )
                       )}
-                      {!compact && s.duration * rowH > 60 && <span className="truncate font-mono text-[9.5px] leading-tight text-slate">{s.batch_ids.join(' + ')}</span>}
+                      {!compact && s.duration * rowH > 60 && <span className="truncate font-mono text-[9.5px] leading-tight text-slate">{p.labelBatches ? p.labelBatches(s.batch_ids) : s.batch_ids.join(' + ')}</span>}
+                      {!compact && p.facultyName && <span className="truncate text-[10px] leading-tight text-navy/70">{p.facultyName(it.a.faculty_id)}</span>}
                     </span>
                   </button>
                 )

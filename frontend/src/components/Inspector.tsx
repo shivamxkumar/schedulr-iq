@@ -3,7 +3,7 @@ import { Check, X, MousePointerClick, ArrowRight } from 'lucide-react'
 import { api } from '../api'
 import { useApp } from '../store'
 import type { Change, SessionExplanation, Violation } from '../types'
-import { catColor, slotLabel, whereLabel } from '../format'
+import { catColor, describeBatches, slotLabel, whereLabel } from '../format'
 import { Button, Chip, Eyebrow, Mono, Spinner, ErrorBox } from './ui'
 
 export interface MoveVerdict { sid: string; day: number; start: number; room?: string; valid: boolean; introduced: Violation[] }
@@ -96,7 +96,7 @@ export default function Inspector({ sid, onClose, onTryMove, verdict, onForce, o
               <dt className="text-slate">When</dt><dd><Mono>{whereLabel(tc, a.day, a.start, s.duration)}</Mono></dd>
               <dt className="text-slate">Room</dt><dd><Mono>{a.room_id}</Mono> <span className="text-slate">· {L.rooms[a.room_id]?.name} · {L.rooms[a.room_id]?.capacity} seats</span></dd>
               <dt className="text-slate">Faculty</dt><dd>{L.faculty[a.faculty_id]?.name} <Mono className="text-slate">{a.faculty_id}</Mono></dd>
-              <dt className="text-slate">Batches</dt><dd><Mono>{s.batch_ids.join(' + ')}</Mono> <span className="text-slate">· {s.enrollment} students</span></dd>
+              <dt className="text-slate">Attending</dt><dd><Mono>{describeBatches(data.dataset.batches, s.batch_ids)}</Mono> <span className="text-slate">· {s.enrollment} students</span></dd>
             </dl>
           ) : ex ? <div className="mt-2 text-conflict">Not scheduled in {active.record.id}.</div> : null}
         </section>

@@ -4,7 +4,8 @@ import { api, ApiError } from '../api'
 import { useApp } from '../store'
 import { Page } from '../components/Shell'
 import { Button, Chip, ErrorBox, Mono, SectionHead } from '../components/ui'
-import { catColor, isTeaching, slotLabel } from '../format'
+import { describeBatches } from '../format'
+import TimetableGrid from '../components/TimetableGrid'
 
 export default function Publish() {
   const { active, data, L, adopt, toast, errMsg } = useApp()
@@ -13,6 +14,12 @@ export default function Publish() {
   if (!active || !data) return null
   const tc = data.dataset.time
   const v = active.validation
+  const secOf: Record<string, string> = Object.fromEntries(data.dataset.batches.map(b => [b.id, b.section || b.id]))
+  const classes = [...new Map(data.dataset.batches.map(b => [b.section || b.id, {
+    id: b.section || b.id, label: b.section ? b.program || b.section : b.name,
+    size: data.dataset.batches.filter(x => (x.section || x.id) === (b.section || b.id)).reduce((t, x) => t + x.size, 0),
+  }])).values()]
+  const conflicts = new Set(v.violations.filter(x => x.severity === 'hard').flatMap(x => x.session_ids))
 
   const publish = async () => {
     setBusy(true)
@@ -69,40 +76,21 @@ export default function Publish() {
       </div>
 
       <div className="mt-10">
-        <SectionHead index="C" title="Print preview · per batch" sub="Uses the browser’s print dialog; navigation is hidden in print." />
-        {data.dataset.batches.map(b => {
-          const items = active.record.assignments.filter(a => L.sessions[a.session_id]?.batch_ids.includes(b.id))
-          return (
-            <div key={b.id} className="print-page mb-8 border border-navy/20 bg-white p-4">
-              <div className="mb-3 flex items-baseline justify-between border-b border-navy pb-2">
-                <div><span className="font-display text-lg font-semibold">{b.name}</span> <Mono className="text-xs text-slate">{b.id} · {b.size} students</Mono></div>
-                <Mono className="text-2xs text-slate">SCHEDULR IQ · {active.record.id}{active.record.published ? ' · PUBLISHED' : ' · DRAFT'}</Mono>
-              </div>
-              <table className="w-full table-fixed border-collapse text-[10px]">
-                <thead><tr><th className="w-12" />{tc.days.map(d => <th key={d} className="border border-navy/15 py-1 font-display text-xs">{d}</th>)}</tr></thead>
-                <tbody>
-                  {Array.from({ length: tc.slots_per_day }, (_, t) => (
-                    <tr key={t}>
-                      <td className="pr-1 text-right align-top font-mono text-slate">{slotLabel(tc, t)}</td>
-                      {tc.days.map((_, d) => {
-                        const a = items.find(x => x.day === d && x.start <= t && t < x.start + (L.sessions[x.session_id]?.duration ?? 1))
-                        if (a && a.start !== t) return null
-                        const s = a && L.sessions[a.session_id]
-                        const c = s && L.courses[s.course_id]
-                        return (
-                          <td key={d} rowSpan={s?.duration ?? 1} className={`h-9 border border-navy/15 px-1 align-top ${!a && !isTeaching(tc, d, t) ? 'hatch-break' : ''}`}
-                            style={c ? { boxShadow: `inset 3px 0 0 ${catColor(c.category)}` } : undefined}>
-                            {c && <><div className="font-mono font-medium">{c.code} <span className="text-slate">{c.course_type.slice(0, 3).toUpperCase()}</span></div><div className="truncate">{c.name}</div><div className="font-mono text-slate">{a!.room_id} · {L.faculty[a!.faculty_id]?.name}</div></>}
-                          </td>
-                        )
-                      })}
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+        <SectionHead index="C" title="Print preview · per class" sub="Uses the browser’s print dialog; navigation is hidden in print." />
+        {classes.map(cl => (
+          <div key={cl.id} className="print-page mb-8 border border-navy/20 bg-white p-4">
+            <div className="mb-3 flex items-baseline justify-between border-b border-navy pb-2">
+              <div><span className="font-display text-lg font-semibold">{cl.label}</span> <Mono className="text-xs text-slate">{cl.id} · {cl.size} students</Mono></div>
+              <Mono className="text-2xs text-slate">IIIT Surat · SCHEDULR IQ · {active.record.id}{active.record.published ? ' · PUBLISHED' : ' · DRAFT'}</Mono>
             </div>
-          )
-        })}
+            <TimetableGrid tc={tc} assignments={active.record.assignments} sessions={L.sessions} courses={L.courses}
+              lanes={[{ id: cl.id, label: cl.label }]} laneKeys={a => (L.sessions[a.session_id]?.batch_ids ?? []).map(b => secOf[b])}
+              days={tc.days.map((_, i) => i)} visible={a => (L.sessions[a.session_id]?.batch_ids ?? []).some(b => secOf[b] === cl.id)}
+              conflicts={conflicts} selected={null} onSelect={() => {}} rowH={70}
+              labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: true })}
+              facultyName={id => L.faculty[id]?.name ?? id} />
+          </div>
+        ))}
       </div>
     </Page>
   )

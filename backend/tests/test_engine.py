@@ -157,3 +157,26 @@ def test_fast_placement_check_matches_full_validator():
         # Pre-existing load issues are attributed identically; weekly-load only differs when the
         # baseline itself is over the limit, which a valid baseline never is.
         assert fast == full, (cand, fast, full)
+
+
+def test_lab_groups_only_split_labs_and_clashes_count_once():
+    from app.demos import load
+    from app.models import describe_batches, expand_sessions
+    b = load("iiit-surat")
+    ds, off = b.dataset, b.official
+    sess = {s.id: s for s in expand_sessions(ds)}
+    courses = {c.id: c for c in ds.courses}
+    # Every group-restricted session is a lab; lectures/tutorials attend whole classes or divisions.
+    for s in sess.values():
+        label = describe_batches(ds, s.batch_ids)
+        if "lab group" in label:
+            assert courses[s.course_id].course_type == "lab", (s.id, label)
+    lec = sess["CS101-S1ECEA-S1"]
+    assert describe_batches(ds, lec.batch_ids) == "S1-ECEA"
+    # Put two whole-class S1-ECEA lectures on top of each other: exactly one BATCH_OVERLAP.
+    by = {a.session_id: a for a in off}
+    a, other = by["CS101-S1ECEA-S1"], by["AS102-S1ECEA-S1"]
+    moved = other.model_copy(update={"day": a.day, "start": a.start, "room_id": "CR-1"})
+    rep = validate(ds, [x for x in off if x.session_id != other.session_id] + [moved])
+    clashes = [v for v in rep.violations if v.code == "BATCH_OVERLAP"]
+    assert len(clashes) == 1 and "S1-ECEA has overlapping" in clashes[0].message

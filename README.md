@@ -51,7 +51,7 @@ The same image runs on any Docker host:
 docker build -t schedulr-iq . && docker run -p 8000:8000 -e ADMIN_PASSWORD=... -e VIEWER_PASSWORD=... schedulr-iq
 ```
 
-Tests: `cd backend && .venv/bin/pytest -q` runs 21 tests covering the engine, validator, metrics, API flows, auth/demo roles, the IIIT Surat import and the infeasible case.
+Tests: `cd backend && .venv/bin/pytest -q` runs 22 tests covering the engine, validator, metrics, API flows, auth/demo roles, the IIIT Surat import and the infeasible case.
 
 ## Architecture
 
@@ -131,9 +131,15 @@ ECE / CSE / DS & Comm. It totals 281 weekly sessions, Mon–Fri 09:00–18:00.
 
 The **official timetable is the baseline**: it is imported, not generated, and passes all 19 hard checks
 with 0 violations. One CP-SAT run (30 s, default weights) is precomputed at build time. Against the official
-timetable it brings student idle time from 12,660 to 3,300 min/week, faculty idle from 8,640 to
-1,080 min/week, workload imbalance from 55 to 53 h, and preference misses from 7 to 0. Seat utilization falls 0.5 points, a reported
-trade-off. Visitors can re-run the optimizer and try moves, but cannot edit data or publish.
+timetable it brings student idle time from 4,790 to 1,345 min/week (per class), faculty idle from 8,640
+to 1,860 min/week, workload imbalance from 38.5 to 29.5 h, and preference misses from 7 to 0. Seat
+utilization falls 0.3 points, a reported trade-off. Visitors can re-run the optimizer and try moves, but
+cannot edit data or publish.
+
+**Lab groups.** In the PDF, groups appear only on lab sessions, and the app reflects that:
+- A lecture shows as "Whole class". G1/G2 appear only on labs and divisions only on electives.
+- A clash between two whole-class sessions is reported once.
+- Student idle time and workload are averaged over a class's groups, never summed.
 
 A small **synthetic campus** (fictional names) is kept for the unit tests and the two infeasible diagnostic
 scenarios.
@@ -141,13 +147,13 @@ scenarios.
 ## 3-minute demo script
 
 0. **Login page → View demo.** This opens IIIT Surat's official v4 timetable, with no account needed.
-1. **Overview.** The validator's verdict on the *official* timetable: 19/19 hard checks pass, 281/281 sessions, 0 conflicts. Student idle time is 12,660 min/week.
-2. **Timetable.** One lane per class. Lab groups G1/G2 run side by side, and cross-listed electives span the S7 ECE, S7 CSE and M.Tech lanes. Click a block: the inspector shows its hard checks, why it sits there, and a slot map of every alternative.
-3. **Optimization Lab.** Explain hard constraints vs soft objectives. *Viewing* switches to the precomputed run, which shows the comparison: student idle down 74%, faculty idle down 88%, preferences 7 → 0, and a 0.5-point seat-utilization trade-off. You can also re-run it live: 20 s, with honest `FEASIBLE (time limit)` status.
+1. **Overview.** The validator's verdict on the *official* timetable: 19/19 hard checks pass, 281/281 sessions, 0 conflicts. Student idle time is 4,790 min/week per class.
+2. **Timetable → Class timetable.** Pick a class: time on rows, Mon–Fri on columns, like the printed sheet. Lectures read "Whole class" and the G1/G2 labs sit side by side. *All classes* shows every class at once, with cross-listed electives spanning lanes. Click a block: the inspector shows its hard checks, why it sits there, and a slot map of every alternative.
+3. **Optimization Lab.** Explain hard constraints vs soft objectives. *Viewing* switches to the precomputed run, which shows the comparison: student idle down 72%, faculty idle down 78%, preferences 7 → 0, and a 0.3-point seat-utilization trade-off. You can also re-run it live: 20 s, with honest `FEASIBLE (time limit)` status.
 4. **Moves.** Drag a block to a clash: the move is rejected with the reason (e.g. `BATCH_OVERLAP`). Drop it on a lime slot: it is accepted, saved as a new version, and Undo is available.
 5. **Conflicts → Load diagnostic example.** You get 9 violations, each with corrective actions and validated fixes. Apply one and the count drops. Publishing the example is refused.
 6. **Sign in as admin → Setup.** Paint a faculty member's availability and watch the live feasibility check react. Save to regenerate. Then **Publish**: 19-check verification, CSV export and print.
-7. `pytest -q`: 21 passing tests.
+7. `pytest -q`: 22 passing tests.
 
 ## Known limitations
 

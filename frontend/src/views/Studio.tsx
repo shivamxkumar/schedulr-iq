@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { FilterX, GitCompare, SearchX } from 'lucide-react'
 import { api } from '../api'
 import { emptyFilters, useApp, type Filters } from '../store'
@@ -6,13 +6,14 @@ import type { Assignment } from '../types'
 import TimetableGrid, { type Lane } from '../components/TimetableGrid'
 import Inspector, { type MoveVerdict } from '../components/Inspector'
 import { Button, Chip, Empty, Mono, Select } from '../components/ui'
-import { CAT_LABEL, catColor, whereLabel } from '../format'
+import { CAT_LABEL, catColor, describeBatches, whereLabel } from '../format'
 
-type ViewBy = 'batch' | 'faculty' | 'room'
+type ViewBy = 'class' | 'batch' | 'faculty' | 'room'
+const VIEW_LABEL: Record<ViewBy, string> = { class: 'Class timetable', batch: 'All classes', faculty: 'By faculty', room: 'By room' }
 
 export default function Studio() {
   const { data, active, baseline, L, selected, select, filters, setFilters, adopt, activate, toast, errMsg, canRun } = useApp()
-  const [viewBy, setViewBy] = useState<ViewBy>('batch')
+  const [viewBy, setViewBy] = useState<ViewBy>('class')
   const [compare, setCompare] = useState(false)
   const [verdict, setVerdict] = useState<MoveVerdict | null>(null)
   const [busy, setBusy] = useState(false)
@@ -46,12 +47,12 @@ export default function Studio() {
   const lanes: Lane[] = useMemo(() => {
     if (!data) return []
     const ds = data.dataset
-    if (viewBy === 'batch') return sections.filter(x => !f.batch || x.id === f.batch).map(x => ({ id: x.id, label: x.label }))
+    if (viewBy === 'batch' || viewBy === 'class') return sections.filter(x => !f.batch || x.id === f.batch).map(x => ({ id: x.id, label: x.label }))
     if (viewBy === 'faculty') return ds.faculty.filter(x => !f.faculty || x.id === f.faculty).map(x => ({ id: x.id, label: x.name }))
     return ds.rooms.filter(r => !f.room || r.id === f.room).map(r => ({ id: r.id, label: r.name }))
   }, [data, viewBy, f, sections])
 
-  const laneKeys = useCallback((a: Assignment) => viewBy === 'batch' ? [...new Set((sessions[a.session_id]?.batch_ids ?? []).map(b => sectionOf[b]))]
+  const laneKeys = useCallback((a: Assignment) => viewBy === 'batch' || viewBy === 'class' ? [...new Set((sessions[a.session_id]?.batch_ids ?? []).map(b => sectionOf[b]))]
     : viewBy === 'faculty' ? [a.faculty_id] : [a.room_id], [viewBy, sessions, sectionOf])
 
   const conflicts = useMemo(() => new Set(active?.validation.violations.filter(v => v.severity === 'hard').flatMap(v => v.session_ids) ?? []), [active])
@@ -65,7 +66,7 @@ export default function Studio() {
       const a = cur[b.session_id]
       if (a && (a.day !== b.day || a.start !== b.start || a.room_id !== b.room_id || a.faculty_id !== b.faculty_id)) {
         m.add(b.session_id)
-        if (a.day !== b.day || a.start !== b.start || viewBy !== 'batch') g.push(b)
+        if (a.day !== b.day || a.start !== b.start || (viewBy !== 'batch' && viewBy !== 'class')) g.push(b)
       }
     }
     return { ghosts: g, moved: m }
@@ -76,6 +77,11 @@ export default function Studio() {
     return <div className="p-8"><Empty title="No schedule yet" body="Generate a baseline from Data Setup or the Optimization Lab." /></div>
   }
 
+  // The class timetable always shows exactly one class: rows = time, columns = days.
+  useEffect(() => {
+    if (viewBy === 'class' && !f.batch && sections[0]) setFilters({ ...f, batch: sections[0].id })
+  }, [viewBy, f, sections, setFilters])
+  const classMode = viewBy === 'class'
   const days = f.day !== '' ? [Number(f.day)] : tc.days.map((_, i) => i)
   const shown = active.record.assignments.filter(visible).filter(a => days.includes(a.day))
   const scheduledIds = new Set(active.record.assignments.map(a => a.session_id))
@@ -137,10 +143,10 @@ export default function Studio() {
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <div className="flex border border-navy/20 bg-white p-0.5" role="tablist" aria-label="View by">
-              {(['batch', 'faculty', 'room'] as ViewBy[]).map(v => (
+              {(['class', 'batch', 'faculty', 'room'] as ViewBy[]).map(v => (
                 <button key={v} role="tab" aria-selected={viewBy === v} onClick={() => setViewBy(v)}
                   className={`h-7 px-3 font-mono text-2xs uppercase tracking-wider ${viewBy === v ? 'bg-navy text-lime' : 'text-navy hover:bg-navy/5'}`}>
-                  By {v}
+                  {VIEW_LABEL[v]}
                 </button>
               ))}
             </div>
@@ -206,6 +212,9 @@ export default function Studio() {
             tc={tc} assignments={active.record.assignments} sessions={sessions} courses={L.courses}
             lanes={lanes} laneKeys={laneKeys} days={days} visible={visible} conflicts={conflicts}
             ghosts={compare ? ghosts : []} moved={moved} selected={selected} onSelect={s => { select(s); setVerdict(null) }}
+            rowH={classMode ? 82 : undefined}
+            labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: classMode })}
+            facultyName={classMode ? id => L.faculty[id]?.name ?? id : undefined}
             onDropSession={canRun ? (sid, d, t) => tryMove(sid, d, t) : undefined}
           />
         )}

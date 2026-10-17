@@ -52,7 +52,8 @@ export default function Overview() {
   const bm = baseline && baseline.record.id !== active.record.id ? baseline.metrics : null
   const facultyData = m.faculty.map(f => ({ id: f.id, name: f.name, load: f.weekly_slots, max: ds.faculty.find(x => x.id === f.id)?.max_weekly_slots ?? 0 }))
   const lastRun = [...list].reverse().find(s => s.kind === 'optimized')
-  const maxDaily = Math.max(1, ...m.batches.flatMap(b => b.daily_slots))
+  const classes = m.classes ?? m.batches
+  const maxDaily = Math.max(1, ...classes.flatMap(b => b.daily_slots))
 
   return (
     <Page title="Operations overview" eyebrow={`01 · ${active.record.id} · ${active.record.label}`}
@@ -107,12 +108,12 @@ export default function Overview() {
         </section>
 
         <section>
-          <SectionHead index="C" title="Batch daily load" sub="Class hours per batch per day. Darker = heavier day. Lower spread = better balance." />
+          <SectionHead index="C" title="Batch daily load" sub="Class hours per class per day (busiest lab group). Idle = mean over the class's groups. Darker = heavier day." />
           <div className="overflow-x-auto border border-navy/15 bg-white p-3">
             <table className="w-full border-separate border-spacing-[3px] text-xs">
               <thead><tr><th />{ds.time.days.map(d => <th key={d} className="font-mono text-2xs font-normal text-slate">{d}</th>)}<th className="font-mono text-2xs font-normal text-slate">idle</th></tr></thead>
               <tbody>
-                {m.batches.map(b => (
+                {classes.map(b => (
                   <tr key={b.id}>
                     <td className="pr-2 font-mono text-2xs">{b.id}</td>
                     {b.daily_slots.map((n, i) => (

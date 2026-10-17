@@ -132,3 +132,42 @@ def expand_sessions(ds: Dataset) -> list[Session]:
                 duration=c.duration_slots, enrollment=enrollment,
             ))
     return out
+
+
+def section_atoms(ds: Dataset) -> dict[str, list[str]]:
+    """Class section → its atomic batches (lab groups / elective divisions). A batch with no
+    section is its own one-atom section."""
+    out: dict[str, list[str]] = {}
+    for b in ds.batches:
+        out.setdefault(b.section or b.id, []).append(b.id)
+    return out
+
+
+def batch_weight(ds: Dataset) -> dict[str, float]:
+    """Share of its class each atomic batch represents (1/n atoms), so per-class metrics are
+    averages over the class's groups instead of sums that double-count a whole-class gap."""
+    atoms = section_atoms(ds)
+    return {b: 1 / len(lst) for lst in atoms.values() for b in lst}
+
+
+def describe_batches(ds: Dataset, ids: list[str]) -> str:
+    """Human label for a set of atomic batches: whole classes by name, otherwise the lab group
+    (G1) or elective division (D2) they form."""
+    atoms = section_atoms(ds)
+    sec_of = {b: s for s, lst in atoms.items() for b in lst}
+    chosen = set(ids)
+    parts = []
+    for sec in dict.fromkeys(sec_of.get(b, b) for b in ids):
+        members = atoms.get(sec, [sec])
+        have = [b for b in members if b in chosen]
+        if len(have) == len(members):
+            parts.append(sec)
+            continue
+        tags = [b[len(sec) + 1:] for b in have]  # e.g. G1D2
+        label = None
+        for key in ("G1", "G2", "D1", "D2", "D3"):
+            full = [m for m in members if key in m[len(sec) + 1:]]
+            if full and set(full) == set(have):
+                label = f"{sec} · {'lab group ' + key if key[0] == 'G' else 'elective div ' + key[1]}"
+        parts.append(label or f"{sec} · {'/'.join(tags)}")
+    return " + ".join(parts)

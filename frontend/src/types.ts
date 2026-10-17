@@ -39,7 +39,7 @@ export interface Metrics {
   scheduled_sessions: number; required_sessions: number; unscheduled_sessions: number;
   student_idle_minutes: number; faculty_idle_minutes: number; room_time_utilization: number; seat_utilization: number;
   wasted_seat_hours: number; workload_imbalance_hours: number; preference_misses: number; preference_satisfaction: number;
-  terms: Record<string, number>; faculty: EntityLoad[]; batches: EntityLoad[]; rooms: RoomUse[]
+  terms: Record<string, number>; faculty: EntityLoad[]; batches: EntityLoad[]; classes: EntityLoad[]; rooms: RoomUse[]
 }
 export interface Change {
   session_id: string; course_code: string; kind: string[]; headline: string; effects: string[];

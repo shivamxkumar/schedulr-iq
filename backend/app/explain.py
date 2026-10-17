@@ -13,7 +13,7 @@ from pydantic import BaseModel
 
 from .candidates import room_ok
 from .metrics import compute_metrics, soft_score
-from .models import Assignment, Dataset, Weights, expand_sessions
+from .models import Assignment, Dataset, Weights, describe_batches, expand_sessions, section_atoms
 from .timegrid import in_windows, is_teaching_slot, slot_label, valid_start, where
 from .validator import placement_violations
 
@@ -94,11 +94,17 @@ def diff_schedules(ds: Dataset, before: list[Assignment], after: list[Assignment
         if moved:
             kinds.append("time")
             headline = f"Moved {c.code} ({sid}) {where(tc, a.day, a.start, s.duration)} → {where(tc, b.day, b.start, s.duration)}"
-            for bid in s.batch_ids:
+            # Report per class (mean over its lab groups) or per group for group sessions.
+            atoms = section_atoms(ds)
+            sec_of = {x: k for k, lst in atoms.items() for x in lst}
+            for sec in dict.fromkeys(sec_of.get(x, x) for x in s.batch_ids):
+                members = [x for x in atoms.get(sec, [sec]) if x in s.batch_ids]
+                label = describe_batches(ds, members)
                 for d in sorted({a.day, b.day}):
-                    i0, i1 = idle(before, "batch", bid, d), idle(after, "batch", bid, d)
+                    i0 = round(sum(idle(before, "batch", x, d) for x in members) / len(members))
+                    i1 = round(sum(idle(after, "batch", x, d) for x in members) / len(members))
                     if i0 != i1:
-                        effects.append(f"Batch {bid} idle time on {tc.days[d]}: {i0} → {i1} min")
+                        effects.append(f"{label} idle time on {tc.days[d]}: {i0} → {i1} min")
             f_old, f_new = fac[a.faculty_id], fac[b.faculty_id]
             pa = any(in_windows(f_old.dispreferred, a.day, t) for t in range(a.start, a.start + s.duration))
             pb = any(in_windows(f_new.dispreferred, b.day, t) for t in range(b.start, b.start + s.duration))
@@ -176,7 +182,7 @@ def explain_session(ds: Dataset, assignments: list[Assignment], sid: str, weight
 
     reqs = [f"{s.duration} × {tc.slot_minutes} min block",
             f"Room type: {' or '.join(c.room_types)}",
-            f"Capacity ≥ {s.enrollment} ({' + '.join(s.batch_ids)})"]
+            f"Capacity ≥ {s.enrollment} ({describe_batches(ds, s.batch_ids)})"]
     if c.equipment:
         reqs.append("Equipment: " + ", ".join(c.equipment))
     if c.eligible_starts:
@@ -278,7 +284,7 @@ def explain_session(ds: Dataset, assignments: list[Assignment], sid: str, weight
             checks.append({"code": code, "label": label, "passed": code not in bad,
                            "detail": next((v.message for v in rep_v if v.code == code), None)})
     return SessionExplanation(session_id=sid, course=c.model_dump(), assignment=cur, enrollment=s.enrollment,
-                              batches=s.batch_ids, requirements=reqs, checks=checks, rooms=room_checks, slots=cells,
+                              batches=[describe_batches(ds, s.batch_ids)], requirements=reqs, checks=checks, rooms=room_checks, slots=cells,
                               summary=summary, preference=pref)
 
 

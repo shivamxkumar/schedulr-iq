@@ -22,7 +22,7 @@ from ortools.sat.python import cp_model
 
 from .candidates import Cand, build_candidates, explain_no_candidates
 from .metrics import TERM_KEYS
-from .models import Assignment, Dataset, Weights
+from .models import Assignment, Dataset, Weights, section_atoms
 from .timegrid import in_windows, is_teaching_slot
 
 SCALE = 10_000
@@ -163,6 +163,11 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
             idx = cover.get((kind, eid, d, t), [])
             return sum(x[i] for i in idx) if idx else 0, bool(idx)
 
+        # Integer weights: a batch that is 1 of n groups of its class weighs 60/n, everything else
+        # 60, so the objective equals 60 × the per-class metrics reported by metrics.py.
+        bw = {b: 60 // len(lst) for lst in section_atoms(ds).values() for b in lst}
+        U = 60
+
         def idle_terms(kind, ids) -> list:
             out = []
             for eid in ids:
@@ -193,7 +198,7 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
                             continue
                         g = m.NewBoolVar("")
                         m.Add(g >= A[t] + B[t] - 1 - (occ[t][0] if occ[t][1] else 0))
-                        out.append(g)
+                        out.append(g * (bw.get(eid, U) if kind == "batch" else U))
             return out
 
         if coef["student_idle"] > 0:
@@ -204,7 +209,7 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
             terms.append((coef["faculty_idle"], sum(g)))
         if coef["room_fit"] > 0:
             terms.append((coef["room_fit"], sum(
-                x[i] * (rooms[c.room].capacity - sess[c.sid].enrollment) * c.dur for i, c in enumerate(allc))))
+                x[i] * ((rooms[c.room].capacity - sess[c.sid].enrollment) * c.dur * U) for i, c in enumerate(allc))))
         if coef["workload_balance"] > 0:
             peaks = []
             for kind, ids in (("batch", [b.id for b in ds.batches]), ("fac", [f.id for f in ds.faculty])):
@@ -218,11 +223,11 @@ def solve(ds: Dataset, weights: Optional[Weights], refs: Optional[dict[str, floa
                         p = m.NewIntVar(0, tc.slots_per_day, "")
                         for e in daily:
                             m.Add(p >= e)
-                        peaks.append(p)
+                        peaks.append(p * (bw.get(eid, U) if kind == "batch" else U))
             terms.append((coef["workload_balance"], sum(peaks)))
         if coef["preferences"] > 0:
             miss = [i for i, c in enumerate(allc) if any(in_windows(fac[c.fac].dispreferred, c.day, t) for t in c.span)]
-            terms.append((coef["preferences"], sum(x[i] for i in miss)))
+            terms.append((coef["preferences"], sum(x[i] * U for i in miss)))
         # Integer coefficients: scale up by a common factor so small weights keep resolution.
         m.Minimize(sum(int(round(k)) * e for k, e in terms if int(round(k)) > 0))
         log.append("Objective weights (normalized): " + ", ".join(f"{k}={w[k]:.2f}" for k in TERM_KEYS))

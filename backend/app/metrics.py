@@ -1,9 +1,10 @@
 """Schedule metrics, computed purely from a dataset + assignments.
 
 Definitions (also surfaced in the UI):
-  student_idle_minutes  Σ over batches & days of teachable minutes between the first class
+  student_idle_minutes  Σ over classes & days of teachable minutes between the first class
                         start and last class end that are not occupied by a class. Breaks
-                        (e.g. lunch) and non-operating hours are excluded.      [minimize]
+                        (e.g. lunch) and non-operating hours are excluded. A class split into
+                        lab groups counts the mean over its groups, never the sum. [minimize]
   faculty_idle_minutes  Same definition per faculty member.                    [minimize]
   room_time_utilization occupied room-slots ÷ available room-slots (teachable slots minus
                         each room's unavailable windows), all rooms.           [maximize]
@@ -26,7 +27,7 @@ from typing import Optional
 
 from pydantic import BaseModel
 
-from .models import Assignment, Dataset, Weights, expand_sessions
+from .models import Assignment, Dataset, Weights, batch_weight, expand_sessions, section_atoms
 from .timegrid import in_windows, is_teaching_slot, teaching_slots
 
 TERM_KEYS = ["student_idle", "faculty_idle", "room_fit", "workload_balance", "preferences"]
@@ -63,6 +64,7 @@ class Metrics(BaseModel):
     terms: dict[str, float]
     faculty: list[EntityLoad]
     batches: list[EntityLoad]
+    classes: list[EntityLoad]  # per class section: daily = busiest group, idle = mean over groups
     rooms: list[RoomUse]
 
 
@@ -109,20 +111,30 @@ def compute_metrics(ds: Dataset, assignments: list[Assignment]) -> Metrics:
         if any(in_windows(fac[a.faculty_id].dispreferred, a.day, t) for t in span):
             pref_miss += 1
 
-    def loads(ids_names, occ):
-        out, idle_total, excess = [], 0, 0
+    def loads(ids_names, occ, weight=None):
+        out, idle_total, excess = [], 0.0, 0.0
         for eid, name in ids_names:
+            w = weight.get(eid, 1.0) if weight else 1.0
             daily = [len(occ.get((eid, d), ())) for d in range(nd)]
             idle = sum(_idle_slots(tc, d, occ.get((eid, d), set())) for d in range(nd))
-            idle_total += idle
+            idle_total += idle * w
             wk = sum(daily)
             if wk:
-                excess += max(daily) - math.ceil(wk / nd)
+                excess += (max(daily) - math.ceil(wk / nd)) * w
             out.append(EntityLoad(id=eid, name=name, weekly_slots=wk, daily_slots=daily,
                                   idle_minutes=idle * tc.slot_minutes))
         return out, idle_total, excess
 
-    bl, b_idle, b_exc = loads([(b.id, b.name) for b in ds.batches], batch_occ)
+    bw = batch_weight(ds)
+    bl, b_idle, b_exc = loads([(b.id, b.name) for b in ds.batches], batch_occ, bw)
+    by_id = {x.id: x for x in bl}
+    classes = []
+    for sec, members in section_atoms(ds).items():
+        rows = [by_id[m] for m in members]
+        prog = next((b.program for b in ds.batches if b.id == members[0] and b.section), "") or rows[0].name
+        classes.append(EntityLoad(id=sec, name=prog, weekly_slots=max(r.weekly_slots for r in rows),
+                                  daily_slots=[max(r.daily_slots[d] for r in rows) for d in range(nd)],
+                                  idle_minutes=round(sum(r.idle_minutes for r in rows) / len(rows))))
     fl, f_idle, f_exc = loads([(f.id, f.name) for f in ds.faculty], fac_occ)
 
     room_uses, occ_total, avail_total = [], 0, 0
@@ -139,22 +151,22 @@ def compute_metrics(ds: Dataset, assignments: list[Assignment]) -> Metrics:
     hours = tc.slot_minutes / 60
     wasted_slots = cap_slots - enroll_slots
     terms = {
-        "student_idle": float(b_idle),
+        "student_idle": round(b_idle, 3),
         "faculty_idle": float(f_idle),
         "room_fit": float(wasted_slots),
-        "workload_balance": float(b_exc + f_exc),
+        "workload_balance": round(b_exc + f_exc, 3),
         "preferences": float(pref_miss),
     }
     return Metrics(
         scheduled_sessions=len(uniq), required_sessions=len(sessions), unscheduled_sessions=len(sessions) - len(uniq),
-        student_idle_minutes=b_idle * tc.slot_minutes, faculty_idle_minutes=f_idle * tc.slot_minutes,
+        student_idle_minutes=round(b_idle * tc.slot_minutes), faculty_idle_minutes=f_idle * tc.slot_minutes,
         room_time_utilization=round(occ_total / avail_total, 4) if avail_total else 0.0,
         seat_utilization=round(enroll_slots / cap_slots, 4) if cap_slots else 0.0,
         wasted_seat_hours=round(wasted_slots * hours, 1),
         workload_imbalance_hours=round((b_exc + f_exc) * hours, 1),
         preference_misses=pref_miss,
         preference_satisfaction=round(1 - pref_miss / len(uniq), 4) if uniq else 1.0,
-        terms=terms, faculty=fl, batches=bl, rooms=room_uses,
+        terms=terms, faculty=fl, batches=bl, classes=classes, rooms=room_uses,
     )
 
 

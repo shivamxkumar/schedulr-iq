@@ -42,3 +42,30 @@ export const OBJECTIVES: { key: 'student_idle' | 'faculty_idle' | 'room_fit' | '
   { key: 'workload_balance', label: 'Daily workload balance', def: 'Σ over batches & faculty of busiest-day hours above an even daily spread. Minimized.' },
   { key: 'preferences', label: 'Faculty preferences', def: 'Sessions placed in a faculty “prefers not to teach” window. Minimized (satisfaction maximized).' },
 ]
+
+/** Mirror of backend `describe_batches`: whole classes by name, otherwise lab group / division. */
+export function describeBatches(batches: { id: string; section?: string }[], ids: string[], opts: { relative?: boolean } = {}) {
+  const atoms = new Map<string, string[]>()
+  for (const b of batches) {
+    const sec = b.section || b.id
+    atoms.set(sec, [...(atoms.get(sec) ?? []), b.id])
+  }
+  const secOf = new Map<string, string>()
+  atoms.forEach((lst, sec) => lst.forEach(b => secOf.set(b, sec)))
+  const chosen = new Set(ids)
+  const parts: string[] = []
+  for (const sec of [...new Set(ids.map(b => secOf.get(b) ?? b))]) {
+    const members = atoms.get(sec) ?? [sec]
+    const have = members.filter(b => chosen.has(b))
+    const prefix = opts.relative ? '' : `${sec} · `
+    if (have.length === members.length) { parts.push(opts.relative ? 'Whole class' : sec); continue }
+    let label: string | null = null
+    for (const key of ['G1', 'G2', 'D1', 'D2', 'D3']) {
+      const full = members.filter(m => m.slice(sec.length + 1).includes(key))
+      if (full.length && full.length === have.length && full.every(m => chosen.has(m)))
+        label = `${prefix}${key[0] === 'G' ? 'Lab group ' + key : 'Elective div ' + key[1]}`
+    }
+    parts.push(label ?? `${prefix}${have.map(m => m.slice(sec.length + 1)).join('/')}`)
+  }
+  return parts.join(' + ')
+}

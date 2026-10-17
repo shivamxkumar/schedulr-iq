@@ -5,7 +5,7 @@ import { useApp } from '../store'
 import { Page } from '../components/Shell'
 import { Button, Chip, ErrorBox, Mono, SectionHead } from '../components/ui'
 import { describeBatches } from '../format'
-import TimetableGrid from '../components/TimetableGrid'
+import DayTimeGrid from '../components/DayTimeGrid'
 
 export default function Publish() {
   const { active, data, L, adopt, toast, errMsg } = useApp()
@@ -83,10 +83,8 @@ export default function Publish() {
               <div><span className="font-display text-lg font-semibold">{cl.label}</span> <Mono className="text-xs text-slate">{cl.id} · {cl.size} students</Mono></div>
               <Mono className="text-2xs text-slate">IIIT Surat · SCHEDULR IQ · {active.record.id}{active.record.published ? ' · PUBLISHED' : ' · DRAFT'}</Mono>
             </div>
-            <TimetableGrid tc={tc} assignments={active.record.assignments} sessions={L.sessions} courses={L.courses}
-              lanes={[{ id: cl.id, label: cl.label }]} laneKeys={a => (L.sessions[a.session_id]?.batch_ids ?? []).map(b => secOf[b])}
-              days={tc.days.map((_, i) => i)} visible={a => (L.sessions[a.session_id]?.batch_ids ?? []).some(b => secOf[b] === cl.id)}
-              conflicts={conflicts} selected={null} onSelect={() => {}} rowH={70}
+            <DayTimeGrid tc={tc} sessions={L.sessions} courses={L.courses} conflicts={conflicts} selected={null} onSelect={() => {}} print dayH={92}
+              assignments={active.record.assignments.filter(a => (L.sessions[a.session_id]?.batch_ids ?? []).some(b => secOf[b] === cl.id))}
               labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: true })}
               facultyName={id => L.faculty[id]?.name ?? id} />
           </div>

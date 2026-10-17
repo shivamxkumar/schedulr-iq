@@ -148,7 +148,7 @@ scenarios.
 
 0. **Login page → View demo.** This opens IIIT Surat's official v4 timetable, with no account needed.
 1. **Overview.** The validator's verdict on the *official* timetable: 19/19 hard checks pass, 281/281 sessions, 0 conflicts. Student idle time is 4,790 min/week per class.
-2. **Timetable → Class timetable.** Pick a class: time on rows, Mon–Fri on columns, like the printed sheet. Lectures read "Whole class" and the G1/G2 labs sit side by side. *All classes* shows every class at once, with cross-listed electives spanning lanes. Click a block: the inspector shows its hard checks, why it sits there, and a slot map of every alternative.
+2. **Timetable → Class timetable.** Pick a class: one row per day and one column per period (09:00–18:00), the same layout as the official sheets. Lectures read "Whole class" and the G1/G2 labs sit side by side. *All classes* shows every class at once, with cross-listed electives spanning lanes. Click a block: the inspector shows its hard checks, why it sits there, and a slot map of every alternative.
 3. **Optimization Lab.** Explain hard constraints vs soft objectives. *Viewing* switches to the precomputed run, which shows the comparison: student idle down 72%, faculty idle down 78%, preferences 7 → 0, and a 0.3-point seat-utilization trade-off. You can also re-run it live: 20 s, with honest `FEASIBLE (time limit)` status.
 4. **Moves.** Drag a block to a clash: the move is rejected with the reason (e.g. `BATCH_OVERLAP`). Drop it on a lime slot: it is accepted, saved as a new version, and Undo is available.
 5. **Conflicts → Load diagnostic example.** You get 9 violations, each with corrective actions and validated fixes. Apply one and the count drops. Publishing the example is refused.

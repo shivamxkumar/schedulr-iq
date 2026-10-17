@@ -4,6 +4,7 @@ import { api } from '../api'
 import { emptyFilters, useApp, type Filters } from '../store'
 import type { Assignment } from '../types'
 import TimetableGrid, { type Lane } from '../components/TimetableGrid'
+import DayTimeGrid from '../components/DayTimeGrid'
 import Inspector, { type MoveVerdict } from '../components/Inspector'
 import { Button, Chip, Empty, Mono, Select } from '../components/ui'
 import { CAT_LABEL, catColor, describeBatches, whereLabel } from '../format'
@@ -208,6 +209,15 @@ export default function Studio() {
             body={`Active filters: ${activeFilters.map(k => `${k} = ${f[k]}`).join(', ')}`}
             action={<Button onClick={() => setFilters(emptyFilters)}>Clear filters</Button>} />
         ) : (
+          classMode ? (
+            <DayTimeGrid
+              tc={tc} assignments={shown} sessions={sessions} courses={L.courses} conflicts={conflicts} moved={moved}
+              selected={selected} onSelect={s => { select(s); setVerdict(null) }}
+              onDropSession={canRun ? (sid, d, t) => tryMove(sid, d, t) : undefined}
+              labelBatches={ids => describeBatches(data.dataset.batches, ids, { relative: true })}
+              facultyName={id => L.faculty[id]?.name ?? id}
+            />
+          ) : (
           <TimetableGrid
             tc={tc} assignments={active.record.assignments} sessions={sessions} courses={L.courses}
             lanes={lanes} laneKeys={laneKeys} days={days} visible={visible} conflicts={conflicts}
@@ -217,6 +227,7 @@ export default function Studio() {
             facultyName={classMode ? id => L.faculty[id]?.name ?? id : undefined}
             onDropSession={canRun ? (sid, d, t) => tryMove(sid, d, t) : undefined}
           />
+          )
         )}
 
         {unscheduled.length > 0 && (
